@@ -4,6 +4,7 @@
 - [ ] Added label to the Pull Request for easier discoverability and search
 - [ ] Commit Message meets guidelines as indicated in the URL https://github.com/intel-retail/automated-self-checkout/blob/main/CONTRIBUTING.md
 - [ ] PR introduces changes that breaks compatibility with other modules (If YES, please provide details below)
+- [ ] No Employer Confidential details are added
 
 ## What requirement is this design document for?
 
