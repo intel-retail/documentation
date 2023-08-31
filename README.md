@@ -8,7 +8,7 @@
 
 - Once a every (x) weeks there will be a requirements review meeting where we will approve, reject, or ask for modification to the requirement.
 
-- If approved the requirement will be moved into the design stage in the documents project.
+- If approved then the requirement will be moved into the design stage in the documents project.
 
 - A detailed design document will be made by the submitter and development team.
 
