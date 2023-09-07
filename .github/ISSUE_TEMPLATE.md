@@ -18,15 +18,15 @@ New
 
 ## Decision
 
-<!-- Requirements approval board will update this section with justification for apporval or rejection -->
+<!-- Requirements approval board will update this section with justification for approval or rejection -->
 
 ## Context  
 
-<!-- Please provide contect to the requirement. -->
+<!-- Please provide context to the requirement. -->
 
 ## Proposed Design 
 
-<!-- Please provide a high level deisng of the proposed requirement. -->
+<!-- Please provide a high level design of the proposed requirement. -->
 
 ## Consequences
 
