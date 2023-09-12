@@ -39,7 +39,7 @@ Intel Performance Counter Monitor: System power usage
 
 ### Input Source Types
 
-For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs it's recommended to use a video loop with an RTSP stream for inference result consistency. As an option a RTSP [Camera Simulator](https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html) is provided with the performance script.
+For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs it's recommended to use a video loop with an RTSP stream for inference result consistency. As an option an RTSP [Camera Simulator](https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html) is provided with the performance script.
 
 [Input Source Types](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#input-source-type)
 
