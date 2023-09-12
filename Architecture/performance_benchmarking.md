@@ -27,7 +27,7 @@ To assist customers we will provide a set of performance Docker containers to me
 
 ### Benchmark Script
 
-The benchmark script is designed to help determine the performance needs for a specific pipeline profile. The 
+The benchmark script is designed to help determine the performance needs for a specific pipeline profile. The script will run a designated pipeline profile and can either replicate that pipeline profile a specific number of times or continue to replicate until a performance target is reached.
 
 ### Performance tools
 sysstat: System CPU utilization
@@ -39,7 +39,7 @@ Intel Performance Counter Monitor: System power usage
 
 ### Input Source Types
 
-For performance inputs we support RTSP, USB camera, Intel® RealSense™ Camera, and video files. For test consistency it is recommended to use a video loop with an RTSP stream. As an option a RTSP [Camera Simulator](https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html) is provided with the performance script.
+For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs it's recommended to use a video loop with an RTSP stream for inference result consistency. As an option a RTSP [Camera Simulator](https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html) is provided with the performance script.
 
 [Input Source Types](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#input-source-type)
 
@@ -62,7 +62,7 @@ make consolidate ROOT_DIRECTORY=<output dir>
 
 #### Stream Density
 
-If looking for the maximum number of pipelines that are supported on a specific hardware SKU you can use the stream density parameter. By setting the `--stream_density` parameter to the desired frames per second (FPS) the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The scrip will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.
+The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the `--stream_density` parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The scrip will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.
 
 [Stream Density](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-stream-density)
 
