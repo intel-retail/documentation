@@ -19,7 +19,7 @@
 
 <!-- Please provide context to the requirement. -->
 
-To a wider variety of computer vision use cases in the real world a distributed inference architecture is required for deployment and scale. To do this OpenVINO Model Server (OVMS) will be used to do server side inferencing. The new architecture will lose some inference throughput but gain flexibility and scale.
+To a wider variety of computer vision use cases in the real world a distributed inference architecture is required for deployment and scale. To achieve this, OpenVINO Model Server (OVMS) will be used for server side inferencing as part of the architecture design. The new architecture will lose some inference throughput but gain flexibility and scale.
 
 ## Proposed Design 
 
