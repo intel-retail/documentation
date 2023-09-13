@@ -11,11 +11,6 @@
 
 <!--te-->
 
-## Status
-
-<!-- Requirement Review, Design, Design Approved, Backlog Prioritized, Completed -->
-New
-
 ## Decision
 
 <!-- Requirements approval board will update this section with justification for approval or rejection -->
@@ -27,6 +22,10 @@ New
 ## Proposed Design 
 
 <!-- Please provide a high level design of the proposed requirement. -->
+
+## Applicable Repos
+
+<!-- [automated-self-checkout](https://github.com/intel-retail/automated-self-checkout) -->
 
 ## Consequences
 
