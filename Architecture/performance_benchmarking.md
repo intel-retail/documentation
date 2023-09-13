@@ -19,7 +19,7 @@
 
 <!-- Please provide context to the requirement. -->
 
-To assist customers we will provide a set of performance Docker containers to measure the performance of their pipelines. The performance Docker containers will need to be supported on most modern Intel HW. The output will also need to be formatted and presented to customers as a hardware recommendation.
+To assist customers we will provide a set of performance Docker containers to measure the performance of their pipelines. The performance Docker containers will need to be supported on most modern Intel hardware. The output will also need to be formatted and presented to customers as a hardware recommendation.
 
 ## Proposed Design 
 
