@@ -54,7 +54,7 @@ If you are looking to test a specific number of pipelines on different hardware 
 
 #### Consolidated Results
 
-To make reading results easier a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in [Benchmark Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
+To make reading results easier, a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in [Benchmark Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
 
 ``` bash
 make consolidate ROOT_DIRECTORY=<output dir>
