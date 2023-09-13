@@ -62,7 +62,7 @@ make consolidate ROOT_DIRECTORY=<output dir>
 
 #### Stream Density
 
-The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the `--stream_density` parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The scrip will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.
+The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the `--stream_density` parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The script will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.
 
 [Stream Density](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-stream-density)
 
