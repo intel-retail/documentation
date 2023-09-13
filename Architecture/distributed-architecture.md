@@ -25,7 +25,7 @@ To a wider variety of computer vision use cases in the real world a distributed 
 
 <!-- Please provide a high level design of the proposed requirement. -->
 
-Using OpenVINO Model Server (OVMS) pipeline workloads can be distributed between different services. For our solution a single system and remote server setup will be supported.
+Using OpenVINO Model Server (OVMS) pipeline, workloads can be distributed between different services. For our solution a single system and remote server setup will be supported.
 
 ### Single System Setup
 
