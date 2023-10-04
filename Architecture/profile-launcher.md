@@ -27,18 +27,27 @@ Depending on the underlying pipeline architecture you may only require one Docke
 
 Update the profile to handle an array of configurations. This will allow the user to mix multiple Docker container configurations into a single profile.
 
+Each container configuration will contain the following information:
+- Docker image: The profile launcher will use as the target image
+- Environment file: Loaded into the container
+- Entrypoint script: Launch the desired start process
+- Input arguments: container or entrypoint script
+- Docker Volumes: Mounted to the container
+- Docker Networks: Connected to the container
+
+[![Multi Container Profile](./images/multi-profile-launcher.jpg)](./images/multi-profile-launcher.jpg)
+
 ### Single Container Profile
 
-The single system solution will launch both the OVMS client and OVMS server on the same system as Docker containers. The local network can be used for communication between the Docker containers. The profile launcher program will load the profile configs and environment variables form a local data volume. The computer vision models will also be located on a local data volume. The models can be downloaded using the provided scripts or manually by the user.
+A single container profile will run a single Docker image using a single entrypoint script. This use case will be for pipelines that are self contained in a single container. Although the container can interact with other containers on the system the performance tools will only measure the performance of the single running container.
 
 [![Single System](./images/single-pipeline.jpg)](./images/single-pipeline.jpg)
 
 ### Multiple Container Profile
 
-The remote serve set will launch the same OVMS client and OVMS server containers but on two different systems. These systems can be on the same network on in remote locations as long as the systems can communicate through the network. This will require additional security or a direct connection from client to server. Similar to the single system the profile launcher will load the profile configs and environment variables from a data volume. In this case the data volume can be a local copy or a remote copy of those files. On the server the computer vision models will be in a data volume. Unlike the profile config and environment files these must be located on the server in a data volume. This is to prevent any unwanted changes to the computer vision model when it is located in a remote location. 
+A multiple container profile will run the array of containers defined in the profile config. Each container can have it's own entrypoint script even if they utilize the same base Docker image. The common profile will be the OpenVINO Model Server and client. In this case a OVMS container will contain the inference models defined in the config.json from the profile. Once the OVMS container is started the client will be launched and connect to the OVMS container. This will result in the inference workload being executed in a difference service which can be on the local system or in a remote location. 
 
 [![Remote Server](./images/multiple-pipelines.jpg)](./images/multiple-pipelines.jpg)
-
 
 ## Applicable Repos
 
