@@ -25,7 +25,8 @@ Currently, we use same config.json for all instances of OpenVINO Model Server(OV
 
 <!-- Please provide a high level design of the proposed requirement. -->
 
-Move the current device update logic from `run_ovms.sh` with the config.json file into profile-launcher in Golang. When profile-launcher about to launch a new instance of OVMS server, it then produces a unique config json file name for that instance of OVMS server. 
+Move the current device update logic from `run.sh` with the config.json file into profile-launcher in Golang. When profile-launcher about to launch a new instance of OVMS server, it then produces a unique config json file name for that instance of OVMS server.
+
 For example, we can use the Docker container name of that OVMS server like ovms_server0, or ovms_server1,...etc to be appended into the config json as part of the file name (e.g. config_ovms_server0.json).
 
 One example golang code for updating json file target_device and producing a new config.json is shown below:
