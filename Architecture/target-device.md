@@ -28,8 +28,7 @@ The platform parameter is inconsistent with the target device being used in the 
 Update the platform parameter to match the target_device standard used by OpenVINO Model Server. This will provide clarity to the device being used for the inferencing portion of the pipeline. The following are the acceptance criteria for the change.
 
 - Replace platform parameter with target_device using CPU as the default device.
-- Update DLStreamer docker_run script to make it run with minimal updates to the DLStreamer scripts.
-- Update the OVMS docker_run script to make it run with minimal changes to the OVMS profiles.
+- Update the docker_run script to make it run with minimal changes to the profiles.
 - Confirm that the benchmark script works with the target_device parameter update.
 - Update unit tests
 - Update documentation
