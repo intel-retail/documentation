@@ -17,18 +17,17 @@ consumption, and so on.
 
 # Benchmark a CV Pipeline
 
-1. Change directories, build the benchmark docker container, and change back to the benchmark-scripts directory.
+1. Build the benchmark container and change into the benchmark-scripts directory.
    ```bash
-   cd benchmark-scripts/docker
-   make build-igt
-   cd ..
+   make build-benchmark-docker
+   cd benchmark-scripts
    ```
 2. Choose a CV pipeline from the Retail Use Cases Repo and note the file paths to the docker compose files.
 3. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
 
-    '''
-   python benchmark.py --compose_file ../../retail-use-cases/use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../retail-use-cases/use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
-    '''
+    ```bash
+    python benchmark.py --compose_file ../../retail-use-cases/use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../retail-use-cases/use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
+    ```
 
 # Modifying Additional Benchmarking Variables
 
@@ -36,3 +35,21 @@ consumption, and so on.
 
 - For Ubuntu, follow this [documentation](https://help.ubuntu.com/stable/ubuntu-help/power-profile.html.en) to change the power profile.
 - For Windows, follow this [documentation](https://support.microsoft.com/en-us/windows/change-the-power-mode-for-your-windows-pc-c2aff038-22c9-f46d-5ca0-78696fdf2de8) to change the power mode.
+
+
+# Developer Resources
+
+## Python Testing
+
+To run the unit tests for the performance tools:
+
+```bash
+cd benchmark-scripts
+make python-test
+```
+
+To run the unit tests and determine the coverage:
+```bash
+cd benchmark-scripts
+make python-coverage
+```
