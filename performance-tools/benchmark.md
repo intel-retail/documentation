@@ -13,7 +13,8 @@ consumption, and so on.
 - Docker Compose
 - Make
 - Git
-- Code from [Retail Use Cases Repo](https://github.com/intel-retail/retail-use-cases) and [Performance Tools Repo](https://github.com/intel-retail/performance-tools)
+- Code from [Retail Use Cases Repo](https://github.com/intel-retail/retail-use-cases) and its submodule [Performance Tools Repo](https://github.com/intel-retail/performance-tools)
+    > Note: to install the submodule, run `make update-submodules` from the root of the retail-use-cases repo.
 
 # Benchmark a CV Pipeline
 
