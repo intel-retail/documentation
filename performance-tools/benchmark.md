@@ -27,7 +27,7 @@ consumption, and so on.
 3. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
 
     ```bash
-    python benchmark.py --compose_file ../../retail-use-cases/use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../retail-use-cases/use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
+    python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
     ```
 
 # Modifying Additional Benchmarking Variables
