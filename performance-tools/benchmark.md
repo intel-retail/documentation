@@ -8,7 +8,8 @@ consumption, and so on.
 
 - Python environment v3.12.2
   - could use [Miniconda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html) and create a [Python 3.12.2 env](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html)
-- Python packages listed in requirements.txt
+- Python packages listed in [performance-tools/benchmark-scripts/requirements.txt](https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt)
+  - use `pip install -r requirements.txt`
 - Docker
 - Docker Compose
 - Make
