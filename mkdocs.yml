@@ -1,0 +1,65 @@
+site_name: Intel® Automated Self-Checkout Reference Package
+site_url: "https://intel-retail.github.io/automated-self-checkout/"
+repo_name: "intel-retail/automated-self-checkout"
+repo_url: "https://github.com/intel-retail/automated-self-checkout"
+docs_dir: ./docs_src
+site_dir: ./docs
+copyright: 'Copyright &copy; 2023 Intel Corporation'
+use_directory_urls: false
+theme:
+  name: 'material'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo: 'images/logo-white-75px.png'
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+plugins:
+  - search
+repo_url: https://github.com/intel-retail/documentation
+repo_name: intel-retail/documentation
+nav:
+  - Home: 'README.md'
+  - Performance Tools:
+      - Benchmarking: 'performance-tools/benchmark.md'
+  - Architecture Decisions:
+      - Distributed Architecture: './Architecture/distributed-architecture.md'
+      - Multiple OVMS JSON Config: './Architecture/multiple-ovms-json-config.md'
+      - Performance Benchmarking: './Architecture/performance_benchmarking.md'
+      - Profile Launcher: './Architecture/profile-launcher.md'
+      - Target Device: './Architecture/target-device.md'
+  - Contributing: 'CONTRIBUTING.md'
+  - Code of Conduct: 'CODE_OF_CONDUCT.md'
+  - Security: 'security.md'
+extra_css:
+  - ./stylesheets/index.css
+  - https://fonts.googleapis.com/icon?family=Material+Icons
+  - ./stylesheets/branding.css
+  - ./stylesheets/extra.css
+extra_javascript:
+  - 'https://unpkg.com/lunr/lunr.js'
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+extra:
+  version:
+    provider: 'mike'
