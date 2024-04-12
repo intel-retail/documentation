@@ -52,7 +52,7 @@ To run the stream density functionality use `--target_fps` and/or `--density_inc
 
 where the parameters:
 - `target_fps` is the given target frames per second (fps) to achive for maximum number of pipelines
-- `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reach the given target fps.
+- `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
 - `init_duration` is the initial duration period in second before pipeline performance metrics are taken
 
 
