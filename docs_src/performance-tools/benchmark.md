@@ -28,6 +28,7 @@ consumption, and so on.
 # Benchmark a CV Pipeline
 
 1. Build the benchmark container and change into the benchmark-scripts directory.
+
    ```bash
    make build-benchmark-docker
    cd benchmark-scripts
@@ -38,6 +39,25 @@ consumption, and so on.
     ```bash
     python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
     ```
+
+## Benchmark Stream Density for CV Pipelines
+
+Benchmarking a pipeline can also discover the maximum number of workloads or streams that can be run in parallel for a given target FPS. This information is useful to determine the hardware required to achieve the desired performance for CV pipelines.
+
+To run the stream density functionality use `--target_fps` and/or `--density_increment` as inputs to the `benchmark.py` script:
+
+   ```bash
+    python benchmark.py  --retail_use_case_root ../../retail-use-cases --target_fps 14.95 --density_increment 1 --init_duration 40   --compose_file ../../retail-use-cases/use-cases/grpc_python/docker-compose_grpc_python.yml
+   ```
+
+where the parameters:
+- `target_fps` is the given target frames per second (fps) to achive for maximum number of pipelines
+- `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
+- `init_duration` is the initial duration period in second before pipeline performance metrics are taken
+
+
+    !!! Note
+        It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
 
 # Modifying Additional Benchmarking Variables
 
@@ -59,6 +79,7 @@ make python-test
 ```
 
 To run the unit tests and determine the coverage:
+
 ```bash
 cd benchmark-scripts
 make python-coverage
