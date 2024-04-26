@@ -4,7 +4,7 @@ repo_name: "intel-retail/documentation"
 repo_url: "https://github.com/intel-retail/documentation"
 docs_dir: ./docs_src
 site_dir: ./docs
-copyright: 'Copyright &copy; 2023 Intel Corporation'
+copyright: 'Copyright &copy; 2024 Intel Corporation'
 use_directory_urls: false
 theme:
   name: 'material'
@@ -27,8 +27,11 @@ theme:
     - toc.integrate
 plugins:
   - search
-repo_url: https://github.com/intel-retail/documentation
-repo_name: intel-retail/documentation
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          paths: [../benchmark-scripts]
 nav:
   - Home: 'index.md'
   - Architecture Decisions:
@@ -41,6 +44,7 @@ nav:
           - Target Device: 'Architecture/target-device.md'
   - Performance Tools:
       - Benchmarking: 'performance-tools/benchmark.md'
+      - Benchmarking APIs: 'performance-tools/api-docs.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons

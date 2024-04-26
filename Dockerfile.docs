@@ -7,9 +7,17 @@
 # Useful for local testing
 
 FROM python:3-slim
-RUN apt-get update && apt-get install --no-install-recommends -y git \
-  && pip install mkdocs "mkdocs-material>=8.2" "mkdocs-htmlproofer-plugin>=0.8" "mkdocs-swagger-ui-tag" && \
+RUN apt-get update && apt-get install --no-install-recommends -y git wget unzip \
+  && pip install mkdocs "mkdocs-material>=8.2" "mkdocs-htmlproofer-plugin>=0.8" \
+  "mkdocs-swagger-ui-tag" "mkdocstrings>=0.24.3" "mkdocstrings-python>=1.9.2" && \
   rm -rf /var/lib/apt/lists/*
+
+WORKDIR /apis
+RUN wget https://github.com/ejlee3/performance-tools/archive/refs/heads/add-sphinx.zip
+RUN unzip add-sphinx.zip
+WORKDIR /benchmark-scripts
+RUN mv /apis/performance-tools-add-sphinx/benchmark-scripts/* .
+
 EXPOSE 8000
 ENTRYPOINT ["mkdocs"]
 CMD ["serve", "--dev-addr=0.0.0.0:8000"]
