@@ -1,7 +1,7 @@
 site_name: Intel® Automated Self-Checkout Reference Package
-site_url: "https://intel-retail.github.io/automated-self-checkout/"
-repo_name: "intel-retail/automated-self-checkout"
-repo_url: "https://github.com/intel-retail/automated-self-checkout"
+site_url: "https://intel-retail.github.io/documentation/"
+repo_name: "intel-retail/documentation"
+repo_url: "https://github.com/intel-retail/documentation"
 docs_dir: ./docs_src
 site_dir: ./docs
 copyright: 'Copyright &copy; 2023 Intel Corporation'
@@ -30,18 +30,17 @@ plugins:
 repo_url: https://github.com/intel-retail/documentation
 repo_name: intel-retail/documentation
 nav:
-  - Home: 'README.md'
+  - Home: 'index.md'
+  - Architecture Decisions:
+      - Pipelines: 'Architecture/pipelines.md'
+      - v2.0.0:
+          - Distributed Architecture: 'Architecture/distributed-architecture.md'
+          - Multiple OVMS JSON Config: 'Architecture/multiple-ovms-json-config.md'
+          - Performance Benchmarking: 'Architecture/performance_benchmarking.md'
+          - Profile Launcher: 'Architecture/profile-launcher.md'
+          - Target Device: 'Architecture/target-device.md'
   - Performance Tools:
       - Benchmarking: 'performance-tools/benchmark.md'
-  - Architecture Decisions:
-      - Distributed Architecture: './Architecture/distributed-architecture.md'
-      - Multiple OVMS JSON Config: './Architecture/multiple-ovms-json-config.md'
-      - Performance Benchmarking: './Architecture/performance_benchmarking.md'
-      - Profile Launcher: './Architecture/profile-launcher.md'
-      - Target Device: './Architecture/target-device.md'
-  - Contributing: 'CONTRIBUTING.md'
-  - Code of Conduct: 'CODE_OF_CONDUCT.md'
-  - Security: 'security.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons

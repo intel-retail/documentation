@@ -1,6 +1,6 @@
 # Computer Vision Pipeline Benchmarking
 
-The provided Python-based script works with Docker Compose to get pipeline performance 
+The provided Python-based script works with Docker Compose to get pipeline performance
 metrics like video processing in frames-per-second (FPS), memory usage, power
 consumption, and so on.
 
@@ -39,6 +39,11 @@ consumption, and so on.
     ```bash
     python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
     ```
+Specific number of pipelines with single container
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-pipeline.png)](../images/performance-pipeline.png)
+
+Specific number of pipelines with OVMS and Client
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-pipeline-ovms.png)](../images/performance-pipeline-ovms.png)
 
 ## Benchmark Stream Density for CV Pipelines
 
@@ -51,13 +56,19 @@ To run the stream density functionality use `--target_fps` and/or `--density_inc
    ```
 
 where the parameters:
-- `target_fps` is the given target frames per second (fps) to achive for maximum number of pipelines
+- `target_fps` is the given target frames per second (fps) to achieve for maximum number of pipelines
 - `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
 - `init_duration` is the initial duration period in second before pipeline performance metrics are taken
 
 
     !!! Note
         It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
+
+Stream density with single container
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-stream-density.png)](../images/performance-stream-density.png)
+
+Stream density with OVMS and Client
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-stream-density-ovms.png)](../images/performance-stream-density-ovms.png)
 
 # Modifying Additional Benchmarking Variables
 
