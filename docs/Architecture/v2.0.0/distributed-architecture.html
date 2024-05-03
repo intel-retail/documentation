@@ -8,25 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://intel-retail.github.io/documentation/Architecture/profile-launcher.html">
+        <link rel="canonical" href="https://intel-retail.github.io/documentation/Architecture/v2.0.0/distributed-architecture.html">
       
       
-        <link rel="prev" href="performance_benchmarking.html">
       
       
-        <link rel="next" href="target-device.html">
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
     
     
       
-        <title>Profile Launcher - Intel® Automated Self-Checkout Reference Package</title>
+        <title>Distributed Architecture - Intel® Automated Self-Checkout Reference Package</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -45,15 +41,15 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/index.css">
+      <link rel="stylesheet" href="../../stylesheets/index.css">
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../stylesheets/branding.css">
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -92,9 +88,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../index.html" title="Intel® Automated Self-Checkout Reference Package" class="md-header__button md-logo" aria-label="Intel® Automated Self-Checkout Reference Package" data-md-component="logo">
+    <a href="../../index.html" title="Intel® Automated Self-Checkout Reference Package" class="md-header__button md-logo" aria-label="Intel® Automated Self-Checkout Reference Package" data-md-component="logo">
       
-  <img src="../images/logo-white-75px.png" alt="logo">
+  <img src="../../images/logo-white-75px.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Profile Launcher
+              Distributed Architecture
             
           </span>
         </div>
@@ -188,7 +184,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../index.html" class="md-tabs__link">
+      <a href="../../index.html" class="md-tabs__link">
         
   
     
@@ -207,7 +203,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../performance-tools/benchmark.html" class="md-tabs__link">
+        <a href="../../performance-tools/benchmark.html" class="md-tabs__link">
           
   
   Performance Tools
@@ -221,13 +217,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="distributed-architecture.html" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../pipelines.html" class="md-tabs__link">
           
   
   Architecture Decisions
@@ -268,9 +262,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Intel® Automated Self-Checkout Reference Package" class="md-nav__button md-logo" aria-label="Intel® Automated Self-Checkout Reference Package" data-md-component="logo">
+    <a href="../../index.html" title="Intel® Automated Self-Checkout Reference Package" class="md-nav__button md-logo" aria-label="Intel® Automated Self-Checkout Reference Package" data-md-component="logo">
       
-  <img src="../images/logo-white-75px.png" alt="logo">
+  <img src="../../images/logo-white-75px.png" alt="logo">
 
     </a>
     Intel® Automated Self-Checkout Reference Package
@@ -297,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -355,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance-tools/benchmark.html" class="md-nav__link">
+      <a href="../../performance-tools/benchmark.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -380,28 +374,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -412,7 +401,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Architecture Decisions
@@ -426,7 +415,66 @@
   
   
     <li class="md-nav__item">
-      <a href="distributed-architecture.html" class="md-nav__link">
+      <a href="../pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    v2.0.0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            v2.0.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributed-architecture.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="multiple-ovms-json-config.html" class="md-nav__link">
+      <a href="../multiple-ovms-json-config.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -468,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="performance_benchmarking.html" class="md-nav__link">
+      <a href="../performance_benchmarking.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,30 +534,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Profile Launcher
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="profile-launcher.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../profile-launcher.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -518,104 +546,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    <span class="md-ellipsis">
-      Decision
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    <span class="md-ellipsis">
-      Context
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proposed-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proposed Design
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Proposed Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#single-container-profile" class="md-nav__link">
-    <span class="md-ellipsis">
-      Single Container Profile
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-container-profile" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiple Container Profile
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#applicable-repos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applicable Repos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
-    <span class="md-ellipsis">
-      Consequences
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -628,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="target-device.html" class="md-nav__link">
+      <a href="../target-device.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -637,6 +567,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -686,31 +624,25 @@
 <h2 id="context">Context</h2>
 <!-- Please provide context to the requirement. -->
 
-<p>Depending on the underlying pipeline architecture you may only require one Docker container or you may require many Docker containers. Specifically OVMS has two methods for running: gRPC which uses remote inference calls from a client to server and Capi which does the inferencing locally. Additionally other methods such as GStreamer are run in a single container. The profiles should be able to accommodate both use cases.</p>
+<p>To a wider variety of computer vision use cases in the real world a distributed inference architecture is required for deployment and scale. To achieve this, OpenVINO Model Server (OVMS) will be used for server side inferencing as part of the architecture design. The new architecture will lose some inference throughput but gain flexibility and scale.</p>
 <h2 id="proposed-design">Proposed Design</h2>
 <!-- Please provide a high level design of the proposed requirement. -->
 
-<p>Update the profile to handle an array of configurations. This will allow the user to mix multiple Docker container configurations into a single profile.</p>
-<p>Each container configuration will contain the following information:
-- Docker image: The profile launcher will use as the target image
-- Environment file: Loaded into the container
-- Entrypoint script: Launch the desired start process
-- Input arguments: container or entrypoint script
-- Docker Volumes: Mounted to the container
-- Docker Networks: Connected to the container</p>
-<p><a href="images/multi-profile-launcher.jpg"><img alt="Multi Container Profile" src="images/multi-profile-launcher.jpg" /></a></p>
-<h3 id="single-container-profile">Single Container Profile</h3>
-<p>A single container profile will run a single Docker image using a single entrypoint script. This use case will be for pipelines that are self contained in a single container. Although the container can interact with other containers on the system the performance tools will only measure the performance of the single running container.</p>
-<p><a href="images/single-pipeline.jpg"><img alt="Single System" src="images/single-pipeline.jpg" /></a></p>
-<h3 id="multiple-container-profile">Multiple Container Profile</h3>
-<p>A multiple container profile will run the array of containers defined in the profile config. Each container can have it's own entrypoint script even if they utilize the same base Docker image. The common profile will be the OpenVINO Model Server and client. In this case a OVMS container will contain the inference models defined in the config.json from the profile. Once the OVMS container is started the client will be launched and connect to the OVMS container. This will result in the inference workload being executed in a difference service which can be on the local system or in a remote location. </p>
-<p><a href="images/multiple-pipelines.jpg"><img alt="Remote Server" src="images/multiple-pipelines.jpg" /></a></p>
+<p>Using OpenVINO Model Server (OVMS) pipeline, workloads can be distributed between different services. For our solution a single system and remote server setup will be supported.</p>
+<h3 id="single-system-setup">Single System Setup</h3>
+<p>The single system solution will launch both the OVMS client and OVMS server on the same system as Docker containers. The local network can be used for communication between the Docker containers. The profile launcher program will load the profile configs and environment variables form a local data volume. The computer vision models will also be located on a local data volume. The models can be downloaded using the provided scripts or manually by the user.</p>
+<p><a href="images/single-system.jpg"><img alt="Single System" src="images/single-system.jpg" /></a></p>
+<h3 id="remote-server-setup">Remote Server Setup</h3>
+<p>The remote serve set will launch the same OVMS client and OVMS server containers but on two different systems. These systems can be on the same network on in remote locations as long as the systems can communicate through the network. This will require additional security or a direct connection from client to server. Similar to the single system the profile launcher will load the profile configs and environment variables from a data volume. In this case the data volume can be a local copy or a remote copy of those files. On the server the computer vision models will be in a data volume. Unlike the profile config and environment files these must be located on the server in a data volume. This is to prevent any unwanted changes to the computer vision model when it is located in a remote location. </p>
+<p><a href="images/remote-server.jpg"><img alt="Remote Server" src="images/remote-server.jpg" /></a></p>
+<h3 id="running-the-pipeline">Running the Pipeline</h3>
+<p>The profile launching program will start a pre-configured OVMS client and OVMS server. <a href="https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinerun.html">Run Pipeline</a> documentation covers the parameter details and how to configure different input sources.</p>
 <h2 id="applicable-repos">Applicable Repos</h2>
 <p><a href="https://github.com/intel-retail/automated-self-checkout">automated-self-checkout</a></p>
 <h2 id="consequences">Consequences</h2>
 <!-- Please provide a description of what consequences this requirement will have on the project. This includes breaking and non-breaking changes to all microservices -->
 
-<p>All profiles will need to be updated to use this new array structure. As a benefit common containers such as the OpenVINO Model Server can be shared between profiles.</p>
+<p>Unlike DLStreamer there will be some latency to call OVMS through gRPC. This will results in a slightly lower stream density for systems. We will however support a wider range and combination of models since the inferencing will be abstracted into the OpenVINO Model Server.</p>
 <h2 id="references">References</h2>
 <!-- [link](requirements-review-process.md) - useful links for the design -->
 
@@ -747,44 +679,6 @@ https://github.com/openvinotoolkit/model_server</p>
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="performance_benchmarking.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Performance Benchmarking">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Performance Benchmarking
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="target-device.html" class="md-footer__link md-footer__link--next" aria-label="Next: Target Device">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Target Device
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -812,10 +706,10 @@ https://github.com/openvinotoolkit/model_server</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       

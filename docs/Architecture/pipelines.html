@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://intel-retail.github.io/documentation/Architecture/performance_benchmarking.html">
+        <link rel="canonical" href="https://intel-retail.github.io/documentation/Architecture/pipelines.html">
       
       
-        <link rel="prev" href="multiple-ovms-json-config.html">
+        <link rel="prev" href="../performance-tools/benchmark.html">
       
-      
-        <link rel="next" href="profile-launcher.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Performance Benchmarking - Intel® Automated Self-Checkout Reference Package</title>
+        <title>Pipelines - Intel® Automated Self-Checkout Reference Package</title>
       
     
     
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-benchmarking" class="md-skip">
+        <a href="#intel-retail" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance Benchmarking
+              Pipelines
             
           </span>
         </div>
@@ -227,7 +225,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="distributed-architecture.html" class="md-tabs__link">
+        <a href="pipelines.html" class="md-tabs__link">
           
   
   Architecture Decisions
@@ -423,48 +421,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="distributed-architecture.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Distributed Architecture
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="multiple-ovms-json-config.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Multiple OVMS JSON Config
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -481,18 +437,18 @@
           
   
   <span class="md-ellipsis">
-    Performance Benchmarking
+    Pipelines
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="performance_benchmarking.html" class="md-nav__link md-nav__link--active">
+      <a href="pipelines.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Performance Benchmarking
+    Pipelines
   </span>
   
 
@@ -514,83 +470,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
+  <a href="#repositories" class="md-nav__link">
     <span class="md-ellipsis">
-      Decision
+      Repositories
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
+  <a href="#frameworks" class="md-nav__link">
     <span class="md-ellipsis">
-      Context
+      Frameworks
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proposed-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proposed Design
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Proposed Design">
+    <nav class="md-nav" aria-label="Frameworks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benchmark-script" class="md-nav__link">
+  <a href="#openvino" class="md-nav__link">
     <span class="md-ellipsis">
-      Benchmark Script
+      OpenVINO
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#performance-tools" class="md-nav__link">
+  <a href="#dlstreamer-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance tools
+      DLStreamer Pipeline
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#input-source-types" class="md-nav__link">
+  <a href="#openvino-model-serverovms" class="md-nav__link">
     <span class="md-ellipsis">
-      Input Source Types
+      OpenVINO Model Server(OVMS)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Input Source Types">
+    <nav class="md-nav" aria-label="OpenVINO Model Server(OVMS)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#specified-number-of-pipelines" class="md-nav__link">
+  <a href="#openvino-model-serverovms-pipeline-with-grpc-remote-procedure-call" class="md-nav__link">
     <span class="md-ellipsis">
-      Specified Number of Pipelines
+      OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#consolidated-results" class="md-nav__link">
+  <a href="#openvino-model-serverovms-pipeline-with-c-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Consolidated Results
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stream-density" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stream Density
+      OpenVINO Model Server(OVMS) Pipeline with C API
     </span>
   </a>
   
@@ -607,27 +545,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applicable-repos" class="md-nav__link">
+  <a href="#performance" class="md-nav__link">
     <span class="md-ellipsis">
-      Applicable Repos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
-    <span class="md-ellipsis">
-      Consequences
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
+      Performance
     </span>
   </a>
   
@@ -648,8 +568,109 @@
   
   
   
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    v2.0.0
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            v2.0.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="profile-launcher.html" class="md-nav__link">
+      <a href="distributed-architecture.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributed Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multiple-ovms-json-config.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple OVMS JSON Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="performance_benchmarking.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Benchmarking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="profile-launcher.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="target-device.html" class="md-nav__link">
+      <a href="target-device.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -679,6 +700,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -709,62 +738,30 @@
   
 
 
-<h1 id="performance-benchmarking">Performance Benchmarking</h1>
-<!--ts-->
-
-<ul>
-<li><a href="#status">Status</a></li>
-<li><a href="#decision">Decision</a></li>
-<li><a href="#context">Context</a></li>
-<li><a href="#proposed-design">Proposed Design</a></li>
-<li><a href="#consequences">Consequences</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-<!--te-->
-
-<h2 id="decision">Decision</h2>
-<!-- Requirements approval board will update this section with justification for approval or rejection -->
-
-<h2 id="context">Context</h2>
-<!-- Please provide context to the requirement. -->
-
-<p>To assist customers we will provide a set of performance Docker containers to measure the performance of their pipelines. The performance Docker containers will need to be supported on most modern Intel hardware. The output will also need to be formatted and presented to customers as a hardware recommendation.</p>
-<h2 id="proposed-design">Proposed Design</h2>
-<!-- Please provide a high level design of the proposed requirement. -->
-
-<h3 id="benchmark-script">Benchmark Script</h3>
-<p>The benchmark script is designed to help determine the performance needs for a specific pipeline profile. The script will run a designated pipeline profile and can either replicate that pipeline profile a specific number of times or continue to replicate until a performance target is reached.</p>
-<h3 id="performance-tools">Performance tools</h3>
-<p>sysstat: System CPU utilization
-free: System memory usage
-iotop: System Disk read and write data
-igt-gpu-tools: Integrated GPU utilization
-Intel XPU Manage: Discrete GPU utilization
-Intel Performance Counter Monitor: System power usage</p>
-<h3 id="input-source-types">Input Source Types</h3>
-<p>For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs its' recommended to use a video loop with an RTSP stream for inference result consistency. As an option an RTSP <a href="https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html">Camera Simulator</a> is provided with the performance script.</p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#input-source-type">Input Source Types</a></p>
-<h4 id="specified-number-of-pipelines">Specified Number of Pipelines</h4>
-<p>If you are looking to test a specific number of pipelines on different hardware SKUs the <code>--pipelines</code> parameter can be used. This parameter will start the specified number of pipelines </p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines">Specified Number of Pipelines</a></p>
-<p><a href="images/num-of-pipelines.jpg"><img alt="Specified Number of Pipelines" src="images/num-of-pipelines.jpg" /></a></p>
-<h4 id="consolidated-results">Consolidated Results</h4>
-<p>To make reading results easier, a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in <a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines">Benchmark Specified Number of Pipelines</a></p>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>consolidate<span class="w"> </span><span class="nv">ROOT_DIRECTORY</span><span class="o">=</span>&lt;output<span class="w"> </span>dir&gt;
-</code></pre></div>
-<h4 id="stream-density">Stream Density</h4>
-<p>The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the <code>--stream_density</code> parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The script will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.</p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-stream-density">Stream Density</a></p>
-<p><a href="images/stream-density.jpg"><img alt="Stream Density" src="images/stream-density.jpg" /></a></p>
-<h2 id="applicable-repos">Applicable Repos</h2>
-<p><a href="https://github.com/intel-retail/automated-self-checkout">automated-self-checkout</a></p>
-<h2 id="consequences">Consequences</h2>
-<!-- Please provide a description of what consequences this requirement will have on the project. This includes breaking and non-breaking changes to all microservices -->
-
-<p>Having a generic and scalable set of performance Docker containers will allow customers to test a wide range of pipelines and hardware setups without extensive configuration of their systems. The flexibility will bring faster time to market and better hardware decision making by customers.</p>
-<h2 id="references">References</h2>
-<!-- [link](requirements-review-process.md) - useful links for the design -->
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html">Pipeline Benchmarking</a></p>
+<h1 id="intel-retail">Intel Retail</h1>
+<h2 id="repositories">Repositories</h2>
+<p>In release v3.0.0 Intel-retail modules have been organized into logical repositories. By taking advantage of github submodules different modules can be refrenced from other repositories. For example performance tools are being used by retail-use-cases and automated-self-checkout. Rather than duplicating and maintaining performance tools between the two repositories we linked the latest performance tools release as a submodule. </p>
+<p><a href="images/intel-retail-repos.png"><img alt="Intel Retail Repositories" src="images/intel-retail-repos.png" /></a></p>
+<h2 id="frameworks">Frameworks</h2>
+<h3 id="openvino">OpenVINO</h3>
+<p>OpenVINO is an open source toolkit provided by Intel to assist with running AI and ML on Intel hardware. The tools include a portable inference engine that is compatible with different Intel hardware platforms. The code can be found on the <a href="https://github.com/openvinotoolkit/openvino">OpenVINO Github</a> and examples can be ran through the <a href="https://github.com/openvinotoolkit/openvino_notebooks">OpenVINO Jupyter Notebooks</a>.</p>
+<p>OpenVINO provides some pre-trained models for quick development and testing through the <a href="https://github.com/openvinotoolkit/open_model_zoo">OpenVINO Model Zoo</a>. OpenVINO also supports converting models through they <a href="https://docs.openvino.ai/2024/openvino-workflow/model-preparation/convert-model-to-ir.html">Model Conversion Process</a></p>
+<p>Details about the latest version can be found in the <a href="https://www.intel.com/content/www/us/en/developer/articles/release-notes/openvino/2024-1.html">OpenVINO Release Notes</a>.</p>
+<h3 id="dlstreamer-pipeline">DLStreamer Pipeline</h3>
+<p>Rather than working directly with the OpenVINO APIs our solutions offers more practical ways to interface with OpenVINO. One method is using <a href="https://github.com/dlstreamer/dlstreamer">Intel DLStreamer</a>. This solution provides a no code way based on <a href="https://gstreamer.freedesktop.org/">GStreamer</a> and <a href="https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/get-started.html">OpenVINO</a> to deploy, process, and output a pipeline. </p>
+<p>The diagrams show how we take advantage of Docker, Docker Compose, and environment variable files to pre-package DLStreamer based pipelines for our use cases. Leveraging Environment Variables allows users to modify properties on the fly when different configurations are required.</p>
+<p><a href="images/dlstreamer-pipeline.png"><img alt="DLStreamer Pipeline" src="images/dlstreamer-pipeline.png" /></a></p>
+<h3 id="openvino-model-serverovms">OpenVINO Model Server(OVMS)</h3>
+<p>Another solution is the <a href="https://github.com/openvinotoolkit/model_server">OpenVINO Model Server(OVMS)</a>. OVMS is a model hosting server that hosts inference models through a set of APIs. Unlike DLStreamer this solution requires developers to write code for pre and post processing model inference results. The advantage is the additional control developers have over their inference processing. Another benefit is the distribution of inference workloads between multiple servers either locally or remotely.</p>
+<h4 id="openvino-model-serverovms-pipeline-with-grpc-remote-procedure-call">OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)</h4>
+<p>There are two methods for running your inference through OVMS. The more flexible method has the client use gRPC (Remote Procedure Call)  to request inference results from OVMS. By providing the proper input type and format the client can push inference comput to OVMS. OVMS can be local or on a remote system as long as the requested model is supported. This provides great flexibility with only minor latency increase. </p>
+<p>The gRPC interface supports c/c++, python, and golang. A python example is located in our <a href="https://github.com/intel-retail/retail-use-cases/tree/main/use-cases/grpc_python">retial-use-cases gRPC python</a>. The diagram show how the Docker Compose will deploy the client and OVMS. </p>
+<p><a href="images/ovms-grpc.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)" src="images/ovms-grpc.png" /></a></p>
+<h4 id="openvino-model-serverovms-pipeline-with-c-api">OpenVINO Model Server(OVMS) Pipeline with C API</h4>
+<p>When performance is more important than flexibility a developer can use the C API to bypass the gRPC interface and reudce latency. This method is currently only supported for c/c++ and required client/OVMS to both be deployed in a single Docker container. and example of a C API pipeline can be found in <a href="https://github.com/intel-retail/retail-use-cases/tree/main/use-cases/gst_capi">retail-use-cases gst_capi</a>. Similar to DLStreamer the Docker Compose only launches a single container per pipeline now that the client/OVMS directly connect through the C API.</p>
+<p><a href="images/ovms-capi.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="images/ovms-capi.png" /></a></p>
+<h2 id="performance">Performance</h2>
+<p>More details about benchmarking pipelines can be found on the <a href="../performance-tools/benchmark.html">Performance Tools Page</a>.</p>
 
 
 
@@ -800,7 +797,7 @@ Intel Performance Counter Monitor: System power usage</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="multiple-ovms-json-config.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multiple OVMS JSON Config">
+          <a href="../performance-tools/benchmark.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Benchmarking">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -810,27 +807,11 @@ Intel Performance Counter Monitor: System power usage</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Multiple OVMS JSON Config
+                Benchmarking
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="profile-launcher.html" class="md-footer__link md-footer__link--next" aria-label="Next: Profile Launcher">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Profile Launcher
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
