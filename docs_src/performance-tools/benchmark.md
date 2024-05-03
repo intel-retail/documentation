@@ -39,6 +39,11 @@ consumption, and so on.
     ```bash
     python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
     ```
+Specific number of pipelines with single container
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-pipeline.png)](../images/performance-pipeline.png)
+
+Specific number of pipelines with OVMS and Client
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-pipeline-ovms.png)](../images/performance-pipeline-ovms.png)
 
 ## Benchmark Stream Density for CV Pipelines
 
@@ -58,6 +63,12 @@ where the parameters:
 
     !!! Note
         It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
+
+Stream density with single container
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-stream-density.png)](../images/performance-stream-density.png)
+
+Stream density with OVMS and Client
+[![OpenVINO Model Server(OVMS) Pipeline with C-API](../images/performance-stream-density-ovms.png)](../images/performance-stream-density-ovms.png)
 
 # Modifying Additional Benchmarking Variables
 
