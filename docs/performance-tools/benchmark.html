@@ -673,6 +673,10 @@ consumption, and so on.</p>
 python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
 ```
 </code></pre></div>
+<p>Specific number of pipelines with single container
+<a href="../images/performance-pipeline.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline.png" /></a></p>
+<p>Specific number of pipelines with OVMS and Client
+<a href="../images/performance-pipeline-ovms.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline-ovms.png" /></a></p>
 <h2 id="benchmark-stream-density-for-cv-pipelines">Benchmark Stream Density for CV Pipelines</h2>
 <p>Benchmarking a pipeline can also discover the maximum number of workloads or streams that can be run in parallel for a given target FPS. This information is useful to determine the hardware required to achieve the desired performance for CV pipelines.</p>
 <p>To run the stream density functionality use <code>--target_fps</code> and/or <code>--density_increment</code> as inputs to the <code>benchmark.py</code> script:</p>
@@ -685,6 +689,10 @@ python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator
 <div class="language-text highlight"><pre><span></span><code>!!! Note
     It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
 </code></pre></div>
+<p>Stream density with single container
+<a href="../images/performance-stream-density.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-stream-density.png" /></a></p>
+<p>Stream density with OVMS and Client
+<a href="../images/performance-stream-density-ovms.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-stream-density-ovms.png" /></a></p>
 <h1 id="modifying-additional-benchmarking-variables">Modifying Additional Benchmarking Variables</h1>
 <h2 id="change-power-profile">Change Power Profile</h2>
 <ul>
