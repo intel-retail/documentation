@@ -31,8 +31,6 @@ repo_url: https://github.com/intel-retail/documentation
 repo_name: intel-retail/documentation
 nav:
   - Home: 'index.md'
-  - Performance Tools:
-      - Benchmarking: 'performance-tools/benchmark.md'
   - Architecture Decisions:
       - Pipelines: 'Architecture/pipelines.md'
       - v2.0.0:
@@ -41,6 +39,8 @@ nav:
           - Performance Benchmarking: 'Architecture/performance_benchmarking.md'
           - Profile Launcher: 'Architecture/profile-launcher.md'
           - Target Device: 'Architecture/target-device.md'
+  - Performance Tools:
+      - Benchmarking: 'performance-tools/benchmark.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons
