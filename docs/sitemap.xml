@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://intel-retail.github.io/documentation/releasenotes.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/pipelines.html</loc>
          <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
@@ -37,6 +42,31 @@
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/performance-tools/benchmark.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/release-notes/v1-0-1.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/release-notes/v1-5-0.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/release-notes/v2-0-0.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/release-notes/v2-1-0.html</loc>
+         <lastmod>2024-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/release-notes/v3-0-0.html</loc>
          <lastmod>2024-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
