@@ -741,7 +741,7 @@
 <h1 id="intel-retail">Intel Retail</h1>
 <h2 id="repositories">Repositories</h2>
 <p>In release v3.0.0 Intel-retail modules have been organized into logical repositories. By taking advantage of github submodules different modules can be refrenced from other repositories. For example performance tools are being used by retail-use-cases and automated-self-checkout. Rather than duplicating and maintaining performance tools between the two repositories we linked the latest performance tools release as a submodule. </p>
-<p><a href="images/intel-retail-repos.png"><img alt="Intel Retail Repositories" src="images/intel-retail-repos.png" /></a></p>
+<p><a href="../images/intel-retail-repos.png"><img alt="Intel Retail Repositories" src="../images/intel-retail-repos.png" /></a></p>
 <h2 id="frameworks">Frameworks</h2>
 <h3 id="openvino">OpenVINO</h3>
 <p>OpenVINO is an open source toolkit provided by Intel to assist with running AI and ML on Intel hardware. The tools include a portable inference engine that is compatible with different Intel hardware platforms. The code can be found on the <a href="https://github.com/openvinotoolkit/openvino">OpenVINO Github</a> and examples can be ran through the <a href="https://github.com/openvinotoolkit/openvino_notebooks">OpenVINO Jupyter Notebooks</a>.</p>
@@ -750,16 +750,16 @@
 <h3 id="dlstreamer-pipeline">DLStreamer Pipeline</h3>
 <p>Rather than working directly with the OpenVINO APIs our solutions offers more practical ways to interface with OpenVINO. One method is using <a href="https://github.com/dlstreamer/dlstreamer">Intel DLStreamer</a>. This solution provides a no code way based on <a href="https://gstreamer.freedesktop.org/">GStreamer</a> and <a href="https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/get-started.html">OpenVINO</a> to deploy, process, and output a pipeline. </p>
 <p>The diagrams show how we take advantage of Docker, Docker Compose, and environment variable files to pre-package DLStreamer based pipelines for our use cases. Leveraging Environment Variables allows users to modify properties on the fly when different configurations are required.</p>
-<p><a href="images/dlstreamer-pipeline.png"><img alt="DLStreamer Pipeline" src="images/dlstreamer-pipeline.png" /></a></p>
+<p><a href="../images/dlstreamer-pipeline.png"><img alt="DLStreamer Pipeline" src="../images/dlstreamer-pipeline.png" /></a></p>
 <h3 id="openvino-model-serverovms">OpenVINO Model Server(OVMS)</h3>
 <p>Another solution is the <a href="https://github.com/openvinotoolkit/model_server">OpenVINO Model Server(OVMS)</a>. OVMS is a model hosting server that hosts inference models through a set of APIs. Unlike DLStreamer this solution requires developers to write code for pre and post processing model inference results. The advantage is the additional control developers have over their inference processing. Another benefit is the distribution of inference workloads between multiple servers either locally or remotely.</p>
 <h4 id="openvino-model-serverovms-pipeline-with-grpc-remote-procedure-call">OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)</h4>
 <p>There are two methods for running your inference through OVMS. The more flexible method has the client use gRPC (Remote Procedure Call)  to request inference results from OVMS. By providing the proper input type and format the client can push inference comput to OVMS. OVMS can be local or on a remote system as long as the requested model is supported. This provides great flexibility with only minor latency increase. </p>
 <p>The gRPC interface supports c/c++, python, and golang. A python example is located in our <a href="https://github.com/intel-retail/retail-use-cases/tree/main/use-cases/grpc_python">retial-use-cases gRPC python</a>. The diagram show how the Docker Compose will deploy the client and OVMS. </p>
-<p><a href="images/ovms-grpc.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)" src="images/ovms-grpc.png" /></a></p>
+<p><a href="../images/ovms-grpc.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with gRPC (Remote Procedure Call)" src="../images/ovms-grpc.png" /></a></p>
 <h4 id="openvino-model-serverovms-pipeline-with-c-api">OpenVINO Model Server(OVMS) Pipeline with C API</h4>
 <p>When performance is more important than flexibility a developer can use the C API to bypass the gRPC interface and reudce latency. This method is currently only supported for c/c++ and required client/OVMS to both be deployed in a single Docker container. and example of a C API pipeline can be found in <a href="https://github.com/intel-retail/retail-use-cases/tree/main/use-cases/gst_capi">retail-use-cases gst_capi</a>. Similar to DLStreamer the Docker Compose only launches a single container per pipeline now that the client/OVMS directly connect through the C API.</p>
-<p><a href="images/ovms-capi.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="images/ovms-capi.png" /></a></p>
+<p><a href="../images/ovms-capi.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/ovms-capi.png" /></a></p>
 <h2 id="performance">Performance</h2>
 <p>More details about benchmarking pipelines can be found on the <a href="../performance-tools/benchmark.html">Performance Tools Page</a>.</p>
 
