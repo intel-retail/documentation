@@ -13,10 +13,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y git wget unzip 
   rm -rf /var/lib/apt/lists/*
 
 WORKDIR /apis
-RUN wget https://github.com/ejlee3/performance-tools/archive/refs/heads/add-sphinx.zip
-RUN unzip add-sphinx.zip
+RUN wget https://github.com/intel-retail/performance-tools/archive/refs/heads/main.zip
+RUN unzip main.zip
 WORKDIR /benchmark-scripts
-RUN mv /apis/performance-tools-add-sphinx/benchmark-scripts/* .
+RUN mv /apis/performance-tools-main/benchmark-scripts/* .
 
 EXPOSE 8000
 ENTRYPOINT ["mkdocs"]
