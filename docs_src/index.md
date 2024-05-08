@@ -8,4 +8,6 @@ Welcome to the Intel Retail organization.
 
 [Performance Tools](./performance-tools/benchmark.md)
 
+[Use Cases](./use-cases/use-cases.md)
+
 [Releases](./releasenotes.md)

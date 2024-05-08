@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://intel-retail.github.io/documentation/Architecture/v2.0.0/performance_benchmarking.html">
+        <link rel="canonical" href="https://intel-retail.github.io/documentation/performance-tools/api-docs.html">
       
       
+        <link rel="prev" href="benchmark.html">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../use-cases/automated-self-checkout/automated-self-checkout.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
     
     
       
-        <title>Performance Benchmarking - Intel® Retail Organization</title>
+        <title>Benchmarking APIs - Intel® Retail Organization</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -41,17 +45,17 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../stylesheets/index.css">
+      <link rel="stylesheet" href="../stylesheets/index.css">
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../../stylesheets/branding.css">
+      <link rel="stylesheet" href="../stylesheets/branding.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performance-benchmarking" class="md-skip">
+        <a href="#api-documentation-for-benchmark-scripts" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +94,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../index.html" title="Intel® Retail Organization" class="md-header__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+    <a href="../index.html" title="Intel® Retail Organization" class="md-header__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
       
-  <img src="../../images/logo-white-75px.png" alt="logo">
+  <img src="../images/logo-white-75px.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Performance Benchmarking
+              Benchmarking APIs
             
           </span>
         </div>
@@ -186,7 +190,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../index.html" class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
     
@@ -205,7 +209,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../pipelines.html" class="md-tabs__link">
+        <a href="../Architecture/pipelines.html" class="md-tabs__link">
           
   
   Architecture Decisions
@@ -219,11 +223,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../performance-tools/benchmark.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="benchmark.html" class="md-tabs__link">
           
   
   Performance Tools
@@ -241,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-tabs__link">
+        <a href="../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-tabs__link">
           
   
   Use Cases
@@ -257,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../releasenotes.html" class="md-tabs__link">
+      <a href="../releasenotes.html" class="md-tabs__link">
         
   
     
@@ -299,9 +305,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../index.html" title="Intel® Retail Organization" class="md-nav__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+    <a href="../index.html" title="Intel® Retail Organization" class="md-nav__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
       
-  <img src="../../images/logo-white-75px.png" alt="logo">
+  <img src="../images/logo-white-75px.png" alt="logo">
 
     </a>
     Intel® Retail Organization
@@ -328,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -386,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pipelines.html" class="md-nav__link">
+      <a href="../Architecture/pipelines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -445,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed-architecture.md" class="md-nav__link">
+      <a href="../Architecture/distributed-architecture.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -466,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../multiple-ovms-json-config.md" class="md-nav__link">
+      <a href="../Architecture/multiple-ovms-json-config.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -487,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../performance_benchmarking.md" class="md-nav__link">
+      <a href="../Architecture/performance_benchmarking.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../profile-launcher.md" class="md-nav__link">
+      <a href="../Architecture/profile-launcher.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../target-device.md" class="md-nav__link">
+      <a href="../Architecture/target-device.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,23 +568,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -589,7 +600,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Performance Tools
@@ -603,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../performance-tools/benchmark.html" class="md-nav__link">
+      <a href="benchmark.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -621,10 +632,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../performance-tools/api-docs.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Benchmarking APIs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="api-docs.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -633,6 +664,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark Package
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      benchmark
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark.convert_csv_results_to_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      convert_csv_results_to_json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark.docker_compose_containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker_compose_containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark.main" class="md-nav__link">
+    <span class="md-ellipsis">
+      main
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benchmark.parse_args" class="md-nav__link">
+    <span class="md-ellipsis">
+      parse_args
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -690,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-nav__link">
+      <a href="../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/automated-self-checkout/getting_started.html" class="md-nav__link">
+      <a href="../use-cases/automated-self-checkout/getting_started.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/automated-self-checkout/advanced.html" class="md-nav__link">
+      <a href="../use-cases/automated-self-checkout/advanced.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../use-cases/automated-self-checkout/performance.html" class="md-nav__link">
+      <a href="../use-cases/automated-self-checkout/performance.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releasenotes.html" class="md-nav__link">
+      <a href="../releasenotes.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,62 +917,343 @@
   
 
 
-<h1 id="performance-benchmarking">Performance Benchmarking</h1>
-<!--ts-->
+<h1 id="api-documentation-for-benchmark-scripts">API Documentation for Benchmark Scripts</h1>
+<h2 id="benchmark-package">Benchmark Package</h2>
 
-<ul>
-<li><a href="#status">Status</a></li>
-<li><a href="#decision">Decision</a></li>
-<li><a href="#context">Context</a></li>
-<li><a href="#proposed-design">Proposed Design</a></li>
-<li><a href="#consequences">Consequences</a></li>
-<li><a href="#references">References</a></li>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="benchmark"></a>
+  <div class="doc doc-contents first">
+  
+      <ul>
+<li>Copyright (C) 2024 Intel Corporation.
+*</li>
+<li>SPDX-License-Identifier: Apache-2.0</li>
 </ul>
-<!--te-->
 
-<h2 id="decision">Decision</h2>
-<!-- Requirements approval board will update this section with justification for approval or rejection -->
+  
 
-<h2 id="context">Context</h2>
-<!-- Please provide context to the requirement. -->
+  <div class="doc doc-children">
 
-<p>To assist customers we will provide a set of performance Docker containers to measure the performance of their pipelines. The performance Docker containers will need to be supported on most modern Intel hardware. The output will also need to be formatted and presented to customers as a hardware recommendation.</p>
-<h2 id="proposed-design">Proposed Design</h2>
-<!-- Please provide a high level design of the proposed requirement. -->
 
-<h3 id="benchmark-script">Benchmark Script</h3>
-<p>The benchmark script is designed to help determine the performance needs for a specific pipeline profile. The script will run a designated pipeline profile and can either replicate that pipeline profile a specific number of times or continue to replicate until a performance target is reached.</p>
-<h3 id="performance-tools">Performance tools</h3>
-<p>sysstat: System CPU utilization
-free: System memory usage
-iotop: System Disk read and write data
-igt-gpu-tools: Integrated GPU utilization
-Intel XPU Manage: Discrete GPU utilization
-Intel Performance Counter Monitor: System power usage</p>
-<h3 id="input-source-types">Input Source Types</h3>
-<p>For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs its' recommended to use a video loop with an RTSP stream for inference result consistency. As an option an RTSP <a href="https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html">Camera Simulator</a> is provided with the performance script.</p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#input-source-type">Input Source Types</a></p>
-<h4 id="specified-number-of-pipelines">Specified Number of Pipelines</h4>
-<p>If you are looking to test a specific number of pipelines on different hardware SKUs the <code>--pipelines</code> parameter can be used. This parameter will start the specified number of pipelines </p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines">Specified Number of Pipelines</a></p>
-<p><a href="images/num-of-pipelines.jpg"><img alt="Specified Number of Pipelines" src="images/num-of-pipelines.jpg" /></a></p>
-<h4 id="consolidated-results">Consolidated Results</h4>
-<p>To make reading results easier, a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in <a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines">Benchmark Specified Number of Pipelines</a></p>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>consolidate<span class="w"> </span><span class="nv">ROOT_DIRECTORY</span><span class="o">=</span>&lt;output<span class="w"> </span>dir&gt;
-</code></pre></div>
-<h4 id="stream-density">Stream Density</h4>
-<p>The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the <code>--stream_density</code> parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The script will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.</p>
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-stream-density">Stream Density</a></p>
-<p><a href="images/stream-density.jpg"><img alt="Stream Density" src="images/stream-density.jpg" /></a></p>
-<h2 id="applicable-repos">Applicable Repos</h2>
-<p><a href="https://github.com/intel-retail/automated-self-checkout">automated-self-checkout</a></p>
-<h2 id="consequences">Consequences</h2>
-<!-- Please provide a description of what consequences this requirement will have on the project. This includes breaking and non-breaking changes to all microservices -->
 
-<p>Having a generic and scalable set of performance Docker containers will allow customers to test a wide range of pipelines and hardware setups without extensive configuration of their systems. The flexibility will bring faster time to market and better hardware decision making by customers.</p>
-<h2 id="references">References</h2>
-<!-- [link](requirements-review-process.md) - useful links for the design -->
-<p><a href="https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html">Pipeline Benchmarking</a></p>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="benchmark.convert_csv_results_to_json" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">convert_csv_results_to_json</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">log_name</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>convert the csv output to json format for readability</p>
+
+
+
+  <p><span class="doc-section-title">Parameters:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td><code>results_dir</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>directory containing the benchmark results</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>log_name</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>first portion of the log filename to search for</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="benchmark.docker_compose_containers" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">docker_compose_containers</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">compose_files</span><span class="o">=</span><span class="p">[],</span> <span class="n">compose_pre_args</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">compose_post_args</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">env_vars</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>helper function to bring up or down containers using the provided params</p>
+
+
+
+  <p><span class="doc-section-title">Parameters:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td><code>command</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>valid docker compose command like "up" or "down"</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>compose_files</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list of docker compose files</p>
+            </div>
+          </td>
+          <td>
+                <code>[]</code>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>compose_pre_args</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>string of arguments called before the command</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>compose_post_args</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>string of arguments called after the command</p>
+            </div>
+          </td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+          <td><code>env_vars</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>environment variables to use in the shell for calling compose</p>
+            </div>
+          </td>
+          <td>
+                <code><span title="os.environ.copy">copy</span>()</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><span class="doc-section-title">Returns:</span></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+<td><code>stdout</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>console output from Popen when running the command</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+<td><code>stderr</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>console error from Popen when running the command</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+<td><code>returncode</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Popen return code</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="benchmark.main" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">main</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>runs benchmarking using docker compose for the specified pipeline</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="benchmark.parse_args" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">parse_args</span><span class="p">(</span><span class="nb">print</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>parses the input arguments for the command line</p>
+
+
+
+  <p><span class="doc-section-title">Parameters:</span></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+          <td><code>print</code></td>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>boolean on whether to print the help or not</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><span class="doc-section-title">Returns:</span></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="doc-section-item">
+<td><code>None</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>if print is True</p>
+            </div>
+          </td>
+        </tr>
+        <tr class="doc-section-item">
+<td><code>parser_object</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>if the input arguments are parsed</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
 
 
 
@@ -899,6 +1285,44 @@ Intel Performance Counter Monitor: System power usage</p>
         <footer class="md-footer">
   
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="benchmark.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Benchmarking">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Benchmarking
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-footer__link md-footer__link--next" aria-label="Next: Automated Self Checkout">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Automated Self Checkout
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -926,10 +1350,10 @@ Intel Performance Counter Monitor: System power usage</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a7c05c9e.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       

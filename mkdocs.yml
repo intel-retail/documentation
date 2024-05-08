@@ -1,4 +1,4 @@
-site_name: Intel® Automated Self-Checkout Reference Package
+site_name: Intel® Retail Organization
 site_url: "https://intel-retail.github.io/documentation/"
 repo_name: "intel-retail/documentation"
 repo_url: "https://github.com/intel-retail/documentation"
@@ -45,6 +45,12 @@ nav:
   - Performance Tools:
       - Benchmarking: 'performance-tools/benchmark.md'
       - Benchmarking APIs: 'performance-tools/api-docs.md'
+  - Use Cases: 
+      - Automated Self Checkout: 'use-cases/automated-self-checkout/automated-self-checkout.md'
+      - Getting Started: 'use-cases/automated-self-checkout/getting_started.md'
+      - Advanced Settings: 'use-cases/automated-self-checkout/advanced.md'
+      - Performance: 'use-cases/automated-self-checkout/performance.md'
+  - Releases: 'releasenotes.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons
