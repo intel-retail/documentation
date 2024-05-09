@@ -9,7 +9,7 @@ EV can be applied in two ways:
 
 The input parameter will override the one in the env files if both are used.
 
-### Run with custom environment variables
+### Run with Custom Environment Variables
 
 Environment variables with make commands
 
