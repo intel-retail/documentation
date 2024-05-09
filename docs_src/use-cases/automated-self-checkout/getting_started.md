@@ -40,9 +40,10 @@
     ```
     Result:
     ```bash
-    src-OvmsClientGst-1   Up 32 seconds
-    camera-simulator0     Up 4 minutes
-    camera-simulator      Up 4 minutes
+    NAMES                 STATUS          IMAGE
+    camera-simulator0     Up 12 seconds   openvino/ubuntu20_data_runtime:2021.4.2
+    src-OvmsClientGst-1   Up 14 seconds   dlstreamer:dev
+    camera-simulator      Up 13 seconds   aler9/rtsp-simple-server
     ```
 
 7. Verify Results

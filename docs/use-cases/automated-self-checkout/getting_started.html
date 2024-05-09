@@ -983,9 +983,10 @@
 <div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;table{{.Names}}\t{{.Status}}\t{{.Image}}&#39;</span>
 </code></pre></div>
 Result:
-<div class="language-bash highlight"><pre><span></span><code>src-OvmsClientGst-1<span class="w">   </span>Up<span class="w"> </span><span class="m">32</span><span class="w"> </span>seconds
-camera-simulator0<span class="w">     </span>Up<span class="w"> </span><span class="m">4</span><span class="w"> </span>minutes
-camera-simulator<span class="w">      </span>Up<span class="w"> </span><span class="m">4</span><span class="w"> </span>minutes
+<div class="language-bash highlight"><pre><span></span><code>NAMES<span class="w">                 </span>STATUS<span class="w">          </span>IMAGE
+camera-simulator0<span class="w">     </span>Up<span class="w"> </span><span class="m">12</span><span class="w"> </span>seconds<span class="w">   </span>openvino/ubuntu20_data_runtime:2021.4.2
+src-OvmsClientGst-1<span class="w">   </span>Up<span class="w"> </span><span class="m">14</span><span class="w"> </span>seconds<span class="w">   </span>dlstreamer:dev
+camera-simulator<span class="w">      </span>Up<span class="w"> </span><span class="m">13</span><span class="w"> </span>seconds<span class="w">   </span>aler9/rtsp-simple-server
 </code></pre></div></p>
 </li>
 <li>
