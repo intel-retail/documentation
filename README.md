@@ -2,7 +2,7 @@
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/intel-retail/documentation/badge)](https://api.securityscorecards.dev/projects/github.com/intel-retail/documentation)
 [![GitHub Latest Stable Tag](https://img.shields.io/github/v/tag/intel-retail/documentation?sort=semver&label=latest-stable)](https://github.com/intel-retail/documentation/releases)
-[![Discord](https://discord.com/api/guilds/1150892043120414780/widget.png?style=shield)](https://discord.gg/ZHgtrZcu)
+[![Discord](https://discord.com/api/guilds/1150892043120414780/widget.png?style=shield)](https://discord.gg/2SpNRF4SCn)
 
 ![Requirements Review Process Flow](./docs_src/requirements-review-process-flow.png)
 
@@ -25,4 +25,4 @@
 ## [Intel Retail Documentation](https://intel-retail.github.io/documentation/)
 
 ## Join the community 
-[![Discord Banner 1](https://discordapp.com/api/guilds/1150892043120414780/widget.png?style=banner2)](https://discord.gg/ZHgtrZcu)
+[![Discord Banner 1](https://discordapp.com/api/guilds/1150892043120414780/widget.png?style=banner2)](https://discord.gg/2SpNRF4SCn)

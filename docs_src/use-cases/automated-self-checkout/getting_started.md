@@ -36,7 +36,7 @@
 
     Verify Docker images
     ```bash
-    docker ps --format 'table{{.Image}}\t{{.Status}}'
+    docker ps --format 'table{{.Names}}\t{{.Status}}\t{{.Image}}'
     ```
     Result:
     ```bash
