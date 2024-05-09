@@ -980,7 +980,7 @@
 <li>
 <p>Verify Docker containers</p>
 <p>Verify Docker images
-<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;table{{.Image}}\t{{.Status}}&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>ps<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;table{{.Names}}\t{{.Status}}\t{{.Image}}&#39;</span>
 </code></pre></div>
 Result:
 <div class="language-bash highlight"><pre><span></span><code>src-OvmsClientGst-1<span class="w">   </span>Up<span class="w"> </span><span class="m">32</span><span class="w"> </span>seconds
