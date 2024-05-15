@@ -32,9 +32,12 @@ This feature would:
 
 In the initial phases, the solution can be pulled in as just the pieces surrounding the pipeline validation. In order to do this, the [Pipeline Validator](https://intel.github.io/AiCSD/services/as-pipeline-val.html) service can be pulled in. This service 
 provides the appropriate endpoints and components necessary to call any pipeline built for this system. In the simplest case, the Pipeline Validator service could be used with the 
-Pipeline Simulator service without the need to add additional models. In order to call these services
-or provide enough data to run benchmarking, it would be necessary to add a script
-that calls the endpoint to launch the pipeline.
+Pipeline Simulator service without the need to add additional models. The Pipeline
+Simulator will be modified to use go gRPC to call an OVMS inferencing pipeline.
+In order to send information to the services, it would be necessary to add a script
+that calls the endpoint to launch the pipeline. When integrating with the benchmarking 
+script, the AiCSD services will be started using the necessary docker compose files. 
+This will ensure that all the services are started under the same Docker network. 
 
 [![AiCSD Integration - Crawl](./images/aicsd-initial-integration.jpg)](./images/aicsd-initial-integration.jpg)
 
