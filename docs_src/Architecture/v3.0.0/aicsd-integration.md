@@ -2,12 +2,10 @@
 
 <!--ts-->
 
-- [Status](#status)
-- [Decision](#decision)
-- [Context](#context)
-- [Proposed Design](#proposed-design)
-- [Consequences](#consequences)
-- [References](#references)
+- [Decision](##decision)
+- [Context](##context)
+- [Proposed Design](##proposed-design)
+- [References](##references)
 
 <!--te-->
 
@@ -20,6 +18,7 @@
 <!-- Please provide context to the requirement. -->
 
 This feature would:
+
 - provide the ability to integrate pipelines using Intel Geti, BentoML or OpenVino
 - provide the ability to run the entire AiCSD framework including sending images from another machine
 - extend the capability of AiCSD to process still images to include video streams
@@ -40,15 +39,16 @@ that calls the endpoint to launch the pipeline.
 [![AiCSD Integration - Crawl](./images/aicsd-initial-integration.jpg)](./images/aicsd-initial-integration.jpg)
 
 Necessary Components:
+
 - Pipeline Validator Service
 - EdgeX Services
 - Pipeline from the options below:
-  - Pipeline Simulator (standalone)
-  - Intel Geti
-  - OVMS
-  - BentoML
+      - Pipeline Simulator (standalone)
+      - Intel Geti
+      - OVMS
+      - BentoML
 - Script to call launch pipeline for each image in a directory 
-  (or a script that sends the same image for a fixed period of time)
+(or a script that sends the same image for a fixed period of time)
 - Integrate the ability to launch the appropriate target from the profile launcher
 
 ### Walk: Integrate the file dropping capability
@@ -59,6 +59,7 @@ it would also be possible to run AiCSD all on one system. The integration will a
 for benchmarking to run alongside this solution.
 
 Necessary components:
+
 - Desired pipeline
 - AiCSD Gateway Services
 - Integration of launching services with the profile launcher
