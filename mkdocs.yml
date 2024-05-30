@@ -37,11 +37,13 @@ nav:
   - Architecture Decisions:
       - Pipelines: 'Architecture/pipelines.md'
       - v2.0.0:
-          - Distributed Architecture: 'Architecture/distributed-architecture.md'
-          - Multiple OVMS JSON Config: 'Architecture/multiple-ovms-json-config.md'
-          - Performance Benchmarking: 'Architecture/performance_benchmarking.md'
-          - Profile Launcher: 'Architecture/profile-launcher.md'
-          - Target Device: 'Architecture/target-device.md'
+          - Distributed Architecture: 'Architecture/v2.0.0/distributed-architecture.md'
+          - Multiple OVMS JSON Config: 'Architecture/v2.0.0/multiple-ovms-json-config.md'
+          - Performance Benchmarking: 'Architecture/v2.0.0/performance_benchmarking.md'
+          - Profile Launcher: 'Architecture/v2.0.0/profile-launcher.md'
+          - Target Device: 'Architecture/v2.0.0/target-device.md'
+      - v3.0.0:
+          - AiCSD Integration: 'Architecture/v3.0.0/aicsd-integration.md'
   - Performance Tools:
       - Benchmarking: 'performance-tools/benchmark.md'
       - Benchmarking APIs: 'performance-tools/api-docs.md'
