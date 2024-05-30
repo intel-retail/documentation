@@ -51,6 +51,9 @@ nav:
           - Getting Started: 'use-cases/automated-self-checkout/getting_started.md'
           - Advanced Settings: 'use-cases/automated-self-checkout/advanced.md'
           - Performance: 'use-cases/automated-self-checkout/performance.md'
+      - AI Connect for Scientific Data (AiCSD):
+          - Overview: 'use-cases/AiCSD/aicsd.md'
+          - GRPC Yolov5s Pipeline: 'use-cases/AiCSD/pipeline-grpc-go.md'
   - Releases: 'releasenotes.md'
 extra_css:
   - ./stylesheets/index.css
