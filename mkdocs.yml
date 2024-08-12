@@ -52,6 +52,7 @@ nav:
           - Advanced Settings: 'use-cases/automated-self-checkout/advanced.md'
           - Performance: 'use-cases/automated-self-checkout/performance.md'
   - Releases: 'releasenotes.md'
+  - Troubleshooting: 'troubleshooting.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons
