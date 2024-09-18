@@ -31,5 +31,6 @@ To modify the ROI coordinates, locate the file `roi.json` under src/pipelines/ro
     }
 ]
 ```
+For enviroments variables, follow the same tutorial as the automated self checkout [HERE](../automated-self-checkout/advanced.md)
 
 
