@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Q: Why is the performance sometimes on CPU better than on GPU, when running pipeline benchmarking like stream density?
+Q: Why is the performance on CPU sometimes better than on GPU, when running pipeline benchmarking like stream density?
 
 A: The performance of pipeline benchmarking strongly depends on the models.  Specifically for `yolov5s` object detection, it is recommended to use the model precision FP32 when it is running on device `GPU`.  If supported, then you can change the model precision by updating the pipeline script to point to the precision of your choice.  For example, you can change the model of `FP16` to `FP32` assuming the precision `FP32` of the target model is available:  
         
