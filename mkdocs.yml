@@ -57,6 +57,7 @@ nav:
           - Overview: 'use-cases/AiCSD/aicsd.md'
           - GRPC Yolov5s Pipeline: 'use-cases/AiCSD/pipeline-grpc-go.md'
   - Releases: 'releasenotes.md'
+  - Troubleshooting: 'troubleshooting.md'
 extra_css:
   - ./stylesheets/index.css
   - https://fonts.googleapis.com/icon?family=Material+Icons
