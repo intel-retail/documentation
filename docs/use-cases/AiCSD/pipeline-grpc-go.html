@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://intel-retail.github.io/documentation/releasenotes.html">
+        <link rel="canonical" href="https://intel-retail.github.io/documentation/use-cases/AiCSD/pipeline-grpc-go.html">
       
       
-        <link rel="prev" href="use-cases/loss-prevention/advanced.html">
+        <link rel="prev" href="aicsd.html">
       
       
-        <link rel="next" href="troubleshooting.html">
+        <link rel="next" href="../loss-prevention/loss-prevention.html">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
     
     
       
-        <title>Releases - Intel® Retail Organization</title>
+        <title>GRPC Yolov5s Pipeline - Intel® Retail Organization</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
       
       
 
@@ -45,17 +45,17 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="stylesheets/index.css">
+      <link rel="stylesheet" href="../../stylesheets/index.css">
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="stylesheets/branding.css">
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#releases" class="md-skip">
+        <a href="#grpc-yolov5s-pipeline-service" class="md-skip">
           Skip to content
         </a>
       
@@ -94,9 +94,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Intel® Retail Organization" class="md-header__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+    <a href="../../index.html" title="Intel® Retail Organization" class="md-header__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
       
-  <img src="images/logo-white-75px.png" alt="logo">
+  <img src="../../images/logo-white-75px.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Releases
+              GRPC Yolov5s Pipeline
             
           </span>
         </div>
@@ -190,7 +190,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="index.html" class="md-tabs__link">
+      <a href="../../index.html" class="md-tabs__link">
         
   
     
@@ -209,7 +209,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="Architecture/pipelines.html" class="md-tabs__link">
+        <a href="../../Architecture/pipelines.html" class="md-tabs__link">
           
   
   Architecture Decisions
@@ -227,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="performance-tools/benchmark.html" class="md-tabs__link">
+        <a href="../../performance-tools/benchmark.html" class="md-tabs__link">
           
   
   Performance Tools
@@ -241,17 +241,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="use-cases/automated-self-checkout/automated-self-checkout.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../automated-self-checkout/automated-self-checkout.html" class="md-tabs__link">
           
   
   Use Cases
@@ -268,11 +272,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="releasenotes.html" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../releasenotes.html" class="md-tabs__link">
         
   
     
@@ -289,7 +291,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="troubleshooting.html" class="md-tabs__link">
+      <a href="../../troubleshooting.html" class="md-tabs__link">
         
   
     
@@ -331,9 +333,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Intel® Retail Organization" class="md-nav__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+    <a href="../../index.html" title="Intel® Retail Organization" class="md-nav__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
       
-  <img src="images/logo-white-75px.png" alt="logo">
+  <img src="../../images/logo-white-75px.png" alt="logo">
 
     </a>
     Intel® Retail Organization
@@ -360,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -418,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/pipelines.html" class="md-nav__link">
+      <a href="../../Architecture/pipelines.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v2.0.0/distributed-architecture.html" class="md-nav__link">
+      <a href="../../Architecture/v2.0.0/distributed-architecture.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -498,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v2.0.0/multiple-ovms-json-config.html" class="md-nav__link">
+      <a href="../../Architecture/v2.0.0/multiple-ovms-json-config.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v2.0.0/performance_benchmarking.html" class="md-nav__link">
+      <a href="../../Architecture/v2.0.0/performance_benchmarking.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v2.0.0/profile-launcher.html" class="md-nav__link">
+      <a href="../../Architecture/v2.0.0/profile-launcher.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v2.0.0/target-device.html" class="md-nav__link">
+      <a href="../../Architecture/v2.0.0/target-device.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Architecture/v3.0.0/aicsd-integration.html" class="md-nav__link">
+      <a href="../../Architecture/v3.0.0/aicsd-integration.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="performance-tools/benchmark.html" class="md-nav__link">
+      <a href="../../performance-tools/benchmark.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -723,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="performance-tools/api-docs.html" class="md-nav__link">
+      <a href="../../performance-tools/api-docs.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -748,23 +750,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -775,7 +782,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Use Cases
@@ -827,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/automated-self-checkout/automated-self-checkout.html" class="md-nav__link">
+      <a href="../automated-self-checkout/automated-self-checkout.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/automated-self-checkout/getting_started.html" class="md-nav__link">
+      <a href="../automated-self-checkout/getting_started.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/automated-self-checkout/advanced.html" class="md-nav__link">
+      <a href="../automated-self-checkout/advanced.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/automated-self-checkout/performance.html" class="md-nav__link">
+      <a href="../automated-self-checkout/performance.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -916,6 +923,8 @@
                 
   
   
+    
+  
   
   
     
@@ -925,11 +934,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -943,7 +952,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             AI Connect for Scientific Data (AiCSD)
@@ -957,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/AiCSD/aicsd.html" class="md-nav__link">
+      <a href="aicsd.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,10 +984,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="use-cases/AiCSD/pipeline-grpc-go.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GRPC Yolov5s Pipeline
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="pipeline-grpc-go.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -987,6 +1016,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tearing-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tearing Down
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1045,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/loss-prevention/loss-prevention.html" class="md-nav__link">
+      <a href="../loss-prevention/loss-prevention.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1066,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/loss-prevention/getting_started.html" class="md-nav__link">
+      <a href="../loss-prevention/getting_started.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1087,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="use-cases/loss-prevention/advanced.html" class="md-nav__link">
+      <a href="../loss-prevention/advanced.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,19 +1196,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="releasenotes.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../releasenotes.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1141,7 +1208,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1153,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="troubleshooting.html" class="md-nav__link">
+      <a href="../../troubleshooting.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1184,13 +1250,103 @@
   
 
 
-<h1 id="releases">Releases</h1>
-<p>Release <a href="release-notes/v1-0-1.html">v1.0.1</a></p>
-<p>Release <a href="release-notes/v1-5-0.html">v1.5.0</a></p>
-<p>Release <a href="release-notes/v2-0-0.html">v2.0.0</a></p>
-<p>Release <a href="release-notes/v2-1-0.html">v2.1.0</a></p>
-<p>Release <a href="release-notes/v3-0-0.html">v3.0.0</a></p>
-<p>Release <a href="release-notes/v3-1-0.html">v3.1.0</a></p>
+<h1 id="grpc-yolov5s-pipeline-service">GRPC Yolov5s Pipeline Service</h1>
+<h2 id="overview">Overview</h2>
+<p>This EdgeX-based application service provides an interface to use gRPC to call 
+OVMS to run the input data through a specified model. The service may be set up 
+to use different topics to trigger different pipelines and call different models.
+The current implementation makes a call to OVMS running the Yolov5s model.</p>
+<h2 id="getting-started">Getting Started</h2>
+<ol>
+<li>
+<p>Clone the Aicsd code as a submodule in the directory retail-use-cases/use-cases
+    <div class="language-shell highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/intel/AiCSD
+</code></pre></div></p>
+</li>
+<li>
+<p>Change directories to retail-use-cases
+    <div class="language-shell highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div></p>
+</li>
+<li>Download models and sample media 
+    <div class="language-shell highlight"><pre><span></span><code>make<span class="w"> </span>download-models<span class="w"> </span>download-sample-media
+</code></pre></div></li>
+<li>
+<p>Build the OVMS Docker container
+    <div class="language-shell highlight"><pre><span></span><code>make<span class="w"> </span>build-ovms-server
+</code></pre></div></p>
+</li>
+<li>
+<p>change directories to use-cases/aicsd
+    <div class="language-shell highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>use-cases/aicsd
+</code></pre></div></p>
+</li>
+<li>Build the Pipeline Validator and Pipeline grpc-go services 
+    <div class="language-text highlight"><pre><span></span><code>make docker-pipeline-val docker-pipeline-grpc-go
+</code></pre></div></li>
+<li>Modify docker-compose-pipeline-val.yml evnironment variables to have the following settings
+    <div class="language-shell highlight"><pre><span></span><code>APPLICATIONSETTINGS_PIPELINEHOST:<span class="w"> </span>pipeline-grpc-go
+APPLICATIONSETTINGS_PIPELINEPORT:<span class="w"> </span><span class="m">59790</span>
+</code></pre></div></li>
+<li>Run the pipeline validator and pipeline grpc-go services along with their dependencies
+    <div class="language-shell highlight"><pre><span></span><code>make<span class="w"> </span>run-pipeline-grpc-go
+</code></pre></div></li>
+<li>Verify that the pipeline-grpc-go container has started by checking the log for the message
+    <div class="language-text highlight"><pre><span></span><code>level=INFO ts=2024-05-30T20:06:58.037173489Z app=app-pipeline-grpc-go source=messaging.go:125 msg=&quot;Waiting for messages from the MessageBus on the &#39;ovms-grpc/yolov5&#39; topic&quot;
+</code></pre></div></li>
+<li>Send a POST request to http://localhost:59788/api/v1/launchPipeline with the following body
+    <div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;InputFileLocation&quot;</span><span class="p">:</span><span class="s2">&quot;rtsp://camera-simulator:8554/camera_0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PipelineTopic&quot;</span><span class="p">:</span><span class="s2">&quot;ovms-grpc/yolov5&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;OutputFileFolder&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.0.0:8555&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>Verify that the pipeline-grpc-go container has output in its log. This shows that the pipeline is running.
+    <div class="language-text highlight"><pre><span></span><code>level=INFO ts=2024-05-30T20:06:58.037173489Z app=app-pipeline-grpc-go source=messaging.go:125 msg=&quot;Waiting for messages from the MessageBus on the &#39;ovms-grpc/yolov5&#39; topic&quot;
+level=INFO ts=2024-05-30T20:08:37.753137304Z app=app-pipeline-grpc-go source=functions.go:265 msg=&quot;RunOvmsModel: Processing time: 45 ms; fps: 16.70864819479429\n&quot;
+level=INFO ts=2024-05-30T20:08:37.685039109Z app=app-pipeline-grpc-go source=functions.go:265 msg=&quot;RunOvmsModel: Processing time: 37 ms; fps: 16.72014862354332\n&quot;
+level=INFO ts=2024-05-30T20:08:40.689475521Z app=app-pipeline-grpc-go source=functions.go:265 msg=&quot;RunOvmsModel: Processing time: 49 ms; fps: 16.368045264717768\n&quot;
+level=INFO ts=2024-05-30T20:08:40.801842876Z app=app-pipeline-grpc-go source=functions.go:265 msg=&quot;RunOvmsModel: Processing time: 29 ms; fps: 16.37919507955609\n&quot;
+</code></pre></div></li>
+<li>To stop the data stream from coming in, stop the camera-simulator and camera-simulator0 containers.</li>
+<li>Verify that the pipeline-grpc-go container has successfully finished processing by verifying the log says
+    <div class="language-text highlight"><pre><span></span><code>level=DEBUG ts=2024-05-30T20:10:56.351778319Z app=app-pipeline-grpc-go source=triggermessageprocessor.go:196 msg=&quot;trigger successfully processed message &#39;OVMS Pipeline&#39; in pipeline 64a47e72-3e89-452e-9010-2d64c059c108&quot;
+</code></pre></div></li>
+<li>Verify that the job status from the pipeline validator service making a GET request to http://localhost:59788/api/v1/job which should return an entry as follows
+    <div class="language-json highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;InputFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gateway&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;DirName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rtsp://camera-simulator:8554/&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;camera_0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ArchiveName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Viewable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;PipelineDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;TaskId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de9ee7bd-aacb-4e6a-ac91-a3c3be3b09c3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PipelineComplete&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;QCFlags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;passed&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;OutputFileHost&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;OutputFiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Results&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ovms-server0:9001&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;LastUpdated&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1717025357138890553</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Complete&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ErrorDetails&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Verification&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></li>
+<li>Repeat by restarting the camera-simulator services and sending the POST request to <code>launchPipeline</code>.</li>
+</ol>
+<h2 id="tearing-down">Tearing Down</h2>
+<p>To tear down the services and clean up any data created, run 
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>down<span class="w"> </span>clean-files<span class="w"> </span>clean-volumes
+</code></pre></div></p>
 
 
 
@@ -1226,7 +1382,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="use-cases/loss-prevention/advanced.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Settings">
+          <a href="aicsd.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1236,20 +1392,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Advanced Settings
+                Overview
               </div>
             </div>
           </a>
         
         
           
-          <a href="troubleshooting.html" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting">
+          <a href="../loss-prevention/loss-prevention.html" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Troubleshooting
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1287,10 +1443,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       
