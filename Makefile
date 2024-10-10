@@ -12,6 +12,8 @@ docs: clean-docs
 
 docs-builder-image:
 	docker build \
+		--build-arg HTTPS_PROXY=${HTTPS_PROXY} \
+		--build-arg HTTP_PROXY=${HTTP_PROXY} \
 		-f Dockerfile.docs \
 		-t $(MKDOCS_IMAGE) \
 		.
