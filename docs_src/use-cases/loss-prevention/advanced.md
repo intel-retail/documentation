@@ -31,6 +31,17 @@ To modify the ROI coordinates, locate the file `roi.json` under src/pipelines/ro
     }
 ]
 ```
+## Class Filtering for YOLOv8 Pipeline
+
+To detect specific classes using YOLOv8, edit the file `src/pipelines/yolov8s_roi.sh` and update the variable `CLASS_IDS="0"` to include the desired class IDs. For example, the default value is set to `"0"`, which corresponds to detecting only the "person" class. You can specify multiple class IDs using a comma-separated format like `"0,3,5,4"`, or leave the value empty (`""`) to detect all classes.
+
+To find all supported classes by YOLOv8, you can find them in this file `src/extensions/object_filter.py`.
+
+```json
+CLASS_IDS="0,2"
+```
+
+
 For enviroments variables, follow the same tutorial as the automated self checkout [HERE](../automated-self-checkout/advanced.md)
 
 
