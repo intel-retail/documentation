@@ -10,7 +10,7 @@ The yolov8 + efficientnet design will follow a similar custom pipeline as the pr
 
 ## Applicable Repos
 
-[retail-use-cases-gst-capi-yolov8](https://github.com/intel-retail/retail-use-case/use-cases/gst_capi)
+[retail-use-cases-gst-capi-yolov8](https://github.com/intel-retail/retail-use-cases/tree/main/use-cases/gst_capi)
 
 ## Next Steps
 
