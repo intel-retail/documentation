@@ -21,18 +21,18 @@ jobs:
         with:
           python-version: 3.x
       - name: Create /apis Directory
-        run: mkdir -p /apis
+        run: mkdir -p ./apis
 
       - name: Download Performance Tools
-        run: wget -P /apis https://github.com/intel-retail/performance-tools/archive/refs/heads/main.zip
+        run: wget -P ./apis https://github.com/intel-retail/performance-tools/archive/refs/heads/main.zip
 
       - name: Unzip Performance Tools
-        run: unzip /apis/main.zip -d /apis
+        run: unzip ./apis/main.zip -d ./apis
 
       - name: Move Benchmark Scripts
         run: |
-          mkdir -p /benchmark-scripts
-          mv /apis/performance-tools-main/benchmark-scripts/* /benchmark-scripts
+          mkdir -p ./benchmark-scripts
+          mv ./apis/performance-tools-main/benchmark-scripts/* ./benchmark-scripts
       - name: Install mkdocs
         run: |
           pip install mkdocs "mkdocs-material>=8.2" "mkdocs-htmlproofer-plugin>=0.8"
