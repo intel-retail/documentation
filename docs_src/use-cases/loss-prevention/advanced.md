@@ -43,7 +43,7 @@ CLASS_IDS="0,2"
 
 ## MQTT Inference Export and ROI Detection
 
-This applicaiton enables monitoring object entry and exit within a defined Region of Interest (ROI), allowing real-time event tracking and external message handling.
+This application enables monitoring object entry and exit within a defined Region of Interest (ROI), allowing real-time event tracking and external message handling.
 The `yolov8s_roi.json` pipeline exports the inference data through MQTT using mosquitto broker defined in the `docker-compose.yml` file. 
 
 To change the default MQTT URL, edit the file `src/pipelines/yolov8s_roi.sh` and update the variable `MQTT_HOST="127.0.0.1:1883"`.
@@ -64,6 +64,17 @@ The following diagram illustrates the containers running:
 
 [![MQTT export](./images/mqtt-diagram.jpg)](./images/mqtt-diagram.jpg)
 
+## Age Classification Pipeline Usage
+
+To run an age classification pipeline, let's change some variables to the execution:
+
+!!! Example
+
+    ```bash
+    make PIPELINE_SCRIPT=age_recognition.sh RESULTS_DIR="../render_results" run-render-mode
+    ```
+
+The above command will execute a DLStreamer pipeline using a [facial detection model](https://docs.openvino.ai/2024/omz_models_model_face_detection_retail_0005.html) for object detection, then running an [age/gender classification model](https://docs.openvino.ai/2024/omz_models_model_age_gender_recognition_retail_0013.html) on the results of the facial detection model to output the gender and age of the faces in the input frame.
 
 For enviroments variables, follow the same tutorial as the automated self checkout [HERE](../automated-self-checkout/advanced.md)
 
