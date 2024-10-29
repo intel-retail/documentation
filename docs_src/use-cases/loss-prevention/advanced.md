@@ -64,29 +64,6 @@ The following diagram illustrates the containers running:
 
 [![MQTT export](./images/mqtt-diagram.jpg)](./images/mqtt-diagram.jpg)
 
-## MQTT Inference Export and ROI Detection
-
-This application enables monitoring object entry and exit within a defined Region of Interest (ROI), allowing real-time event tracking and external message handling.
-The `yolov8s_roi.json` pipeline exports the inference data through MQTT using mosquitto broker defined in the `docker-compose.yml` file. 
-
-To change the default MQTT URL, edit the file `src/pipelines/yolov8s_roi.sh` and update the variable `MQTT_HOST="127.0.0.1:1883"`.
-
-We have developed a business logic application in `src/app/loss_prevention.py` that tracks objects entering and exiting a defined ROI, generating corresponding events.
-
-To configure the app to connect to external MQTT broker, modify the `src/docker-compose.yml` and change the following env variables:
-
-| Variable   | Default        | Description                              |
-|------------|----------------|------------------------------------------|
-| `MQTT_URL` | `127.0.0.1`    | MQTT Broker URL                          |
-| `MQTT_PORT`| `1883`         | MQTT Broker Port                         |
-| `MQTT_TOPIC` | `event/detection` | Topic for publishing inference data   |
-| `ROI_NAME` | `BASKET`       | The name of the ROI used to filter objects |
-
-
-The following diagram illustrates the containers running:  
-
-[![MQTT export](./images/mqtt-diagram.jpg)](./images/mqtt-diagram.jpg)
-
 ## Age Classification Pipeline Usage
 
 To run an age classification pipeline, let's change some variables to the execution:
