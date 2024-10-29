@@ -22,8 +22,8 @@ jobs:
           python-version: 3.x
       - name: Install mkdocs
         run: |
-          pip install mkdocs mkdocs-material mkdocs-swagger-ui-tag
-          pip install mkdocs-material mkdocstrings mkdocstrings-python mkdocs-htmlproofer-plugin     
+          pip install mkdocs "mkdocs-material>=8.2" "mkdocs-htmlproofer-plugin>=0.8"
+          pip install "mkdocs-swagger-ui-tag" "mkdocstrings>=0.24.3" "mkdocstrings-python>=1.9.2"     
       - name: Configure Git user
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"

@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -1150,6 +1150,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#class-filtering-for-yolov8-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Filtering for YOLOv8 Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mqtt-inference-export-and-roi-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT Inference Export and ROI Detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#age-classification-pipeline-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Age Classification Pipeline Usage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1242,7 +1269,7 @@
 <p>The above command will execute a DLStreamer pipeline using YOLOv8s model for object detection on a region of interest (ROI) with object tracking mechanism.</p>
 <h2 id="modify-roi-coordinates">Modify ROI coordinates</h2>
 <p>To modify the ROI coordinates, locate the file <code>roi.json</code> under src/pipelines/roi.json. Since the "objects" attribute is an array, it is possible to add multiple ROIs.</p>
-<p><div class="language-json highlight"><pre><span></span><code><span class="p">[</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="p">{</span>
@@ -1258,7 +1285,59 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
-For enviroments variables, follow the same tutorial as the automated self checkout <a href="../automated-self-checkout/advanced.html">HERE</a></p>
+<h2 id="class-filtering-for-yolov8-pipeline">Class Filtering for YOLOv8 Pipeline</h2>
+<p>To detect specific classes using YOLOv8, edit the file <code>src/pipelines/yolov8s_roi.sh</code> and update the variable <code>CLASS_IDS="0"</code> to include the desired class IDs. For example, the default value is set to <code>"0"</code>, which corresponds to detecting only the "person" class. You can specify multiple class IDs using a comma-separated format like <code>"0,3,5,4"</code>, or leave the value empty (<code>""</code>) to detect all classes.</p>
+<p>To find all supported classes by YOLOv8, you can find them in this file <code>src/extensions/object_filter.py</code>.</p>
+<div class="language-json highlight"><pre><span></span><code><span class="err">CLASS_IDS=</span><span class="s2">&quot;0,2&quot;</span>
+</code></pre></div>
+<h2 id="mqtt-inference-export-and-roi-detection">MQTT Inference Export and ROI Detection</h2>
+<p>This application enables monitoring object entry and exit within a defined Region of Interest (ROI), allowing real-time event tracking and external message handling.
+The <code>yolov8s_roi.json</code> pipeline exports the inference data through MQTT using mosquitto broker defined in the <code>docker-compose.yml</code> file. </p>
+<p>To change the default MQTT URL, edit the file <code>src/pipelines/yolov8s_roi.sh</code> and update the variable <code>MQTT_HOST="127.0.0.1:1883"</code>.</p>
+<p>We have developed a business logic application in <code>src/app/loss_prevention.py</code> that tracks objects entering and exiting a defined ROI, generating corresponding events.</p>
+<p>To configure the app to connect to external MQTT broker, modify the <code>src/docker-compose.yml</code> and change the following env variables:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MQTT_URL</code></td>
+<td><code>127.0.0.1</code></td>
+<td>MQTT Broker URL</td>
+</tr>
+<tr>
+<td><code>MQTT_PORT</code></td>
+<td><code>1883</code></td>
+<td>MQTT Broker Port</td>
+</tr>
+<tr>
+<td><code>MQTT_TOPIC</code></td>
+<td><code>event/detection</code></td>
+<td>Topic for publishing inference data</td>
+</tr>
+<tr>
+<td><code>ROI_NAME</code></td>
+<td><code>BASKET</code></td>
+<td>The name of the ROI used to filter objects</td>
+</tr>
+</tbody>
+</table>
+<p>The following diagram illustrates the containers running:  </p>
+<p><a href="images/mqtt-diagram.jpg"><img alt="MQTT export" src="images/mqtt-diagram.jpg" /></a></p>
+<h2 id="age-classification-pipeline-usage">Age Classification Pipeline Usage</h2>
+<p>To run an age classification pipeline, let's change some variables to the execution:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>age_recognition.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w"> </span>run-render-mode
+</code></pre></div>
+</div>
+<p>The above command will execute a DLStreamer pipeline using a <a href="https://docs.openvino.ai/2024/omz_models_model_face_detection_retail_0005.html">facial detection model</a> for object detection, then running an <a href="https://docs.openvino.ai/2024/omz_models_model_age_gender_recognition_retail_0013.html">age/gender classification model</a> on the results of the facial detection model to output the gender and age of the faces in the input frame.</p>
+<p>For enviroments variables, follow the same tutorial as the automated self checkout <a href="../automated-self-checkout/advanced.html">HERE</a></p>
 
 
 
@@ -1358,7 +1437,7 @@ For enviroments variables, follow the same tutorial as the automated self checko
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       
