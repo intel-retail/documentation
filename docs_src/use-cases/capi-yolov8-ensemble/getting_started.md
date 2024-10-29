@@ -4,7 +4,7 @@
 
 ### Presiquistes:
 
-- Ununtu 22.04 +
+- Ubuntu 22.04 +
 - [minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 - [kompose](https://github.com/kubernetes/kompose?tab=readme-ov-file#binary-installation)
@@ -22,7 +22,7 @@ and then build the container image for minikube to run:
     ```bash
     make minikube_build_capi_yolov8_ensemble
     ```
-and you should see all built successfully.
+and you should see all of the dependencies built successfully.
 
 ### Run C-API YOLOv8 in minikube
 
