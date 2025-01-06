@@ -11,3 +11,5 @@ Release [v2.1.0](./release-notes/v2-1-0.md)
 Release [v3.0.0](./release-notes/v3-0-0.md)
 
 Release [v3.1.0](./release-notes/v3-1-0.md)
+
+Release [v3.2.0](./release-notes/v3-2-0.md)
