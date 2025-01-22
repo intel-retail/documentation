@@ -1423,29 +1423,27 @@
 <p>For instance, with custom environment variables, you can configure the pipeline to run on a CPU-only setup or a mixed setup of CPU and GPU.</p>
 <p>There are two ways to apply environment variables (EVs) to the system that will run the models:</p>
 <ul>
-<li>:ref:<code>Running the commands &lt;run_commands&gt;</code> (<code>make</code> and <code>docker compose up</code>) with custom environment variables as input parameters.</li>
-<li>:ref:<code>Editing the environment files &lt;edit_file&gt;</code>.</li>
+<li><a href="#run-commands-to-set-custom-environment-variables">Running the commands</a>  (<code>make</code> and <code>docker compose up</code>) with custom environment variables as input parameters.</li>
+<li><a href="#edit-environment-files">Editing the environment files</a>.</li>
 </ul>
 <p>If you use both methods, the input parameter will override the corresponding parameter in the <code>.env</code> file.</p>
 <h2 id="run-commands-to-set-custom-environment-variables">Run Commands to Set Custom Environment Variables</h2>
-<hr />
 <p>There are two methods to apply the environment variables:</p>
 <ul>
-<li>Using the <code>make</code> command. For example:</li>
-</ul>
-<p>.. code-block:: bash</p>
-<div class="language-text highlight"><pre><span></span><code>  make PIPELINE_SCRIPT=yolov5s_effnetb0.sh RESULTS_DIR=&quot;../render_results&quot;  run-render-mode
+<li>
+<p>Using the <code>make</code> command. For example:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">  </span>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w">  </span>run-render-mode
 </code></pre></div>
-<ul>
-<li>Using the <code>docker compose up</code> command. For example:</li>
-</ul>
-<p>.. code-block:: bash</p>
-<div class="language-text highlight"><pre><span></span><code>  PIPELINE_SCRIPT=yolov5s_effnetb0.sh RESULTS_DIR=&quot;../render_results&quot; docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu.env up -d
+</li>
+<li>
+<p>Using the <code>docker compose up</code> command. For example:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">  </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>src/docker-compose.yml<span class="w"> </span>--env-file<span class="w"> </span>src/res/yolov5-cpu.env<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>
 </code></pre></div>
+</li>
+</ul>
 <p>Environment variables set in this way are known as command-line environment overrides. These changes apply only to the current run and override the default values specified in <code>.env</code> files and <code>docker-compose.yml</code>.</p>
-<p>For the list of environment variables that you can use, see :ref:<code>Environment Variables &lt;ev&gt;</code>.</p>
+<p>For the list of environment variables that you can use, see <a href="#environment-variables">Environment Variables</a>.</p>
 <h2 id="edit-environment-files">Edit Environment Files</h2>
-<hr />
 <p>Environment files can be used to persist environment variables across deployments. For the Automated Self-Checkout reference implementation, three environment variable files contain the default settings:</p>
 <ul>
 <li><code>src/gst.env</code> file: Contains shared environment variables.</li>
@@ -1453,200 +1451,174 @@
 <li><code>src/yolov5-gpu.env</code> file: Configures the pipeline to run on GPU or mixed CPU/GPU set up.</li>
 </ul>
 <p>After modifying or creating a new <code>.env</code> file, you can load the file using the <code>docker compose up</code> command. For example:</p>
-<p>.. code-block:: bash</p>
-<p>docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu.env up -d</p>
-<p>For the list of environment variables that you can use, see :ref:<code>Environment Variables &lt;ev&gt;</code>.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>src/docker-compose.yml<span class="w"> </span>--env-file<span class="w"> </span>src/res/yolov5-cpu.env<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+For the list of environment variables that you can use, see <a href="#environment-variables">Environment Variables</a>.</p>
 <h2 id="environment-variables">Environment Variables</h2>
-<hr />
 <p>The following are the environment variables that you can use as inputs for the container running the inferencing pipeline:</p>
 <ul>
-<li>:ref:<code>Docker Compose Environment Variables &lt;docker_compose_env&gt;</code> </li>
-<li>:ref:<code>Docker Compose Parameters &lt;docker_compose_parameters&gt;</code></li>
-<li>:ref:<code>Common Environment Variables &lt;common_env&gt;</code></li>
-<li>:ref:<code>Automated Self-checkout Environment Variables &lt;checkout_env&gt;</code></li>
+<li><a href="#docker-compose-environment-variables">Docker Compose Environment Variables</a></li>
+<li><a href="#docker-compose-parameters">Docker Compose Parameters</a></li>
+<li><a href="#common-environment-variables">Common Environment Variables</a></li>
+<li><a href="#automated-self-checkout-environment-variables">Automated Self-checkout Environment Variables</a></li>
 </ul>
 <h2 id="docker-compose-environment-variables">Docker Compose Environment Variables</h2>
-<hr />
 <p>You can use the following environment variables when running the <code>Makefile</code> or executing a <code>docker-compose up</code> command:</p>
-<p>.. list-table::
-   :widths: 20 150 50
-   :header-rows: 1</p>
-<ul>
-<li>
-<ul>
-<li>Variable</li>
-<li>Description</li>
-<li>Values</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>DEVICE_ENV</code></li>
-<li>Path to device-specific environment file that will be loaded into the pipeline container.</li>
-<li><code>src/res/yolov5-gpu.env</code> </li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>DEVICE</code></li>
-<li>To set the device to be used for pipeline run.</li>
-<li><code>"GPU"</code>, <code>"CPU"</code>, <code>"AUTO"</code>, <code>"MULTI:GPU,CPU"</code></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>DOCKER_COMPOSE</code> </li>
-<li>The <code>docker-compose.yml</code> file to be run. </li>
-<li><code>src/docker-compose.yml</code></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>RETAIL_USE_CASE_ROOT</code></li>
-<li>The root directory for Automated Self-Checkout in relation to the <code>docker-compose.yml</code> file.  </li>
-<li><code>..</code> </li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>RESULTS_DIR</code> </li>
-<li>Directory to output results. </li>
-<li><code>../results</code>   </li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEVICE_ENV</code></td>
+<td>Path to device-specific environment file that will be loaded into the pipeline container.</td>
+<td><code>src/res/yolov5-gpu.env</code></td>
+</tr>
+<tr>
+<td><code>DEVICE</code></td>
+<td>To set the device to be used for pipeline run.</td>
+<td><code>"GPU"</code>, <code>"CPU"</code>, <code>"AUTO"</code>, <code>"MULTI:GPU,CPU"</code></td>
+</tr>
+<tr>
+<td><code>DOCKER_COMPOSE</code></td>
+<td>The <code>docker-compose.yml</code> file to be run.</td>
+<td><code>src/docker-compose.yml</code></td>
+</tr>
+<tr>
+<td><code>RETAIL_USE_CASE_ROOT</code></td>
+<td>The root directory for Automated Self-Checkout in relation to the <code>docker-compose.yml</code> file.</td>
+<td><code>..</code></td>
+</tr>
+<tr>
+<td><code>RESULTS_DIR</code></td>
+<td>Directory to output results.</td>
+<td><code>../results</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="docker-compose-parameters">Docker Compose Parameters</h2>
-<hr />
 <p>You can use the following parameters when running the <code>docker-compose up</code> command:</p>
-<p>.. list-table::
-   :widths: 20 150 50
-   :header-rows: 1</p>
-<ul>
-<li>
-<ul>
-<li>Variable</li>
-<li>Description</li>
-<li>Values</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>v</code></li>
-<li>Volume binding for containers in Docker Compose.</li>
-<li><code>-v results/:/tmp/results</code> </li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>e</code></li>
-<li>Override environment variables inside the Docker Container.</li>
-<li><code>-e LOG_LEVEL debug</code></li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v</code></td>
+<td>Volume binding for containers in Docker Compose.</td>
+<td><code>-v results/:/tmp/results</code></td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Override environment variables inside the Docker Container.</td>
+<td><code>-e LOG_LEVEL debug</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="common-environment-variables">Common Environment Variables</h2>
-<hr />
 <p>You can use the following environment variables that are common across all Intel DLStreamer profiles: </p>
-<p>.. list-table::
-   :widths: 20 150 50
-   :header-rows: 1</p>
-<ul>
-<li>
-<ul>
-<li>Variable</li>
-<li>Description</li>
-<li>Values</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>BARCODE_RECLASSIFY_INTERVAL</code></li>
-<li>The time interval, in seconds, for barcode classification.</li>
-<li>For example, 5 </li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>BATCH_SIZE</code></li>
-<li>The number of frames grouped for a single inference, as specified by the <code>batch-size</code> element in <code>gvadetect &lt;https://dlstreamer.github.io/elements/gvadetect.html&gt;</code>_.</li>
-<li>0, 1</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>CLASSIFICATION_OPTIONS</code></li>
-<li>Additional classification parameters for configuring pipelines.</li>
-<li>"", <code>reclassify-interval=1 batch-size=1 nireq=4 gpu-throughput-streams=4</code></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>DETECTION_OPTIONS</code></li>
-<li>Additional parameters for configuring object detection pipelines.</li>
-<li>"", <code>gpu-throughput-streams=4 nireq=4 batch-size=1</code></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>GST_DEBUG</code></li>
-<li>Run pipeline in GStreamer (GST) debugging mode.</li>
-<li>0, 1</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>LOG_LEVEL</code></li>
-<li>Log level to be configured when running GST pipeline.</li>
-<li>ERROR, INFO, WARNING, and <code>more &lt;https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html?gi-language=c#the-debug-log&gt;</code>_.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>OCR_RECLASSIFY_INTERVAL</code></li>
-<li>Time interval, in seconds, for classifying Optical Character Recognition (OCR).</li>
-<li>For example, 5</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>RENDER_MODE</code></li>
-<li>For displaying pipelines and overlaying computer vision metadata.</li>
-<li>1, 0</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>PIPELINE_COUNT</code></li>
-<li>Number of Automated Self Checkout Docker container instances to be launched.</li>
-<li>For example, 1</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>PIPELINE_SCRIPt</code></li>
-<li>Pipeline script to be run.</li>
-<li><code>yolov5s.sh</code>, <code>yolov5s_effnetb0.sh</code>, <code>yolov5s_full.sh</code></li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BARCODE_RECLASSIFY_INTERVAL</code></td>
+<td>The time interval, in seconds, for barcode classification.</td>
+<td>For example, 5</td>
+</tr>
+<tr>
+<td><code>BATCH_SIZE</code></td>
+<td>The number of frames grouped for a single inference, as specified by the <code>batch-size</code> element in <a href="https://dlstreamer.github.io/elements/gvadetect.html">gvadetect</a>.</td>
+<td>0, 1</td>
+</tr>
+<tr>
+<td><code>CLASSIFICATION_OPTIONS</code></td>
+<td>Additional classification parameters for configuring pipelines.</td>
+<td>"", <code>reclassify-interval=1 batch-size=1 nireq=4 gpu-throughput-streams=4</code></td>
+</tr>
+<tr>
+<td><code>DETECTION_OPTIONS</code></td>
+<td>Additional parameters for configuring object detection pipelines.</td>
+<td>"", <code>gpu-throughput-streams=4 nireq=4 batch-size=1</code></td>
+</tr>
+<tr>
+<td><code>GST_DEBUG</code></td>
+<td>Run pipeline in GStreamer (GST) debugging mode.</td>
+<td>0, 1</td>
+</tr>
+<tr>
+<td><code>LOG_LEVEL</code></td>
+<td>Log level to be configured when running GST pipeline.</td>
+<td>ERROR, INFO, WARNING, and <a href="https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html?gi-language=c#the-debug-log">more</a>.</td>
+</tr>
+<tr>
+<td><code>OCR_RECLASSIFY_INTERVAL</code></td>
+<td>Time interval, in seconds, for classifying Optical Character Recognition (OCR).</td>
+<td>For example, 5</td>
+</tr>
+<tr>
+<td><code>RENDER_MODE</code></td>
+<td>For displaying pipelines and overlaying computer vision metadata.</td>
+<td>1, 0</td>
+</tr>
+<tr>
+<td><code>PIPELINE_COUNT</code></td>
+<td>Number of Automated Self Checkout Docker container instances to be launched.</td>
+<td>For example, 1</td>
+</tr>
+<tr>
+<td><code>PIPELINE_SCRIPT</code></td>
+<td>Pipeline script to be run.</td>
+<td><code>yolov5s.sh</code>, <code>yolov5s_effnetb0.sh</code>, <code>yolov5s_full.sh</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="automated-self-checkout-environment-variables">Automated Self-checkout Environment Variables</h2>
-<hr />
 <p>You can use the following environment variables for the EVAM workloads.</p>
-<p>+----------------+---------------------------------------------------+-------------------------------------------------------+
-| Variable       | Description                                       | Values                                                |
-+================+===================================================+=======================================================+
-| <code>DECODE</code>     | Instructions for using the decoding element       | For example, <code>"decode bin force-sw-decoders=1"</code>     |
-|                | in <code>gst-launch</code>.                                |                                                       |
-+----------------+---------------------------------------------------+-------------------------------------------------------+
-| <code>OCR_DEVICE</code> | OCR device.                                       | CPU, GPU                                              |
-+----------------+---------------------------------------------------+-------------------------------------------------------+
-| <code>PRE_PROCESS</code>| Pre-processing command to be included for         | <code>pre-process-backend=vaapi-surface-sharing</code>         |
-|                | inferencing.                                      | <code>pre-process-backend=vaapi-surface-sharing</code>         |
-|                |                                                   | <code>pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1</code> | 
-+----------------+---------------------------------------------------+-------------------------------------------------------+
-| <code>VA_SURFACE</code> | Use the video analytics surface from the shared   | "", "! <code>video/x-raw(memory:VASurface)</code>              |
-|                | memory, if applicable.                            |                                                       |
-+----------------+---------------------------------------------------+-------------------------------------------------------+</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DECODE</code></td>
+<td>Instructions for using the decoding element in <code>gst-launch</code>.</td>
+<td>For example, <code>"decode bin force-sw-decoders=1"</code></td>
+</tr>
+<tr>
+<td><code>OCR_DEVICE</code></td>
+<td>OCR device.</td>
+<td>CPU, GPU</td>
+</tr>
+<tr>
+<td><code>PRE_PROCESS</code></td>
+<td>Pre-processing command to be included for inferencing.</td>
+<td><code>pre-process-backend=vaapi-surface-sharing pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1</code></td>
+</tr>
+<tr>
+<td><code>VA_SURFACE</code></td>
+<td>Use the video analytics surface from the shared memory, if applicable.</td>
+<td>"", "! <code>video/x-raw(memory:VASurface)</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
