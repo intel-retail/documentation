@@ -1,6 +1,4 @@
-.. _test_performance:
-
-Test Performance
+# Test Performance
 ===========================================
 
 You can run the performance tests across CPU and GPU, and across all architectures, in combination and individually to provide flexibility in identifying performance needs.
@@ -11,7 +9,7 @@ You can run the script in two ways:
 * Defined Pipelines: This allows you to pre-define the number of pipelines and gather the performance metrics.
 * Stream Density: This allows you to pre-define the target frames per second (FPS) rate required per pipeline, and then measure metrics.   
 
-Benchmark Predefined Pipelines
+## Benchmark Predefined Pipelines
 -------------------------------------------
 
 This allows you to pre-define the number of pipelines and gather the performance metrics. By default, the ``benchmark`` command launches one ``yolov5s_full.sh`` pipeline and provides the metrics for the same:
@@ -33,7 +31,7 @@ You can also add environment variable overrides to the command:
    make PIPELINE_SCRIPT=yolov5s_effnetb0.sh PIPELINE_COUNT=2 benchmark
 
 
-Benchmark Stream Density
+## Benchmark Stream Density
 --------------------------
 
 This allows you to pre-define the target frames per second (FPS) rate required per pipeline, and then measure metrics. The default is to determine the container threshold for FPS above 14.95 using the ``yolov5s_full.sh`` pipeline. 

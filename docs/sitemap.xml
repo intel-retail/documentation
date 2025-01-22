@@ -2,126 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://intel-retail.github.io/documentation/index.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/releasenotes.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/troubleshooting.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/pipelines.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v2.0.0/distributed-architecture.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v2.0.0/multiple-ovms-json-config.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v2.0.0/performance_benchmarking.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v2.0.0/profile-launcher.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v2.0.0/target-device.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/Architecture/v3.0.0/aicsd-integration.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/performance-tools/api-docs.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/performance-tools/benchmark.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v1-0-1.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v1-5-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v2-0-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v2-1-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v3-0-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v3-1-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/release-notes/v3-2-0.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/use-cases.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/AiCSD/aicsd.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/AiCSD/pipeline-grpc-go.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/advanced.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/automated-self-checkout.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/getting_started.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/performance.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/catalog/Apply-Env.html</loc>
+         <lastmod>2025-01-22</lastmod>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/catalog/Get-Started-Guide.html</loc>
+         <lastmod>2025-01-22</lastmod>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/catalog/Overview.html</loc>
+         <lastmod>2025-01-22</lastmod>
+    </url>
+    <url>
+         <loc>https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/catalog/Test-Performance.html</loc>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/capi-yolov8-ensemble/capi-yolov8-ensemble.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/capi-yolov8-ensemble/getting_started.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/loss-prevention/advanced.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/loss-prevention/getting_started.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
     <url>
          <loc>https://intel-retail.github.io/documentation/use-cases/loss-prevention/loss-prevention.html</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-22</lastmod>
     </url>
 </urlset>

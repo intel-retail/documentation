@@ -2,7 +2,7 @@
 
 Use pre-configured optimized computer vision pipelines to build and deploy a self-checkout use case using Intel® hardware, software, and other open source software.
 
-## Overview
+## Summary
 
 The Automated Self-Checkout Reference Implementation provides essential components to build and deploy a self-checkout solution using Intel® hardware, software, and open source software. It includes the basic services to get you started running optimized Intel® Deep Learning Streamer (Intel® DLStreamer)-based computer vision pipelines. These services are modular, allowing for customization or replacement with your solutions to address specific needs.
 
@@ -49,6 +49,6 @@ The following are the components in the reference implementation.
 
 ## Learn More
 
-- Get started with the Automated Self-Checkout Retail Reference Implementation using the [Get Started Guide](Get-Started-Guide.rst).
+- Get started with the Automated Self-Checkout Retail Reference Implementation using the [Get Started Guide](Get-Started-Guide.md).
 - Know more about [GStreamer](https://gstreamer.freedesktop.org/documentation/) and [Intel® Deep Learning Streamer (DL Streamer)](https://dlstreamer.github.io/).
 

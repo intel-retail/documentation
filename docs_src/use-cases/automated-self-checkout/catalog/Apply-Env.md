@@ -1,7 +1,4 @@
-.. _apply_env:
-
-Apply Custom Environment Variables
-===========================================
+# Apply Custom Environment Variables
 
 Custom environment variables allow you to configure the reference implementation to meet your specific requirements. 
 
@@ -14,9 +11,7 @@ There are two ways to apply environment variables (EVs) to the system that will 
 
 If you use both methods, the input parameter will override the corresponding parameter in the ``.env`` file.
 
-.. _run_commands:
-
-Run Commands to Set Custom Environment Variables
+## Run Commands to Set Custom Environment Variables
 --------------------------------------------------
 
 There are two methods to apply the environment variables:
@@ -38,9 +33,7 @@ Environment variables set in this way are known as command-line environment over
 
 For the list of environment variables that you can use, see :ref:`Environment Variables <ev>`.
 
-.. _edit_file:
-
-Edit Environment Files
+## Edit Environment Files
 ------------------------
 
 Environment files can be used to persist environment variables across deployments. For the Automated Self-Checkout reference implementation, three environment variable files contain the default settings:
@@ -57,9 +50,7 @@ After modifying or creating a new ``.env`` file, you can load the file using the
 
 For the list of environment variables that you can use, see :ref:`Environment Variables <ev>`.
 
-.. _ev: 
-
-Environment Variables
+## Environment Variables
 ----------------------
 
 The following are the environment variables that you can use as inputs for the container running the inferencing pipeline:
@@ -69,9 +60,7 @@ The following are the environment variables that you can use as inputs for the c
 * :ref:`Common Environment Variables <common_env>`
 * :ref:`Automated Self-checkout Environment Variables <checkout_env>`
 
-.. _docker_compose_env:
-
-Docker Compose Environment Variables
+## Docker Compose Environment Variables
 *************************************
 
 You can use the following environment variables when running the ``Makefile`` or executing a ``docker-compose up`` command:
@@ -99,9 +88,7 @@ You can use the following environment variables when running the ``Makefile`` or
      - Directory to output results. 
      - ``../results``   
 
-.. _docker_compose_parameters:
-
-Docker Compose Parameters
+## Docker Compose Parameters
 *************************************
 
 You can use the following parameters when running the ``docker-compose up`` command:
@@ -120,9 +107,7 @@ You can use the following parameters when running the ``docker-compose up`` comm
      - Override environment variables inside the Docker Container.
      - ``-e LOG_LEVEL debug``
 
-.. _common_env:
-
-Common Environment Variables
+## Common Environment Variables
 *************************************
 
 You can use the following environment variables that are common across all Intel DLStreamer profiles: 
@@ -165,9 +150,7 @@ You can use the following environment variables that are common across all Intel
      - Pipeline script to be run.
      - ``yolov5s.sh``, ``yolov5s_effnetb0.sh``, ``yolov5s_full.sh``
 
-.. _checkout_env:
-
-Automated Self-checkout Environment Variables
+## Automated Self-checkout Environment Variables
 *************************************************
 
 You can use the following environment variables for the EVAM workloads.
