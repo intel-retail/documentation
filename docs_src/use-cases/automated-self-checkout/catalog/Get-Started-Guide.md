@@ -176,8 +176,8 @@ In this get started guide, you learned how to:
 ## Learn More
 ------------
 
-* To apply custom environment variables, see [Apply Custom Environment Variables](./Apply-Env.md).
-* To evaluate the pipeline system performance across different hardware, see [Test Performance](./Test-Performance.md).
+* To apply custom environment variables, see [Advanced Settings](../advanced.md).
+* To evaluate the pipeline system performance across different hardware, see [Test Performance](../performance.md).
 
 ## Troubleshooting
 

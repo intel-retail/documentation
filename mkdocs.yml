@@ -56,8 +56,6 @@ nav:
           - Catalog:
               - Overview: 'use-cases/automated-self-checkout/catalog/Overview.md'
               - Getting Started: 'use-cases/automated-self-checkout/catalog/Get-Started-Guide.md'
-              - Apply Custom Environment Variables: 'use-cases/automated-self-checkout/catalog/Apply-Env.md'
-              - Test Performance: 'use-cases/automated-self-checkout/catalog/Test-Performance.md'
       - AI Connect for Scientific Data (AiCSD):
           - Overview: 'use-cases/AiCSD/aicsd.md'
           - GRPC Yolov5s Pipeline: 'use-cases/AiCSD/pipeline-grpc-go.md'
