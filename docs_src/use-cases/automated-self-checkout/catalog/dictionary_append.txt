@@ -1,0 +1,13 @@
+Config
+barcode
+barcoded
+edgesoftware
+effnet
+efficientnet_b0
+gvadetect
+Grafana
+GST
+OCR
+yolov
+yolov5
+
