@@ -77,6 +77,14 @@ Stream density with OVMS and Client
 - For Ubuntu, follow this [documentation](https://help.ubuntu.com/stable/ubuntu-help/power-profile.html.en) to change the power profile.
 - For Windows, follow this [documentation](https://support.microsoft.com/en-us/windows/change-the-power-mode-for-your-windows-pc-c2aff038-22c9-f46d-5ca0-78696fdf2de8) to change the power mode.
 
+## Change or Customize Metric Parsing
+
+Two arguments `--parser_script` and `--parser_args` control the script and arguments passed to it respectively from the benchmark script.
+
+- The `--parser_script` can be a python script that takes at least an input argument of `-d <results_dir>`. This will automatically get passed to the parsing script from the benchmarking script. 
+- Any other arguments may be passed using the `--parser_args`, where arguments with spaces are specified in double quotes.
+
+
 
 # Developer Resources
 
