@@ -1374,7 +1374,6 @@
 
 
 <h1 id="test-performance">Test Performance</h1>
-<p>===========================================</p>
 <p>You can run the performance tests across CPU and GPU, and across all architectures, in combination and individually to provide flexibility in identifying performance needs.</p>
 <p>You can collect the metrics for predefined pipelines or for stream density. 
 You can run the script in two ways:</p>
@@ -1383,27 +1382,25 @@ You can run the script in two ways:</p>
 <li>Stream Density: This allows you to pre-define the target frames per second (FPS) rate required per pipeline, and then measure metrics.   </li>
 </ul>
 <h2 id="benchmark-predefined-pipelines">Benchmark Predefined Pipelines</h2>
-<hr />
 <p>This allows you to pre-define the number of pipelines and gather the performance metrics. By default, the <code>benchmark</code> command launches one <code>yolov5s_full.sh</code> pipeline and provides the metrics for the same:</p>
-<p>.. code-block:: bash</p>
-<p>make benchmark</p>
+<p><code>bash
+      make benchmark</code></p>
 <p>You can configure the number of pipelines using the <code>PIPELINE_COUNT</code> environment variable:</p>
-<p>.. code-block:: bash</p>
-<p>make PIPELINE_COUNT=2 benchmark</p>
+<p><code>bash
+      make PIPELINE_COUNT=2 benchmark</code></p>
 <p>You can also add environment variable overrides to the command:</p>
-<p>.. code-block:: bash</p>
-<p>make PIPELINE_SCRIPT=yolov5s_effnetb0.sh PIPELINE_COUNT=2 benchmark</p>
+<p><code>bash
+      make PIPELINE_SCRIPT=yolov5s_effnetb0.sh PIPELINE_COUNT=2 benchmark</code></p>
 <h2 id="benchmark-stream-density">Benchmark Stream Density</h2>
-<hr />
 <p>This allows you to pre-define the target frames per second (FPS) rate required per pipeline, and then measure metrics. The default is to determine the container threshold for FPS above 14.95 using the <code>yolov5s_full.sh</code> pipeline. </p>
-<p>.. code-block:: bash</p>
-<p>make benchmark-stream-density</p>
+<p><code>bash
+      make benchmark-stream-density</code></p>
 <p>To test the maximum amount of Automated Self-checkout containers that can run on a system, you can use the <code>TARGET_FPS</code> environment variable:</p>
-<p>.. code-block:: bash</p>
-<p>make TARGET_FPS=13.5 benchmark-stream-density</p>
+<p><code>bash
+      make TARGET_FPS=13.5 benchmark-stream-density</code></p>
 <p>You can override these values using environment variables:</p>
-<p>.. code-block:: bash</p>
-<p>make PIPELINE_SCRIPT=yolov5s_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density</p>
+<p><code>bash
+      make PIPELINE_SCRIPT=yolov5s_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density</code></p>
 
 
 
