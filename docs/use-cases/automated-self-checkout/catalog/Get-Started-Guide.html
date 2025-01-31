@@ -1,0 +1,1738 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://intel-retail.github.io/documentation/use-cases/automated-self-checkout/catalog/Get-Started-Guide.html">
+      
+      
+        <link rel="prev" href="Overview.html">
+      
+      
+        <link rel="next" href="../../AiCSD/aicsd.html">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+    
+    
+      
+        <title>Getting Started - Intel® Retail Organization</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/index.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+      <link rel="stylesheet" href="../../../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="Intel® Retail Organization" class="md-header__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+      
+  <img src="../../../images/logo-white-75px.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intel® Retail Organization
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/intel-retail/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    intel-retail/documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.html" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Architecture/pipelines.html" class="md-tabs__link">
+          
+  
+  Architecture Decisions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../performance-tools/benchmark.html" class="md-tabs__link">
+          
+  
+  Performance Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../automated-self-checkout.html" class="md-tabs__link">
+          
+  
+  Use Cases
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../releasenotes.html" class="md-tabs__link">
+        
+  
+    
+  
+  Releases
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../troubleshooting.html" class="md-tabs__link">
+        
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="Intel® Retail Organization" class="md-nav__button md-logo" aria-label="Intel® Retail Organization" data-md-component="logo">
+      
+  <img src="../../../images/logo-white-75px.png" alt="logo">
+
+    </a>
+    Intel® Retail Organization
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/intel-retail/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    intel-retail/documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Architecture Decisions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture Decisions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/pipelines.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    v2.0.0
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            v2.0.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v2.0.0/distributed-architecture.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributed Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v2.0.0/multiple-ovms-json-config.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple OVMS JSON Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v2.0.0/performance_benchmarking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance Benchmarking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v2.0.0/profile-launcher.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profile Launcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v2.0.0/target-device.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Target Device
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    v3.0.0
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            v3.0.0
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Architecture/v3.0.0/aicsd-integration.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AiCSD Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Performance Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Performance Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../performance-tools/benchmark.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmarking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../performance-tools/api-docs.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmarking APIs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Use Cases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Automated Self Checkout
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Automated Self Checkout
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automated-self-checkout.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Catalog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Get-Started-Guide.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-for-target-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites for Target System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-automated-self-checkout-package-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Automated Self-Checkout Package Software
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-and-evaluate-pre-configured-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run and Evaluate Pre-Configured Pipelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-run-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Run Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-launch-grafana-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Launch Grafana Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-check-pipeline-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Check Pipeline Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn More
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Issues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AI Connect for Scientific Data (AiCSD)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            AI Connect for Scientific Data (AiCSD)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AiCSD/aicsd.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AiCSD/pipeline-grpc-go.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRPC Yolov5s Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Loss Prevention
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Loss Prevention
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../loss-prevention/loss-prevention.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../loss-prevention/getting_started.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../loss-prevention/advanced.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releasenotes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Releases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="getting-started-guide">Getting Started Guide</h1>
+<ul>
+<li><strong>Time to Complete:</strong> 30 minutes</li>
+<li><strong>Programming Language:</strong> Python<em>3, Bash</em></li>
+</ul>
+<h2 id="prerequisites-for-target-system">Prerequisites for Target System</h2>
+<ul>
+<li>Intel® Core™ processor</li>
+<li>At least 16 GB RAM</li>
+<li>At least 64 GB hard drive</li>
+<li>An Internet connection</li>
+<li>Docker*</li>
+<li>Docker Compose* v2 (Optional)</li>
+<li>Git*</li>
+<li>Ubuntu* LTS Boot Device</li>
+</ul>
+<p>If Ubuntu is not installed on the target system, follow the instructions and <a href="https://ubuntu.com/tutorials/install-ubuntu-desktop/">install Ubuntu</a>.</p>
+<h2 id="install-automated-self-checkout-package-software">Install Automated Self-Checkout Package Software</h2>
+<p>Do the following to install the software package:</p>
+<ol>
+<li>
+<p>Download the reference implementation package:
+      <a href="https://edgesoftware.intel.com/automated-self-checkout">Automated Self-Checkout Retail Reference Implementation</a>.</p>
+</li>
+<li>
+<p>Open a new terminal and navigate to the download folder to unzip the <code>automated-self-checkout</code> package:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>unzip<span class="w"> </span>automated-self-checkout.zip
+</code></pre></div>
+</li>
+<li>
+<p>Navigate to the <code>automated-self-checkout/</code> directory:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>automated-self-checkout
+</code></pre></div>
+</li>
+<li>
+<p>Change permission of the executable edgesoftware file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>edgesoftware
+</code></pre></div>
+</li>
+<li>
+<p>Install the package:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>./edgesoftware<span class="w"> </span>install
+</code></pre></div>
+</li>
+<li>
+<p>You will be prompted for the Product Key during the installation. The Product Key is in the email you received from Intel confirming your download.</p>
+<p>When the installation is complete, you will see the message “Installation of package complete” and the installation status for each module.</p>
+<p><img alt="Figure 3: Installation Status" src="images/automated-selfcheckout-installation-status.png" /></p>
+</li>
+</ol>
+<p>If the installation fails because of proxy-related issues, follow the <a href="#troubleshooting">troubleshooting steps</a>.</p>
+<h2 id="run-and-evaluate-pre-configured-pipelines">Run and Evaluate Pre-Configured Pipelines</h2>
+<p>In a retail environment, self-checkout solutions analyze video streams from multiple cameras to streamline the checkout process. The system detects and classifies products as items are scanned. Barcode and text recognition ensure accuracy. This data is processed to verify purchases and update inventory in real time. Factors such as latency and frames per second (FPS) help assess the automated self-checkout solution's real-time responsiveness and efficiency.</p>
+<p>This demonstration shows how to run the pre-configured pipeline, view a simulation that detects and tracks objects, and check the pipeline's status.</p>
+<h2 id="step-1-run-pipeline">Step 1: Run Pipeline</h2>
+<p>Do the following to run the pre-configured pipeline:</p>
+<ol>
+<li>
+<p>Navigate to the <code>automated-self-checkout</code> directory:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span><span class="nb">cd</span><span class="w"> </span>automated-self-checkout
+</code></pre></div>
+</li>
+<li>
+<p>Modify the following host IP addresses to match the IP address of the system running the reference implementation: </p>
+<ul>
+<li><code>HOST_IP</code> and <code>RSTP_CAMERA_IP</code> in the <code>src/pipeline-server/.env</code> file. </li>
+<li><code>host_ip</code> in the <code>src/pipeline-server/postman/env.json</code> file.</li>
+</ul>
+</li>
+<li>
+<p>Run the pipeline server:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>make<span class="w"> </span>run-pipeline-server
+</code></pre></div>
+<p>The containers will start to run.</p>
+<p><img alt="Figure 4: Pipeline Status" src="images/automated-selfcheckout-run-pipeline.png" /></p>
+</li>
+</ol>
+<h2 id="step-2-launch-grafana-dashboard">Step 2: Launch Grafana Dashboard</h2>
+<p>Do the following to launch the Grafana* dashboard to view the objects being detected and tracked:</p>
+<ol>
+<li>
+<p>Open a web browser and enter the following URL to access the Grafana dashboard:
+      <code>http://&lt;target_system_IP&gt;:3000</code>.</p>
+<p>To get <code>&lt;target_system_IP&gt;</code>, run the <code>hostname -I</code> command.</p>
+</li>
+<li>
+<p>When prompted, provide the following credentials:</p>
+<ul>
+<li>Username: <code>root</code></li>
+<li>Password: <code>evam123</code></li>
+</ul>
+</li>
+<li>
+<p>On the dashboard, go to <strong>Menu</strong> &gt; <strong>Home</strong>, and select <strong>Video Analytics Dashboard</strong>.</p>
+<p>The dashboard visualizes the object detection and tracking pipelines. The bounding boxes around the products indicate their detection and tracking. The dashboard also shows the active streams and their corresponding average FPS.</p>
+<p><img alt="Figure 5: Object Detection and Tracking" src="images/automated-selfcheckout-grafana.png" /></p>
+</li>
+</ol>
+<h2 id="step-3-check-pipeline-status">Step 3: Check Pipeline Status</h2>
+<p>Do the following to check the metrics: </p>
+<ol>
+<li>
+<p>Check whether the docker containers are running:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>docker<span class="w"> </span>ps<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;table{{.Names}}\t{{.Image}}\t{{.Status}}&#39;</span>
+</code></pre></div>
+  <img alt="Figure 6: Docker Container Status" src="images/automated-selfcheckout-pipeline-status.png" /></p>
+</li>
+<li>
+<p>Check the MQTT inference output:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>mosquitto_sub<span class="w"> </span>-v<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w"> </span>-t<span class="w"> </span><span class="s1">&#39;AnalyticsData0&#39;</span>
+<span class="w">   </span>mosquitto_sub<span class="w"> </span>-v<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w"> </span>-t<span class="w"> </span><span class="s1">&#39;AnalyticsData1&#39;</span>
+<span class="w">   </span>mosquitto_sub<span class="w"> </span>-v<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">1883</span><span class="w"> </span>-t<span class="w"> </span><span class="s1">&#39;AnalyticsData2&#39;</span>
+</code></pre></div>
+<p>Here is the result for <code>AnalyticsData0</code>:</p>
+<div class="language-shell highlight"><pre><span></span><code><span class="w">   </span>AnalyticsData0<span class="w"> </span><span class="o">{</span><span class="s2">&quot;objects&quot;</span>:<span class="o">[{</span><span class="s2">&quot;detection&quot;</span>:<span class="o">{</span><span class="s2">&quot;bounding_box&quot;</span>:<span class="o">{</span><span class="s2">&quot;x_max&quot;</span>:0.3163176067521043,<span class="s2">&quot;x_min&quot;</span>:0.20249048400491532,<span class="s2">&quot;y_max&quot;</span>:0.7995593662281202,<span class="s2">&quot;y_min&quot;</span>:0.12237883070032396<span class="o">}</span>,<span class="s2">&quot;confidence&quot;</span>:0.868196964263916,<span class="s2">&quot;label&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;label_id&quot;</span>:39<span class="o">}</span>,<span class="s2">&quot;h&quot;</span>:731,<span class="s2">&quot;region_id&quot;</span>:6199,<span class="s2">&quot;roi_type&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;w&quot;</span>:219,<span class="s2">&quot;x&quot;</span>:389,<span class="s2">&quot;y&quot;</span>:132<span class="o">}</span>,<span class="o">{</span><span class="s2">&quot;detection&quot;</span>:<span class="o">{</span><span class="s2">&quot;bounding_box&quot;</span>:<span class="o">{</span><span class="s2">&quot;x_max&quot;</span>:0.7833052431819754,<span class="s2">&quot;x_min&quot;</span>:0.6710088227893136,<span class="s2">&quot;y_max&quot;</span>:0.810283140877349,<span class="s2">&quot;y_min&quot;</span>:0.1329853767638305<span class="o">}</span>,<span class="s2">&quot;confidence&quot;</span>:0.8499506711959839,<span class="s2">&quot;label&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;label_id&quot;</span>:39<span class="o">}</span>,<span class="s2">&quot;h&quot;</span>:731,<span class="s2">&quot;region_id&quot;</span>:6200,<span class="s2">&quot;roi_type&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;w&quot;</span>:216,<span class="s2">&quot;x&quot;</span>:1288,<span class="s2">&quot;y&quot;</span>:144<span class="o">}]</span>,<span class="s2">&quot;resolution&quot;</span>:<span class="o">{</span><span class="s2">&quot;height&quot;</span>:1080,<span class="s2">&quot;width&quot;</span>:1920<span class="o">}</span>,<span class="s2">&quot;tags&quot;</span>:<span class="o">{}</span>,<span class="s2">&quot;timestamp&quot;</span>:67297301635<span class="o">}</span>
+
+<span class="w">   </span>AnalyticsData0<span class="w"> </span><span class="o">{</span><span class="s2">&quot;objects&quot;</span>:<span class="o">[{</span><span class="s2">&quot;detection&quot;</span>:<span class="o">{</span><span class="s2">&quot;bounding_box&quot;</span>:<span class="o">{</span><span class="s2">&quot;x_max&quot;</span>:0.3163306922646063,<span class="s2">&quot;x_min&quot;</span>:0.20249845268772138,<span class="s2">&quot;y_max&quot;</span>:0.7984013488063937,<span class="s2">&quot;y_min&quot;</span>:0.12254781445953<span class="o">}</span>,<span class="s2">&quot;confidence&quot;</span>:0.8666459321975708,<span class="s2">&quot;label&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;label_id&quot;</span>:39<span class="o">}</span>,<span class="s2">&quot;h&quot;</span>:730,<span class="s2">&quot;region_id&quot;</span>:6201,<span class="s2">&quot;roi_type&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;w&quot;</span>:219,<span class="s2">&quot;x&quot;</span>:389,<span class="s2">&quot;y&quot;</span>:132<span class="o">}</span>,<span class="o">{</span><span class="s2">&quot;detection&quot;</span>:<span class="o">{</span><span class="s2">&quot;bounding_box&quot;</span>:<span class="o">{</span><span class="s2">&quot;x_max&quot;</span>:0.7850104587729607,<span class="s2">&quot;x_min&quot;</span>:0.6687324296210857,<span class="s2">&quot;y_max&quot;</span>:0.7971464600783804,<span class="s2">&quot;y_min&quot;</span>:0.13681757042794374<span class="o">}</span>,<span class="s2">&quot;confidence&quot;</span>:0.8462932109832764,<span class="s2">&quot;label&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;label_id&quot;</span>:39<span class="o">}</span>,<span class="s2">&quot;h&quot;</span>:713,<span class="s2">&quot;region_id&quot;</span>:6202,<span class="s2">&quot;roi_type&quot;</span>:<span class="s2">&quot;bottle&quot;</span>,<span class="s2">&quot;w&quot;</span>:223,<span class="s2">&quot;x&quot;</span>:1284,<span class="s2">&quot;y&quot;</span>:148<span class="o">}]</span>,<span class="s2">&quot;resolution&quot;</span>:<span class="o">{</span><span class="s2">&quot;height&quot;</span>:1080,<span class="s2">&quot;width&quot;</span>:1920<span class="o">}</span>,<span class="s2">&quot;tags&quot;</span>:<span class="o">{}</span>,<span class="s2">&quot;timestamp&quot;</span>:67330637174<span class="o">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Check the pipeline status:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>./src/pipeline-server/status.sh<span class="w"> </span>
+</code></pre></div>
+  The pipeline status should be like:</p>
+<div class="language-shell highlight"><pre><span></span><code><span class="w">   </span>---------------------<span class="w"> </span>Pipeline<span class="w"> </span>Status<span class="w"> </span>---------------------
+<span class="w">   </span>----------------8080----------------
+<span class="w">   </span><span class="o">[</span>
+<span class="w">   </span><span class="o">{</span>
+<span class="w">         </span><span class="s2">&quot;avg_fps&quot;</span>:<span class="w"> </span><span class="m">11</span>.862402507697258,
+<span class="w">         </span><span class="s2">&quot;avg_pipeline_latency&quot;</span>:<span class="w"> </span><span class="m">0</span>.5888091060475129,
+<span class="w">         </span><span class="s2">&quot;elapsed_time&quot;</span>:<span class="w"> </span><span class="m">268</span>.07383918762207,
+<span class="w">         </span><span class="s2">&quot;id&quot;</span>:<span class="w"> </span><span class="s2">&quot;95204aba458211efa9080242ac180006&quot;</span>,
+<span class="w">         </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">         </span><span class="s2">&quot;start_time&quot;</span>:<span class="w"> </span><span class="m">1721361269</span>.6349292,
+<span class="w">         </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="s2">&quot;RUNNING&quot;</span>
+<span class="w">   </span><span class="o">}</span>
+<span class="w">   </span><span class="o">]</span>
+</code></pre></div>
+<p>The pipeline status displays the average FPS and average pipeline latency, among other metrics. </p>
+</li>
+<li>
+<p>Stop the services:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>make<span class="w"> </span>down-pipeline-server
+</code></pre></div>
+</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<hr />
+<p>In this get started guide, you learned how to:</p>
+<ul>
+<li>Install the automated self-checkout package software.</li>
+<li>Verify the installation.</li>
+<li>Run pre-configured pipelines, visualize object detection and tracking, and extract data from them.</li>
+</ul>
+<h2 id="learn-more">Learn More</h2>
+<hr />
+<ul>
+<li>To apply custom environment variables, see <a href="../advanced.html">Advanced Settings</a>.</li>
+<li>To evaluate the pipeline system performance across different hardware, see <a href="../performance.html">Test Performance</a>.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Issues with Docker Installation</p>
+<p>If you are behind a proxy and if you experience connectivity issues, the Docker installation might fail. Do the following to install Docker manually:</p>
+<ol>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/#install-from-a-package">Install Docker from a package</a>.</li>
+<li>Complete the post-installation steps to <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">manage Docker as a non-root user</a>.</li>
+<li><a href="https://docs.docker.com/engine/cli/proxy/">Configure the Docker CLI to use proxies</a>.</li>
+</ol>
+<h2 id="error-logs">Error Logs</h2>
+<p>To access the Docker Logs for EVAM server 0, run the following command: </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span class="w">   </span>docker<span class="w"> </span>logs<span class="w"> </span>evam_0
+</code></pre></div>
+   Here is an example of the error log when the RSTP stream is unreachable for a pipeline:</p>
+<div class="language-shell highlight"><pre><span></span><code><span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:47,257&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;===========================&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipeline_manager&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:47,257&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Completed Loading Pipelines&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipeline_manager&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:47,257&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;===========================&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipeline_manager&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:47,330&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Starting Tornado Server on port: 8080&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;__main__&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:51,177&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Creating Instance of Pipeline detection/yolov5&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;pipeline_manager&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;INFO&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:51,180&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Gstreamer RTSP Server Started on port: 8555&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;gstreamer_rtsp_server&quot;</span><span class="o">}</span>
+<span class="w">   </span><span class="o">{</span><span class="s2">&quot;levelname&quot;</span>:<span class="w"> </span><span class="s2">&quot;ERROR&quot;</span>,<span class="w"> </span><span class="s2">&quot;asctime&quot;</span>:<span class="w"> </span><span class="s2">&quot;2024-07-31 23:26:51,200&quot;</span>,<span class="w"> </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;Error on Pipeline 5d5b3b0a4f9411efb60d0242ac120007: gst-resource-error-quark: Could not open resource for reading. (5): ../gst/rtsp/gstrtspsrc.c(6427): gst_rtspsrc_setup_auth (): /GstPipeline:pipeline3/GstURISourceBin:source/GstRTSPSrc:rtspsrc0:\nNo supported authentication protocol was found&quot;</span>,<span class="w"> </span><span class="s2">&quot;module&quot;</span>:<span class="w"> </span><span class="s2">&quot;gstreamer_pipeline&quot;</span><span class="o">}</span>
+</code></pre></div>
+<h2 id="known-issues">Known Issues</h2>
+<hr />
+<p>For the list of known issues, see <a href="https://github.com/intel-retail/automated-self-checkout/issues">known issues</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="Overview.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../AiCSD/aicsd.html" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Intel Corporation
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5090c770.min.js"></script>
+      
+        <script src="https://unpkg.com/lunr/lunr.js"></script>
+      
+    
+  </body>
+</html>

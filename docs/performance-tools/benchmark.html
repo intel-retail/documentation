@@ -939,6 +939,97 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Catalog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Catalog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/automated-self-checkout/catalog/Overview.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/automated-self-checkout/catalog/Get-Started-Guide.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1291,6 +1382,12 @@ python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator
 <ul>
 <li>For Ubuntu, follow this <a href="https://help.ubuntu.com/stable/ubuntu-help/power-profile.html.en">documentation</a> to change the power profile.</li>
 <li>For Windows, follow this <a href="https://support.microsoft.com/en-us/windows/change-the-power-mode-for-your-windows-pc-c2aff038-22c9-f46d-5ca0-78696fdf2de8">documentation</a> to change the power mode.</li>
+</ul>
+<h2 id="change-or-customize-metric-parsing">Change or Customize Metric Parsing</h2>
+<p>Two arguments <code>--parser_script</code> and <code>--parser_args</code> control the script and arguments passed to it respectively from the benchmark script.</p>
+<ul>
+<li>The <code>--parser_script</code> can be a python script that takes at least an input argument of <code>-d &lt;results_dir&gt;</code>. This will automatically get passed to the parsing script from the benchmarking script. </li>
+<li>Any other arguments may be passed using the <code>--parser_args</code>, where arguments with spaces are specified in double quotes.</li>
 </ul>
 <h1 id="developer-resources">Developer Resources</h1>
 <h2 id="python-testing">Python Testing</h2>
