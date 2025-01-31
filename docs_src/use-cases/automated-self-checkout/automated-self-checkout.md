@@ -12,6 +12,9 @@ The Intel® Automated Self-Checkout Reference Package provides critical componen
 
 ## Next Steps
 
+!!! Note
+    If coming from the catalog please follow the [Catalog Getting Started Guide](./catalog/Overview.md).
+
 To begin using the automated self-checkout solution you can follow the [Getting Started Guide](./getting_started.md). 
 
 ## Releases
