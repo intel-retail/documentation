@@ -29,10 +29,17 @@
 5. Start Loss prevention using the Docker Compose file. The Docker Compose also includes an RTSP camera simulator that will infinitely loop through the sample videos downloaded in step 3.
 
     ```bash
-    make run-render-mode
+    RTSP=1 make run-render-mode
     ```
 
-6. Verify Docker containers
+6. Open Grafana:
+
+🔗 [Grafana Dashboard](http://127.0.0.1:3000/d/ce428u65d0irkf/loss-prevention?from=now-6h&to=now&timezone=browser&refresh=2s)
+
+![Grafana](./images/grafana.jpg)
+
+
+7. Verify Docker containers
 
     ```bash
     docker ps --format 'table{{.Names}}\t{{.Status}}\t{{.Image}}'
@@ -45,7 +52,7 @@
     camera-simulator     Up 17 seconds   aler9/rtsp-simple-server
     ```
 
-7. Verify Results
+8. Verify Results
 
     After starting Automated Self Checkout you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
 
@@ -149,10 +156,9 @@
 
 ```
 
-8. Stop the demo using docker compose down
+9. Stop the demo using docker compose down
 ```bash
 make down
 ```
-
 
 ## [Proceed to Advanced Settings](advanced.md)    

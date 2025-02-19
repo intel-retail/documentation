@@ -62,7 +62,7 @@ To configure the app to connect to external MQTT broker, modify the `src/docker-
 
 The following diagram illustrates the containers running:  
 
-[![MQTT export](./images/mqtt-diagram.jpg)](./images/mqtt-diagram.jpg)
+![MQTT export](./images/mqtt-diagram.jpg)
 
 ## Age Classification Pipeline Usage
 
