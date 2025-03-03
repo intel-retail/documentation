@@ -4,6 +4,8 @@ The performance tools repository is included as a github submodule in this proje
 
 ## Benchmark specific number of pipelines
 
+Before running benchmark commands, make sure you already configured python and its dependencies. Visit the Performance tools installation guide [HERE]((../../performance-tools/benchmark.md#benchmark-a-cv-pipeline))
+
 You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch One yolov5s_full.sh pipeline. You can override these values through Environment Variables.
 
 ```bash
