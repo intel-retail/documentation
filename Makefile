@@ -21,6 +21,8 @@ docs-builder-image:
 build-docs: docs-builder-image
 	docker run --rm \
 		-u $(shell id -u):$(shell id -g) \
+		--env http_proxy=${HTTP_PROXY} \
+		--env https_proxy=${HTTPS_PROXY} \
 		-v $(PWD):/docs \
 		-w /docs \
 		$(MKDOCS_IMAGE) \
@@ -30,7 +32,7 @@ serve-docs: docs-builder-image
 	docker run --rm \
 		-it \
 		-u $(shell id -u):$(shell id -g) \
-		-p 8008:8000 \
+		-p 8000:8000 \
 		-v $(PWD):/docs \
 		-w /docs \
 		$(MKDOCS_IMAGE)
