@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
       
 
@@ -1316,23 +1316,7 @@ metrics like video processing in frames-per-second (FPS), memory usage, power
 consumption, and so on.</p>
 <h1 id="prerequisites">Prerequisites</h1>
 <ul>
-<li>
-<p>Python environment v3.12.2</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This could be accomplished using <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html">Miniconda</a> and creating a <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html">Python 3.12.2 env</a></p>
-</div>
-</li>
-<li>
-<p>Python packages listed in <a href="https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt">performance-tools/benchmark-scripts/requirements.txt</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Use <code>pip install -r requirements.txt</code></p>
-</div>
-</li>
-<li>
-<p>Docker</p>
-</li>
+<li>Docker</li>
 <li>Docker Compose</li>
 <li>Make</li>
 <li>Git</li>
@@ -1343,24 +1327,50 @@ consumption, and so on.</p>
 <p>To install the submodule, run <code>make update-submodules</code> from the root of the retail-use-cases repo.</p>
 </div>
 </li>
+<li>
+<p>Python environment v3.12.2</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This could be accomplished using <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html">Miniconda</a> and creating a <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html">Python 3.12.2 env</a></p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>gcc<span class="w"> </span>python3-venv<span class="w"> </span>python3-dev
+</code></pre></div>
+</li>
 </ul>
 <h1 id="benchmark-a-cv-pipeline">Benchmark a CV Pipeline</h1>
 <ol>
 <li>Build the benchmark container and change into the benchmark-scripts directory.</li>
 </ol>
-<p><div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>build-benchmark-docker
-<span class="nb">cd</span><span class="w"> </span>benchmark-scripts
+<div class="language-bash highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>performance-tools/
+make<span class="w"> </span>build-benchmark-docker<span class="w">   </span>
 </code></pre></div>
-2. Choose a CV pipeline from the Retail Use Cases Repo and note the file paths to the docker compose files.
-3. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).</p>
-<div class="language-text highlight"><pre><span></span><code>```bash
-python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
-```
+<ol>
+<li>
+<p>Python packages listed in <a href="https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt">performance-tools/benchmark-scripts/requirements.txt</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>performance-tools/benchmark-scripts/
+<span class="w">    </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="w">    </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
-<p>Specific number of pipelines with single container
-<a href="../images/performance-pipeline.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline.png" /></a></p>
-<p>Specific number of pipelines with OVMS and Client
-<a href="../images/performance-pipeline-ovms.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline-ovms.png" /></a></p>
+</li>
+<li>
+<p>Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.</p>
+</li>
+<li>
+<p>Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).</p>
+<p><strong>Automated Self-Checkout:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>python<span class="w"> </span>benchmark.py<span class="w"> </span>--compose_file<span class="w"> </span>../../src/docker-compose.yml<span class="w"> </span>--pipeline<span class="w"> </span><span class="m">1</span>
+</code></pre></div></p>
+<p><strong>Retail Use Cases:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>python<span class="w"> </span>benchmark.py<span class="w"> </span>--compose_file<span class="w"> </span>../../use-cases/gst_capi/add_camera-simulator.yml<span class="w"> </span>--compose_file<span class="w"> </span>../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
+</code></pre></div></p>
+</li>
+</ol>
+<p><a href="#arguments">Go to Arguments to understand how to customize the benchmarks</a></p>
+<p>Specific number of pipelines with single container</p>
+<p><a href="../images/performance-pipeline.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline.png" /></a></p>
+<p>Specific number of pipelines with OVMS and Client</p>
+<p><a href="../images/performance-pipeline-ovms.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-pipeline-ovms.png" /></a></p>
 <h2 id="benchmark-stream-density-for-cv-pipelines">Benchmark Stream Density for CV Pipelines</h2>
 <p>Benchmarking a pipeline can also discover the maximum number of workloads or streams that can be run in parallel for a given target FPS. This information is useful to determine the hardware required to achieve the desired performance for CV pipelines.</p>
 <p>To run the stream density functionality use <code>--target_fps</code> and/or <code>--density_increment</code> as inputs to the <code>benchmark.py</code> script:</p>
@@ -1377,7 +1387,113 @@ python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator
 <a href="../images/performance-stream-density.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-stream-density.png" /></a></p>
 <p>Stream density with OVMS and Client
 <a href="../images/performance-stream-density-ovms.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-stream-density-ovms.png" /></a></p>
+<h2 id="consolidate-results">Consolidate results</h2>
+<p>The <strong>consolidate_multiple_run_of_metrics.py</strong> script processes and consolidates performance metrics from various log files (JSON, CSV, and text-based logs) into a structured report. It extracts key performance indicators (KPIs) such as CPU &amp; GPU utilization, memory bandwidth, disk I/O, power consumption, and FPS from multiple sources, aggregates the data, and outputs a summary file.</p>
+<p>on peformance-tools/benchmark-scripts:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>make<span class="w"> </span>consolidate
+</code></pre></div>
+<p>The summary.csv content should look like this:</p>
+<div class="language-text highlight"><pre><span></span><code>    Camera_20250303214521714278352 FPS,14.86265306122449
+    Camera_20250303214521714278352 Last log update,03/03/2025 14:46:263943
+    CPU Utilization %,10.069166666666668
+    Memory Utilization %,19.70717535119376
+    Disk Read MB/s,0.0
+    Disk Write MB/s,0.002814426229508197
+    S0 Memory Bandwidth Usage MB/s,8012.58064516129
+    S0 Power Draw W,19.159666666666666
+</code></pre></div>
 <h1 id="modifying-additional-benchmarking-variables">Modifying Additional Benchmarking Variables</h1>
+<h2 id="arguments">Arguments</h2>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--pipelines</code></td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>Number of pipelines</td>
+</tr>
+<tr>
+<td><code>--target_fps</code></td>
+<td><code>float</code> (list)</td>
+<td><code>None</code></td>
+<td>Stream density target FPS; can take multiple values for multiple pipelines with 1-to-1 mapping via <code>--container_names</code></td>
+</tr>
+<tr>
+<td><code>--container_names</code></td>
+<td><code>str</code> (list)</td>
+<td><code>None</code></td>
+<td>Container names for stream density target; used together with <code>--target_fps</code> for 1-to-1 mapping</td>
+</tr>
+<tr>
+<td><code>--density_increment</code></td>
+<td><code>int</code></td>
+<td><code>None</code></td>
+<td>Pipeline increment number for stream density; dynamically adjusted if not specified</td>
+</tr>
+<tr>
+<td><code>--results_dir</code></td>
+<td><code>str</code></td>
+<td><code>'./results'</code></td>
+<td>Full path to the directory for logs and results</td>
+</tr>
+<tr>
+<td><code>--duration</code></td>
+<td><code>int</code></td>
+<td><code>30</code></td>
+<td>Time in seconds, not needed when <code>--target_fps</code> is specified</td>
+</tr>
+<tr>
+<td><code>--init_duration</code></td>
+<td><code>int</code></td>
+<td><code>20</code></td>
+<td>Initial time in seconds before starting metric data collection</td>
+</tr>
+<tr>
+<td><code>--target_device</code></td>
+<td><code>str</code></td>
+<td><code>'CPU'</code></td>
+<td>Desired running platform [cpu, core, xeon, dgpu.x]</td>
+</tr>
+<tr>
+<td><code>--compose_file</code></td>
+<td><code>str</code> (list)</td>
+<td><code>None</code></td>
+<td>Path(s) to Docker Compose files; can be used multiple times</td>
+</tr>
+<tr>
+<td><code>--retail_use_case_root</code></td>
+<td><code>str</code></td>
+<td><code>'../../'</code></td>
+<td>Full path to the retail-use-cases repo root</td>
+</tr>
+<tr>
+<td><code>--docker_log</code></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+<td>Docker container name to get logs from and save to a file</td>
+</tr>
+<tr>
+<td><code>--parser_script</code></td>
+<td><code>str</code></td>
+<td><code>'./parse_csv_to_json.py'</code></td>
+<td>Full path to the parsing script to obtain FPS</td>
+</tr>
+<tr>
+<td><code>--parser_args</code></td>
+<td><code>str</code></td>
+<td><code>"-k device -k igt"</code></td>
+<td>Arguments to pass to the parser script; pass args with spaces in quotes: <code>"args with spaces"</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="change-power-profile">Change Power Profile</h2>
 <ul>
 <li>For Ubuntu, follow this <a href="https://help.ubuntu.com/stable/ubuntu-help/power-profile.html.en">documentation</a> to change the power profile.</li>
@@ -1498,7 +1614,7 @@ make<span class="w"> </span>python-coverage
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       
