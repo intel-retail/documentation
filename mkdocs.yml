@@ -56,6 +56,10 @@ nav:
           - Catalog:
               - Overview: 'use-cases/automated-self-checkout/catalog/Overview.md'
               - Getting Started: 'use-cases/automated-self-checkout/catalog/Get-Started-Guide.md'
+          - Services:
+              - Common Service: 'use-cases/automated-self-checkout/services/common-service.md'
+              - Pipeline Server: 'use-cases/automated-self-checkout/services/pipeline-server.md'
+              - Retail Data Visualization: 'use-cases/automated-self-checkout/services/retail-data-visualization.md'
       - AI Connect for Scientific Data (AiCSD):
           - Overview: 'use-cases/AiCSD/aicsd.md'
           - GRPC Yolov5s Pipeline: 'use-cases/AiCSD/pipeline-grpc-go.md'
