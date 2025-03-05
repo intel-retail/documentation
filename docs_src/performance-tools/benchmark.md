@@ -12,17 +12,17 @@ consumption, and so on.
 - Git
 - Code from [Retail Use Cases Repo](https://github.com/intel-retail/retail-use-cases) and its submodule [Performance Tools Repo](https://github.com/intel-retail/performance-tools)
 
-    !!! Note
+> **Note:**
         To install the submodule, run `make update-submodules` from the root of the retail-use-cases repo.
 
 - Python environment v3.12.2
   
-    !!! Note
+> **Note:**
         This could be accomplished using [Miniconda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html) and creating a [Python 3.12.2 env](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-python.html)
 
-    ```bash
-        sudo apt install git gcc python3-venv python3-dev
-    ```
+```bash
+sudo apt install git gcc python3-venv python3-dev
+```
 
 # Benchmark a CV Pipeline
 
@@ -36,10 +36,10 @@ consumption, and so on.
 2. Python packages listed in [performance-tools/benchmark-scripts/requirements.txt](https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt)
 
     ```bash
-        cd performance-tools/benchmark-scripts/
-        python3 -m venv venv
-        source venv/bin/activate
-        pip install -r requirements.txt
+    cd performance-tools/benchmark-scripts/
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
     ```
 
 3. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
@@ -48,12 +48,12 @@ consumption, and so on.
 
     **Automated Self-Checkout:**
     ```bash
-        python benchmark.py --compose_file ../../src/docker-compose.yml --pipeline 1
+    python benchmark.py --compose_file ../../src/docker-compose.yml --pipeline 1
     ```
 
     **Retail Use Cases:**
     ```bash
-        python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
+    python benchmark.py --compose_file ../../use-cases/gst_capi/add_camera-simulator.yml --compose_file ../../use-cases/gst_capi/add_gst_capi_yolov5_ensemble.yml
     ```
 
 [Go to Arguments to understand how to customize the benchmarks](#arguments)
@@ -73,7 +73,7 @@ Benchmarking a pipeline can also discover the maximum number of workloads or str
 To run the stream density functionality use `--target_fps` and/or `--density_increment` as inputs to the `benchmark.py` script:
 
    ```bash
-    python benchmark.py  --retail_use_case_root ../../retail-use-cases --target_fps 14.95 --density_increment 1 --init_duration 40   --compose_file ../../retail-use-cases/use-cases/grpc_python/docker-compose_grpc_python.yml
+   python benchmark.py  --retail_use_case_root ../../retail-use-cases --target_fps 14.95 --density_increment 1 --init_duration 40   --compose_file ../../retail-use-cases/use-cases/grpc_python/docker-compose_grpc_python.yml
    ```
 
 where the parameters:
@@ -82,7 +82,7 @@ where the parameters:
 - `init_duration` is the initial duration period in second before pipeline performance metrics are taken
 
 
-    !!! Note
+> **Note:**
         It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
 
 Stream density with single container
@@ -98,20 +98,20 @@ The **consolidate_multiple_run_of_metrics.py** script processes and consolidates
 on peformance-tools/benchmark-scripts:
 
 ```bash
-    make consolidate
+make consolidate
 ```
 
 The summary.csv content should look like this:
 
 ```
-    Camera_20250303214521714278352 FPS,14.86265306122449
-    Camera_20250303214521714278352 Last log update,03/03/2025 14:46:263943
-    CPU Utilization %,10.069166666666668
-    Memory Utilization %,19.70717535119376
-    Disk Read MB/s,0.0
-    Disk Write MB/s,0.002814426229508197
-    S0 Memory Bandwidth Usage MB/s,8012.58064516129
-    S0 Power Draw W,19.159666666666666
+Camera_20250303214521714278352 FPS,14.86265306122449
+Camera_20250303214521714278352 Last log update,03/03/2025 14:46:263943
+CPU Utilization %,10.069166666666668
+Memory Utilization %,19.70717535119376
+Disk Read MB/s,0.0
+Disk Write MB/s,0.002814426229508197
+S0 Memory Bandwidth Usage MB/s,8012.58064516129
+S0 Power Draw W,19.159666666666666
 ```
 
 # Modifying Additional Benchmarking Variables
