@@ -1380,9 +1380,10 @@ make<span class="w"> </span>build-benchmark-docker<span class="w">   </span>
 - <code>target_fps</code> is the given target frames per second (fps) to achieve for maximum number of pipelines
 - <code>density_increment</code> is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
 - <code>init_duration</code> is the initial duration period in second before pipeline performance metrics are taken</p>
-<div class="language-text highlight"><pre><span></span><code>!!! Note
-    It is recommended to set --target_fps to a value lesser than your target FPS to account for real world variances in hardware readings.
-</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to set <code>--target_fps</code> to a value lesser than your target FPS to account for real world variances in hardware readings.</p>
+</div>
 <p>Stream density with single container
 <a href="../images/performance-stream-density.png"><img alt="OpenVINO Model Server(OVMS) Pipeline with C-API" src="../images/performance-stream-density.png" /></a></p>
 <p>Stream density with OVMS and Client
