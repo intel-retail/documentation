@@ -28,10 +28,10 @@ consumption, and so on.
 
 1. Build the benchmark container and change into the benchmark-scripts directory.
 
-   ```bash
-   cd performance-tools/
-   make build-benchmark-docker   
-   ```
+    ```bash
+        cd performance-tools/
+        make build-benchmark-docker
+    ```
 
 2. Python packages listed in [performance-tools/benchmark-scripts/requirements.txt](https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt)
 
@@ -77,9 +77,10 @@ To run the stream density functionality use `--target_fps` and/or `--density_inc
    ```
 
 where the parameters:
-- `target_fps` is the given target frames per second (fps) to achieve for maximum number of pipelines
-- `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
-- `init_duration` is the initial duration period in second before pipeline performance metrics are taken
+
+   - `target_fps` is the given target frames per second (fps) to achieve for maximum number of pipelines
+   - `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
+   - `init_duration` is the initial duration period in second before pipeline performance metrics are taken
 
 
     !!! Note
