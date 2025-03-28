@@ -33,18 +33,22 @@ Environment variable with docker compose up
 
 ### Editing the Environment Files
 
-Environment variable files can be used to persist environment variables between deployments. There are three environment variables files with our default environment variables for Automated Self Checkout.
+Environment variable files can be used to persist environment variables between deployments. You can find these files in `src/res/` folder with our default environment variables for Automated Self Checkout.
 
-        - `src/gst.env` file for shared environment variables
-        - `src/yolov5-cpu.env` file for running pipeline on cpu only
-        - `src/yolov5-gpu.env` file for running pipeline in gpu or mixed CPU/GPU
+        - `src/res/all-cpu.env` file for running pipeline on CPU (decoding, pre-processing and inferencing)
+        - `src/res/all-gpu.env` file for running pipeline on GPU (decoding, pre-processing and inferencing)
+        - `src/res/all-dgpu.env` file for running pipeline on discrete GPU (decoding, pre-processing and inferencing)
+        - `src/res/all-npu.env` file for running pipeline on NPU (inferencing)
+        - `src/res/yolov5-cpu-class-gpu.env` file for running pipeline on CPU for detection and GPU for classification
+        - `src/res/yolov5-gpu-class-cpu.env` file for running pipeline on GPU for detection and CPU for classification
 
-After modifying or creating a new .env file you can load the .env file through docker compose up
+After modifying or creating a new .env file you can load the .env file through the make command or docker compose up
 
 !!! Example
 
     ```bash
-    docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu.env up -d
+    make PIPELINE_SCRIPT=yolov5s_effnetb0.sh DEVICE_ENV=res/all-gpu.env run-render-mode
+    docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu-class-gpu.env up -d
     ```
 
 ## Environment Variables (EVs)
@@ -56,8 +60,7 @@ The table below lists the environment variables (EVs) that can be used as inputs
 
     | Variable | Description | Values |
     |:----|:----|:---|
-    |`DEVICE_ENV` | Path to device specific environment file that will be loaded into the pipeline container | src/res/yolov5-gpu.env |
-    |`DEVICE` | for setting device to use for pipeline run | "GPU", "CPU", "AUTO", "MULTI:GPU,CPU" |
+    |`DEVICE_ENV` | Path to device specific environment file that will be loaded into the pipeline container | res/all-gpu.env |    
     |`DOCKER_COMPOSE` | The docker-compose.yml file to run | src/docker-compose.yml |
     |`RETAIL_USE_CASE_ROOT` | The root directory for Automated Self Checkout in relation to the docker-compose.yml | .. |
     |`RESULTS_DIR` | Directory to output results | ../results |
@@ -76,22 +79,12 @@ The table below lists the environment variables (EVs) that can be used as inputs
     | Variable | Description | Values |
     |:----|:----|:---|
     |`BARCODE_RECLASSIFY_INTERVAL` | time interval in seconds for barcode classification | Ex: 5 |
-    |`BATCH_SIZE` | number of frames batched together for a single inference to be used in [gvadetect batch-size element](https://dlstreamer.github.io/elements/gvadetect.html) | 0, 1 |
+    |`BATCH_SIZE` | number of frames batched together for a single inference to be used in [gvadetect batch-size element](https://dlstreamer.github.io/elements/gvadetect.html) | 0-N |
     |`CLASSIFICATION_OPTIONS` | extra classification pipeline instruction parameters | "", "reclassify-interval=1 batch-size=1 nireq=4 gpu-throughput-streams=4" |
-    |`DETECTION_OPTIONS` | extra object detection pipeline instruction parameters | "", "gpu-throughput-streams=4 nireq=4 batch-size=1" |
+    |`DETECTION_OPTIONS` | extra object detection pipeline instruction parameters | "", "ie-config=NUM_STREAMS=2 nireq=2" |
     |`GST_DEBUG` | for running pipeline in gst debugging mode | 0, 1 |
     |`LOG_LEVEL` | log level to be set when running gst pipeline | ERROR, INFO, WARNING, and [more](https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html?gi-language=c#the-debug-log) |
     |`OCR_RECLASSIFY_INTERVAL` | time interval in seconds for OCR classification | Ex: 5 |
     |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
     |`PIPELINE_COUNT` | Number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
     |`PIPELINE_SCRIPT` | Pipeline script to run. | yolov5s.sh, yolov5s_effnetb0.sh, yolov5s_full.sh |
-
-=== "Automated Self Checkout DLStreamer EVs"
-    This list of EVs specifically supports the GST profile DLStreamer workloads.
-
-    | Variable | Description | Values |
-    |:----|:----|:---|
-    |`DECODE` | decoding element instructions for gst-launch to use | Ex: "decode bin force-sw-decoders=1" |
-    |`OCR_DEVICE` | optical character recognition device | "CPU", "GPU" |
-    |`PRE_PROCESS` | pre process command to add for inferencing | "pre-process-backend=vaapi-surface-sharing", "pre-process-backend=vaapi-surface-sharing pre-process-config=VAAPI_FAST_SCALE_LOAD_FACTOR=1" |
-    |`VA_SURFACE` | use video analytics surface from the shared memory if applicable | "", "! "video/x-raw(memory |VASurface)" (GPU only)" |
