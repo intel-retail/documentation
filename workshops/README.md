@@ -1,7 +1,7 @@
 # Workshop Collaterals
 
 - ## ASU - 25 Jan 2025
-  - [Presentation](https://github.com/intel-retail/documentation/blob/add-workshop-materials/workshops/ASU-24Jan2025/Open_Source_Developemnt_with_Intel_AI_Retail_Suite_Project.pdf)
+  - [Presentation](https://github.com/intel-retail/documentation/blob/main/workshops/ASU-24Jan2025/Open_Source_Developemnt_with_Intel_AI_Retail_Suite_Project.pdf)
   - Video Recording
     - Intel presentation starts at 2:47
     - Note: First 10 min doesn't have audio, mostly covers introduction. But afterwards goes into project details, demos & making contributions to this project.
