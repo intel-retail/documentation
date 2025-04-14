@@ -1,30 +1,31 @@
-# Common Service: LiDAR & Weight Sensor Microservice
-This microservice manages **both LiDAR and Weight sensors**  in a single container. It publishes sensor data over **MQTT** , **Kafka** , or **HTTP**  (or any combination), controlled entirely by environment variables.
-
-## Overview 
+# Common-Service: LiDAR & Weight Sensor Microservice 
+This microservice manages **Barcode, LiDAR, and Weight sensors**  in a single container. It publishes sensor data over **MQTT** , **Kafka** , or **HTTP**  (or any combination), controlled entirely by environment variables.
+## 1. Overview 
  
 - **Sensors** 
-    - LiDAR & Weight support in the same codebase.
+  - Barcode, LiDAR, & Weight support in the same codebase.
 
-    - Configuration for each sensor (e.g., ID, port, mock mode, intervals).
+  - Configuration for each sensor (e.g., ID, port, mock mode, intervals).
  
 - **Publishing**  
-    - `publisher.py` handles publishing to one or more protocols: 
-        - **MQTT**
-
-        - **Kafka**
-
-        - **HTTP**
+  - `publisher.py` handles publishing to one or more protocols: 
+    - **MQTT**
+ 
+    - **Kafka**
+ 
+    - **HTTP**
  
 - **Apps**  
-    - Two main modules: 
-        - `lidar_app.py`
-      
-        - `weight_app.py`
- 
-    - Each uses shared methods from `publisher.py` & `config.py`.
+  - Three main modules: 
+    - `barcode_app.py`
 
-## Environment Variables 
+    - `lidar_app.py`
+ 
+    - `weight_app.py`
+ 
+  - Each uses shared methods from `publisher.py` & `config.py`.
+
+## 2. Environment Variables 
 All settings are defined in `docker-compose.yml` under the `asc_common_service` section. Key variables include:
 ### LiDAR 
 | Variable | Description | Example | 
@@ -60,29 +61,46 @@ All settings are defined in `docker-compose.yml` under the `asc_common_service` 
 | WEIGHT_PUBLISH_INTERVAL | Interval (in seconds) for Weight data publishing | 1.0 | 
 | WEIGHT_LOG_LEVEL | Logging level (DEBUG, INFO, etc.) | INFO | 
 
+### Barcode
+| Variable | Description | Example |
+| --- | --- | --- |
+| BARCODE_COUNT | Number of Barcode sensors | 2 |
+| BARCODE_SENSOR_ID_1 | Unique ID for first Barcode sensor | barcode-001 |
+| BARCODE_SENSOR_ID_2 | Unique ID for second Barcode sensor (if any) | barcode-002 |
+| BARCODE_MOCK_1 | Enable mock data for first Barcode sensor (true/false) | true |
+| BARCODE_MQTT_ENABLE | Toggle MQTT publishing | true |
+| BARCODE_MQTT_BROKER_HOST | MQTT broker host | mqtt-broker_1 |
+| BARCODE_MQTT_BROKER_PORT | MQTT broker port | 1883 |
+| BARCODE_KAFKA_ENABLE | Toggle Kafka publishing | false |
+| BARCODE_MQTT_TOPIC | MQTT topic name for Barcode data | barcode/data |
+| BARCODE_HTTP_ENABLE | Toggle HTTP publishing | false |
+| BARCODE_PUBLISH_INTERVAL | Interval (in seconds) for Barcode data publishing | 1.0 |
+| BARCODE_LOG_LEVEL | Logging level (DEBUG, INFO, etc.) | INFO |
+
 > **Note:**  Change `"true"` or `"false"` to enable or disable each protocol. Adjust intervals, logging levels, or sensor counts as needed.
-## Usage 
+## 3. Usage 
  
 1. **Build and Run** 
 
-    ```bash
-    make run-demo
-    ```
-    This spins up the `asc_common_service` container (and related services like Mosquitto or Kafka, depending on your configuration).
+```bash
+make build-sensors
+make run-sensors
+```
+This spins up the `asc_common_service` container (and related services like Mosquitto or Kafka, depending on your configuration).
  
 2. **Data Flow**  
-    - By default, LiDAR publishes to `lidar/data` (MQTT, if enabled) or `lidar-data` (Kafka), or an HTTP endpoint if configured.
+  - By default, LiDAR publishes to `lidar/data` (MQTT, if enabled) or `lidar-data` (Kafka), or an HTTP endpoint if configured.
  
-    - Weight sensor similarly publishes to `weight/data` or `weight-data`.
+  - Weight sensor similarly publishes to `weight/data` or `weight-data`.
  
 3. **Mock Mode**  
-    - Setting `LIDAR_MOCK_1="true"` (or `WEIGHT_MOCK_1="true"`) forces the sensor to generate **random**  data rather than reading from actual hardware.
+  - Setting `LIDAR_MOCK_1="true"` (or `WEIGHT_MOCK_1="true"`) forces the sensor to generate **random**  data rather than reading from actual hardware.
 
-## Testing 
+## 4. Testing 
 
 ### A. MQTT 
  
-- **Grafana** : A pre-loaded dashboard named *Sensor-Analytics* is available at [http://localhost:3000](http://localhost:3000/)  (default credentials `admin`/`admin`).
+- **Grafana** : A pre-loaded dashboard named *Retail Analytics Dashboard* is available at [http://localhost:3000](http://localhost:3000/)  (default credentials `admin`/`admin`).
  
 - Check that the MQTT data source in Grafana points to `tcp://mqtt-broker_1:1883` (or `tcp://mqtt-broker:1883`, depending on the network).
 
@@ -92,38 +110,38 @@ All settings are defined in `docker-compose.yml` under the `asc_common_service` 
  
 - Test from inside the container:
 
-    ```bash
-    docker exec asc_common_service python kafka_publisher_test.py --topic lidar-data
-    ```
-    You should see incoming messages in the console.
+```bash
+docker exec asc_common_service python kafka_publisher_test.py --topic lidar-data
+```
+You should see incoming messages in the console.
 
 ### C. HTTP 
  
-1️. **Local Test (Inside Docker)**
+1️ **Local Test (Inside Docker)**
 
-  - Set `LIDAR_HTTP_URL="http://localhost:5000/api/lidar_data"` in the environment.
-  - Run `make run-demo` and wait for all containers to start.
-  - Once up, execute:
+- Set `LIDAR_HTTP_URL="http://localhost:5000/api/lidar_data"` in the environment.
+- Run `make run-sensors` and wait for all containers to start.
+- Once up, execute:
 
-   ```bash
-   docker exec asc_common_service python http_publisher_test.py
-   ```
+```bash
+docker exec asc_common_service python http_publisher_test.py
+```
 
-  - This will trigger the HTTP publisher and display the received data inside the container.
+- This will trigger the HTTP publisher and display the received data inside the container.
 
-2️. **Using an External Webhook Service**
+2️ **Using an External Webhook Service**
 
-  - Visit [Webhook.site](https://webhook.site/) and get a unique URL.
-  - Set `LIDAR_HTTP_URL` to this URL.
-  - Run `make run-demo`, and you should see the HTTP requests arriving on the Webhook.site dashboard.
+- Visit [Webhook.site](https://webhook.site/) and get a unique URL.
+- Set `LIDAR_HTTP_URL` to this URL.
+- Run `make run-sensors`, and you should see the HTTP requests arriving on the Webhook.site dashboard.
 
 
 
-## Contributing & Development 
+## 5. Contributing & Development 
  
 - **Code Structure**  
-    - `publisher.py`: Core publishing logic (MQTT, Kafka, HTTP).
+  - `publisher.py`: Core publishing logic (MQTT, Kafka, HTTP).
  
-    - `config.py`: Loads environment variables and configures each sensor.
+  - `config.py`: Loads environment variables and configures each sensor.
  
-    - `lidar_app.py` and `weight_app.py`: Sensor-specific logic.
+  - `barcode_app.py`, `lidar_app.py`, and `weight_app.py`: Sensor-specific logic.
