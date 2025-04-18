@@ -42,9 +42,20 @@ consumption, and so on.
         pip install -r requirements.txt
     ```
 
-3. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
+3. [Optional] If NPU data collection is desired, ensure that the following is correct.
 
-4. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
+    a. Run the following command to get the correct path to the NPU under `/sys/devices` 
+       ```bash
+       lspci | grep -i npu
+       ```
+    b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.
+       ```bash
+       NPU_PATH="/sys/devices/pci0000:00/0000:00:0b.0/power/runtime_active_time"
+       ```
+
+4. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
+
+5. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
 
     **Automated Self-Checkout:**
     ```bash
