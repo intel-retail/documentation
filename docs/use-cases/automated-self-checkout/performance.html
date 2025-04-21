@@ -1034,6 +1034,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Benchmark specific number of pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-benchmark-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default benchmark command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-2-pipelines-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark 2 pipelines in parallel:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-command-with-environment-variable-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmark command with environment variable overrides
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1042,6 +1075,30 @@
       Benchmark Stream Density
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Benchmark Stream Density">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-target-fps-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change the Target FPS value:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variable-overrides-can-also-be-added-to-the-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment variable overrides can also be added to the command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1472,28 +1529,29 @@
 <p>The first time running this command may take few minutes. It will build all performance tools containers</p>
 </div>
 <p>After running the following commands, you will find the results in <code>performance-tools/benchmark-scripts/results/</code> folder.</p>
+<h3 id="default-benchmark-command">Default benchmark command</h3>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>benchmark
 </code></pre></div>
-<p>Benchmark <code>2</code> pipelines in parallel:</p>
+<h3 id="benchmark-2-pipelines-in-parallel">Benchmark <code>2</code> pipelines in parallel:</h3>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>benchmark<span class="w"> </span>
 </code></pre></div>
-<p>Environment variable overrides can also be added to the command:</p>
+<h3 id="benchmark-command-with-environment-variable-overrides">Benchmark command with environment variable overrides</h3>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">DEVICE_ENV</span><span class="o">=</span>res/all-gpu.env<span class="w"> </span><span class="nv">PIPELINE_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>benchmark
 </code></pre></div>
 <p>Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found <a href="../../performance-tools/benchmark.html#benchmark-a-cv-pipeline">HERE</a></p>
 <div class="language-bash highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>performance-tools/benchmark-scripts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>python<span class="w"> </span>benchmark.py<span class="w"> </span>--compose_file<span class="w"> </span>../../src/docker-compose.yml<span class="w"> </span>--pipeline<span class="w"> </span><span class="m">2</span>
 </code></pre></div>
 <h2 id="benchmark-stream-density">Benchmark Stream Density</h2>
-<p>To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over FPS over 14.95 with the yolov5s.sh pipeline. You can override these values through Environment Variables.</p>
+<p>To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolov5s.sh pipeline. You can override these values through Environment Variables.</p>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
 <p>You can check the output results for performance metrics in the <code>results</code> folder at the root level. Also, the stream density script will output the results in the console:</p>
 <div class="language-text highlight"><pre><span></span><code>Total averaged FPS per stream: 15.210442307692306 for 26 pipeline(s)
 </code></pre></div>
-<p>Change the Target FPS value:</p>
+<h3 id="change-the-target-fps-value">Change the Target FPS value:</h3>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">TARGET_FPS</span><span class="o">=</span><span class="m">13</span>.5<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
-<p>Environment variable overrides can also be added to the command</p>
+<h3 id="environment-variable-overrides-can-also-be-added-to-the-command">Environment variable overrides can also be added to the command</h3>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">TARGET_FPS</span><span class="o">=</span><span class="m">13</span>.5<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
 <p>Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found <a href="../../performance-tools/benchmark.html#benchmark-stream-density-for-cv-pipelines">HERE</a></p>
