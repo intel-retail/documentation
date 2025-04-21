@@ -1346,6 +1346,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="troubleshooting.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1357,6 +1370,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q-why-is-the-performance-on-cpu-sometimes-better-than-on-gpu-when-running-pipeline-benchmarking-like-stream-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: Why is the performance on CPU sometimes better than on GPU, when running pipeline benchmarking like stream density?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-what-happens-if-the-system-keeps-crashing-when-building-the-dlstreamer-realsense-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: What happens if the system keeps crashing when building the dlstreamer-realsense image?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-what-happens-if-the-rtsp-source-is-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: What happens if the RTSP source is not found?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-how-can-i-use-an-intel-realsense-camera-as-the-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: How can I use an Intel RealSense Camera as the input?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1404,7 +1472,7 @@
 
 
 <h1 id="troubleshooting">Troubleshooting</h1>
-<p>Q: Why is the performance on CPU sometimes better than on GPU, when running pipeline benchmarking like stream density?</p>
+<h2 id="q-why-is-the-performance-on-cpu-sometimes-better-than-on-gpu-when-running-pipeline-benchmarking-like-stream-density">Q: Why is the performance on CPU sometimes better than on GPU, when running pipeline benchmarking like stream density?</h2>
 <p>A: The performance of pipeline benchmarking strongly depends on the models.  Specifically for <code>yolov5s</code> object detection, it is recommended to use the model precision FP32 when it is running on device <code>GPU</code>.  If supported, then you can change the model precision by updating the pipeline script to point to the precision of your choice.  For example, you can change the model of <code>FP16</code> to <code>FP32</code> assuming the precision <code>FP32</code> of the target model is available:  </p>
 <div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>src/pipelines/yolov5s.sh
 
@@ -1412,15 +1480,37 @@
 <span class="w">    </span><span class="nv">model</span><span class="o">=</span>models/object_detection/yolov5s/FP16-INT8/yolov5s.xml
 <span class="w">    </span>...
 </code></pre></div>
-<p>Q: What happens if the system keeps crashing when building the <code>dlstreamer-realsense</code> image?</p>
+<h2 id="q-what-happens-if-the-system-keeps-crashing-when-building-the-dlstreamer-realsense-image">Q: What happens if the system keeps crashing when building the <code>dlstreamer-realsense</code> image?</h2>
 <p>A: Some systems may run into issues with memory when building the <code>dlstreamer-realsense</code> image. In the <code>Dockerfile.dlstreamer</code> file, change the make command to not use the <code>-j</code> threading option.</p>
 <div class="language-diff highlight"><pre><span></span><code><span class="gd">- make -j&quot;$(cat &lt; /proc/cpuinfo |grep -c proc)&quot; &amp;&amp;</span>
 <span class="gi">+ make &amp;&amp;</span>
 </code></pre></div>
-<p>Q: What happens if the RTSP source is not found?</p>
+<h2 id="q-what-happens-if-the-rtsp-source-is-not-found">Q: What happens if the RTSP source is not found?</h2>
 <p>A: Depending on your systems performance it is possible that the RTSP simulator may take additional time to initialize and start streaming. To avoid issues you can add a waiting period before the pipeline starts. For example you can add a 5 second sleep timer to /src/entrypoint.sh</p>
 <div class="language-bash highlight"><pre><span></span><code>sleep<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c1"># sleep for 5 seconds before starting the pipeline</span>
 <span class="nb">eval</span><span class="w"> </span><span class="nv">$gstLaunchCmd</span>
+</code></pre></div>
+<h2 id="q-how-can-i-use-an-intel-realsense-camera-as-the-input">Q: How can I use an Intel RealSense Camera as the input?</h2>
+<p>A: To use a RealSense camara as an input for any of the retail use cases, you need to obtain the serial number first. Follow the instructions <a href="https://github.com/IntelRealSense/librealsense/tree/master/tools/enumerate-devices" target="__blank">here</a> to run <code>rs-enumerate-devices</code> and obtain the following information:</p>
+<div class="language-text highlight"><pre><span></span><code>Device Name                   Serial Number       Firmware Version
+Intel RealSense D415          725112060400        05.12.02.100
+Device info:
+    Name                          :     Intel RealSense D415
+    Serial Number                 :     725112060400
+    Firmware Version              :     05.12.02.100
+    Recommended Firmware Version  :     05.12.02.100
+    Physical Port                 :     \\?\usb#vid_8086&amp;pid_0ad3&amp;mi_00#6&amp;2a371216&amp;0&amp;0000#{e5323777-f976-4f5b-9b55-b94699c46e44}\global
+    Debug Op Code                 :     15
+    Advanced Mode                 :     YES
+    Product Id                    :     0AD3
+    Camera Locked                 :     NO
+    Usb Type Descriptor           :     3.2
+    Product Line                  :     D400
+    Asic Serial Number            :     012345678901
+    Firmware Update Id            :     012345678901
+</code></pre></div>
+<p>Simply add the serial number to the <code>INPUTSRC</code> argument when calling the pipelines:</p>
+<div class="language-text highlight"><pre><span></span><code>INPUTSRC=725112060400 make run-demo
 </code></pre></div>
 
 
