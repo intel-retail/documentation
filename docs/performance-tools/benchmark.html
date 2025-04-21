@@ -1360,9 +1360,11 @@ consumption, and so on.</p>
 <li>
 <p>[Optional] If NPU data collection is desired, ensure that the following is correct.</p>
 <p>a. Run the following command to get the correct path to the NPU under <code>/sys/devices</code> 
-   <div class="language-text highlight"><pre><span></span><code>lspci | grep -i npu
+   <div class="language-bash highlight"><pre><span></span><code>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>npu
 </code></pre></div>
-b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.</p>
+b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.
+   <div class="language-bash highlight"><pre><span></span><code><span class="nv">NPU_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/devices/pci0000:00/0000:00:0b.0/power/runtime_active_time&quot;</span>
+</code></pre></div></p>
 </li>
 <li>
 <p>Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.</p>
