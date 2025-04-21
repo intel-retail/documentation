@@ -13,17 +13,19 @@ You can launch a specific number of Automated Self Checkout containers using the
 
 After running the following commands, you will find the results in `performance-tools/benchmark-scripts/results/` folder.
 
+### Default benchmark command
+
 ```bash
 make benchmark
 ```
 
-Benchmark `2` pipelines in parallel:
+### Benchmark `2` pipelines in parallel:
 
 ```bash
 make PIPELINE_COUNT=2 benchmark 
 ```
 
-Environment variable overrides can also be added to the command:
+### Benchmark command with environment variable overrides
 
 ```bash
 make PIPELINE_SCRIPT=yolov5s_effnetb0.sh DEVICE_ENV=res/all-gpu.env PIPELINE_COUNT=2 benchmark
@@ -37,7 +39,7 @@ cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../
 
 ## Benchmark Stream Density
 
-To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over FPS over 14.95 with the yolov5s.sh pipeline. You can override these values through Environment Variables.
+To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolov5s.sh pipeline. You can override these values through Environment Variables.
 
 ```bash
 make benchmark-stream-density
@@ -49,13 +51,13 @@ You can check the output results for performance metrics in the `results` folder
 Total averaged FPS per stream: 15.210442307692306 for 26 pipeline(s)
 ```
 
-Change the Target FPS value:
+### Change the Target FPS value:
 
 ```bash
 make TARGET_FPS=13.5 benchmark-stream-density
 ```
 
-Environment variable overrides can also be added to the command
+### Environment variable overrides can also be added to the command
 
 ```bash
 make PIPELINE_SCRIPT=yolov5s_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density
