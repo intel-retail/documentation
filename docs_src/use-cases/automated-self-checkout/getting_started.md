@@ -41,8 +41,8 @@
     Result:
     ```bash
     NAMES                 STATUS          IMAGE
-    camera-simulator0     Up 12 seconds   openvino/ubuntu20_data_runtime:2021.4.2
-    src-OvmsClientGst-1   Up 14 seconds   dlstreamer:dev
+    camera-simulator0     Up 12 seconds   jrottenberg/ffmpeg:4.1-alpine
+    src-ClientGst-1       Up 14 seconds   dlstreamer:dev
     camera-simulator      Up 13 seconds   aler9/rtsp-simple-server
     ```
 
@@ -52,16 +52,19 @@
 
     gst-launch_<time>_gst.log
     ```
-    /GstPipeline:pipeline0/GstGvaWatermark:gvawatermark0/GstCapsFilter:capsfilter1: caps = video/x-raw(memory:VASurface), format=(string)RGBA
-    /GstPipeline:pipeline0/GstFPSDisplaySink:fpsdisplaysink0/GstXImageSink:ximagesink0: sync = true
-    Got context from element 'vaapipostproc1': gst.vaapi.Display=context, gst.vaapi.Display=(GstVaapiDisplay)"\(GstVaapiDisplayGLX\)\ vaapidisplayglx0", gst.vaapi.Display.GObject=(GstObject)"\(GstVaapiDisplayGLX\)\ vaapidisplayglx0";
+    libva info: VA-API version 1.22.0
+    libva info: User environment variable requested driver 'iHD'
+    libva info: Trying to open /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
+    libva info: Found init function __vaDriverInit_1_22
+    libva info: va_openDriver() returns 0
+    Setting pipeline to PAUSED ...
+    Pipeline is live and does not need PREROLL ...
+    Redistribute latency...
+    /GstPipeline:pipeline0/GstFPSDisplaySink:fpsdisplaysink0/GstAutoVideoSink:autovideosink0/GstXvImageSink:autovideosink0-actual-sink-xvimage: sync = true
     Progress: (open) Opening Stream
     Pipeline is PREROLLED ...
     Prerolled, waiting for progress to finish...
     Progress: (connect) Connecting to rtsp://localhost:8554/camera_0
-    Progress: (open) Retrieving server options
-    Progress: (open) Retrieving media info
-    Progress: (request) SETUP stream 0
     ```
 
     pipeline<time>_gst.log

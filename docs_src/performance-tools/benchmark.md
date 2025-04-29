@@ -28,10 +28,10 @@ consumption, and so on.
 
 1. Build the benchmark container and change into the benchmark-scripts directory.
 
-   ```bash
-   cd performance-tools/
-   make build-benchmark-docker   
-   ```
+    ```bash
+        cd performance-tools/
+        make build-benchmark-docker
+    ```
 
 2. Python packages listed in [performance-tools/benchmark-scripts/requirements.txt](https://github.com/intel-retail/performance-tools/blob/main/benchmark-scripts/requirements.txt)
 
@@ -42,9 +42,35 @@ consumption, and so on.
         pip install -r requirements.txt
     ```
 
-3. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
+3. [Optional] If NPU data collection is desired, ensure that the following is correct.
 
-4. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
+    a. Run the following command to get the correct path to the NPU under `/sys/devices` 
+       ```bash
+       lspci | grep -i npu
+       ```
+    b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.
+       ```bash
+       NPU_PATH="/sys/devices/pci0000:00/0000:<insert_results>/power/runtime_active_time"
+       ```
+
+    !!! Example
+        
+        If the lspci command is:
+       
+        ```bash
+        $ lspci | grep -i npu
+        00:0b.0 Processing accelerators: Intel Corporation Lunar Lake NPU (rev 04)
+        ```
+
+        then the NPU_PATH is:
+
+        ```bash
+        NPU_PATH="/sys/devices/pci0000:00/0000:00:0b.0/power/runtime_active_time"
+        ```
+
+4. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
+
+5. Run the benchmarking script using the docker compose file(s) as inputs to the script (sample command shown below).
 
     **Automated Self-Checkout:**
     ```bash
@@ -77,9 +103,10 @@ To run the stream density functionality use `--target_fps` and/or `--density_inc
    ```
 
 where the parameters:
-- `target_fps` is the given target frames per second (fps) to achieve for maximum number of pipelines
-- `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
-- `init_duration` is the initial duration period in second before pipeline performance metrics are taken
+
+   - `target_fps` is the given target frames per second (fps) to achieve for maximum number of pipelines
+   - `density_increment` is to configure the benchmark logic to increase the number of pipelines each time while trying to find out the maximum number of pipelines before reaching the given target fps.
+   - `init_duration` is the initial duration period in second before pipeline performance metrics are taken
 
 
     !!! Note
