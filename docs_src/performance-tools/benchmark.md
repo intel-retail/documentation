@@ -50,7 +50,7 @@ consumption, and so on.
        ```
     b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.
        ```bash
-       NPU_PATH="/sys/devices/pci0000:00/0000:<insert_results>/power/runtime_active_time"
+       NPU_PATH="/sys/devices/pci0000:00/0000:<insert_results>/npu_busy_time_us"
        ```
 
     !!! Example
@@ -65,7 +65,7 @@ consumption, and so on.
         then the NPU_PATH is:
 
         ```bash
-        NPU_PATH="/sys/devices/pci0000:00/0000:00:0b.0/power/runtime_active_time"
+        NPU_PATH="/sys/devices/pci0000:00/0000:00:0b.0/npu_busy_time_us"
         ```
 
 4. Choose a CV pipeline from the Retail Use Cases Repo, Automated Self-Checkout or Loss Prevention and note the file paths to the docker compose files.
