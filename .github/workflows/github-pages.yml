@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:          
+          path: documentation
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
@@ -42,6 +44,6 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
       - name: Build Site with MkDocs
-        run: mkdocs build --config-file mkdocs.yml
+        run: mkdocs build --config-file documentation/mkdocs.yml
       - name: Deploy
-        run: mkdocs gh-deploy --force --clean --verbose
+        run: mkdocs gh-deploy --force --clean --verbose --config-file documentation/mkdocs.yml
