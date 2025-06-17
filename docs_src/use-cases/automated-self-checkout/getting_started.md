@@ -5,7 +5,7 @@
 1. Download the models using download_models/downloadModels.sh
 
     ```bash
-    make download-models
+    make download-models <model_name> <model_type>
     ```
 
 2. Update github submodules
