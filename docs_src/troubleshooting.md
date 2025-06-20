@@ -8,7 +8,7 @@ A: The performance of pipeline benchmarking strongly depends on the models.  Spe
     src/pipelines/yolo11n.sh
 
     ...
-    model=models/object_detection/yolo11n/FP16-INT8/yolo11n.xml
+    model=models/object_detection/yolo11n/FP16/yolo11n.xml
     ...
 ```
 
