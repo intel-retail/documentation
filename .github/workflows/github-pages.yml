@@ -41,6 +41,7 @@ jobs:
           pip install "mkdocs-swagger-ui-tag" "mkdocstrings>=0.24.3" "mkdocstrings-python>=1.9.2"     
       - name: Configure Git user
         run: |
+          cd documentation
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
       - name: Build Site with MkDocs
