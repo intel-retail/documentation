@@ -47,4 +47,6 @@ jobs:
       - name: Build Site with MkDocs
         run: mkdocs build --config-file documentation/mkdocs.yml
       - name: Deploy
-        run: mkdocs gh-deploy --force --clean --verbose --config-file documentation/mkdocs.yml
+        run: |
+          cd documentation
+          mkdocs gh-deploy --force --clean --verbose --config-file mkdocs.yml
