@@ -1473,11 +1473,11 @@
 
 <h1 id="troubleshooting">Troubleshooting</h1>
 <h2 id="q-why-is-the-performance-on-cpu-sometimes-better-than-on-gpu-when-running-pipeline-benchmarking-like-stream-density">Q: Why is the performance on CPU sometimes better than on GPU, when running pipeline benchmarking like stream density?</h2>
-<p>A: The performance of pipeline benchmarking strongly depends on the models.  Specifically for <code>yolov5s</code> object detection, it is recommended to use the model precision FP32 when it is running on device <code>GPU</code>.  If supported, then you can change the model precision by updating the pipeline script to point to the precision of your choice.  For example, you can change the model of <code>FP16</code> to <code>FP32</code> assuming the precision <code>FP32</code> of the target model is available:  </p>
-<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>src/pipelines/yolov5s.sh
+<p>A: The performance of pipeline benchmarking strongly depends on the models.  Specifically for <code>yolo11n</code> object detection, it is recommended to use the model precision FP32 when it is running on device <code>GPU</code>.  If supported, then you can change the model precision by updating the pipeline script to point to the precision of your choice.  For example, you can change the model of <code>FP16</code> to <code>FP32</code> assuming the precision <code>FP32</code> of the target model is available:  </p>
+<div class="language-bash highlight"><pre><span></span><code><span class="w">    </span>src/pipelines/yolo11n.sh
 
 <span class="w">    </span>...
-<span class="w">    </span><span class="nv">model</span><span class="o">=</span>models/object_detection/yolov5s/FP16-INT8/yolov5s.xml
+<span class="w">    </span><span class="nv">model</span><span class="o">=</span>models/object_detection/yolo11n/FP16/yolo11n.xml
 <span class="w">    </span>...
 </code></pre></div>
 <h2 id="q-what-happens-if-the-system-keeps-crashing-when-building-the-dlstreamer-realsense-image">Q: What happens if the system keeps crashing when building the <code>dlstreamer-realsense</code> image?</h2>
