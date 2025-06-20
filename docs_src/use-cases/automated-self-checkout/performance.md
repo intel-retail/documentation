@@ -6,7 +6,7 @@ The performance tools repository is included as a github submodule in this proje
 
 Before running benchmark commands, make sure you already configured python and its dependencies. Visit the Performance tools installation guide [HERE]((../../performance-tools/benchmark.md#benchmark-a-cv-pipeline))
 
-You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch `one` yolov5s.sh pipeline. You can override these values through Environment Variables.
+You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch `one` yolo11n.sh pipeline. You can override these values through Environment Variables.
 
 !!! Note
     The first time running this command may take few minutes. It will build all performance tools containers
@@ -28,7 +28,7 @@ make PIPELINE_COUNT=2 benchmark
 ### Benchmark command with environment variable overrides
 
 ```bash
-make PIPELINE_SCRIPT=yolov5s_effnetb0.sh DEVICE_ENV=res/all-gpu.env PIPELINE_COUNT=2 benchmark
+make PIPELINE_SCRIPT=yolo11n_effnetb0.sh DEVICE_ENV=res/all-gpu.env PIPELINE_COUNT=2 benchmark
 ```
 
 Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found [HERE](../../performance-tools/benchmark.md#benchmark-a-cv-pipeline)
@@ -39,7 +39,7 @@ cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../
 
 ## Benchmark Stream Density
 
-To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolov5s.sh pipeline. You can override these values through Environment Variables.
+To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolo11n.sh pipeline. You can override these values through Environment Variables.
 
 ```bash
 make benchmark-stream-density
@@ -60,7 +60,7 @@ make TARGET_FPS=13.5 benchmark-stream-density
 ### Environment variable overrides can also be added to the command
 
 ```bash
-make PIPELINE_SCRIPT=yolov5s_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density
+make PIPELINE_SCRIPT=yolo11n_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density
 ```
 
 Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found [HERE](../../performance-tools/benchmark.md#benchmark-stream-density-for-cv-pipelines)

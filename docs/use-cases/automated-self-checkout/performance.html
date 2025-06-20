@@ -1523,7 +1523,7 @@
 <p>The performance tools repository is included as a github submodule in this project. The performance tools enable you to test the pipeline system performance on various hardware. </p>
 <h2 id="benchmark-specific-number-of-pipelines">Benchmark specific number of pipelines</h2>
 <p>Before running benchmark commands, make sure you already configured python and its dependencies. Visit the Performance tools installation guide <a href="(../../performance-tools/benchmark.md#benchmark-a-cv-pipeline)">HERE</a></p>
-<p>You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch <code>one</code> yolov5s.sh pipeline. You can override these values through Environment Variables.</p>
+<p>You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch <code>one</code> yolo11n.sh pipeline. You can override these values through Environment Variables.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The first time running this command may take few minutes. It will build all performance tools containers</p>
@@ -1536,13 +1536,13 @@
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>benchmark<span class="w"> </span>
 </code></pre></div>
 <h3 id="benchmark-command-with-environment-variable-overrides">Benchmark command with environment variable overrides</h3>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">DEVICE_ENV</span><span class="o">=</span>res/all-gpu.env<span class="w"> </span><span class="nv">PIPELINE_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>benchmark
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolo11n_effnetb0.sh<span class="w"> </span><span class="nv">DEVICE_ENV</span><span class="o">=</span>res/all-gpu.env<span class="w"> </span><span class="nv">PIPELINE_COUNT</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>benchmark
 </code></pre></div>
 <p>Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found <a href="../../performance-tools/benchmark.html#benchmark-a-cv-pipeline">HERE</a></p>
 <div class="language-bash highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>performance-tools/benchmark-scripts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>python<span class="w"> </span>benchmark.py<span class="w"> </span>--compose_file<span class="w"> </span>../../src/docker-compose.yml<span class="w"> </span>--pipeline<span class="w"> </span><span class="m">2</span>
 </code></pre></div>
 <h2 id="benchmark-stream-density">Benchmark Stream Density</h2>
-<p>To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolov5s.sh pipeline. You can override these values through Environment Variables.</p>
+<p>To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolo11n.sh pipeline. You can override these values through Environment Variables.</p>
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
 <p>You can check the output results for performance metrics in the <code>results</code> folder at the root level. Also, the stream density script will output the results in the console:</p>
@@ -1552,7 +1552,7 @@
 <div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">TARGET_FPS</span><span class="o">=</span><span class="m">13</span>.5<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
 <h3 id="environment-variable-overrides-can-also-be-added-to-the-command">Environment variable overrides can also be added to the command</h3>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">TARGET_FPS</span><span class="o">=</span><span class="m">13</span>.5<span class="w"> </span>benchmark-stream-density
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolo11n_effnetb0.sh<span class="w"> </span><span class="nv">TARGET_FPS</span><span class="o">=</span><span class="m">13</span>.5<span class="w"> </span>benchmark-stream-density
 </code></pre></div>
 <p>Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found <a href="../../performance-tools/benchmark.html#benchmark-stream-density-for-cv-pipelines">HERE</a></p>
 <div class="language-bash highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>performance-tools/benchmark-scripts<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>python<span class="w"> </span>benchmark.py<span class="w"> </span>--compose_file<span class="w"> </span>../../src/docker-compose.yml<span class="w"> </span>--target_fps<span class="w"> </span><span class="m">14</span>

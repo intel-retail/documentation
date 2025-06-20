@@ -1497,13 +1497,13 @@
 <p>Environment variables with make commands</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w">  </span>run-render-mode
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolo11n_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w">  </span>run-render-mode
 </code></pre></div>
 </div>
 <p>Environment variable with docker compose up</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="language-bash highlight"><pre><span></span><code><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>src/docker-compose.yml<span class="w"> </span>--env-file<span class="w"> </span>src/res/yolov5-cpu.env<span class="w"> </span>up<span class="w"> </span>-d
+<div class="language-bash highlight"><pre><span></span><code><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolo11n_effnetb0.sh<span class="w"> </span><span class="nv">RESULTS_DIR</span><span class="o">=</span><span class="s2">&quot;../render_results&quot;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>src/docker-compose.yml<span class="w"> </span>--env-file<span class="w"> </span>src/res/yolov5-cpu.env<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 </div>
 <div class="admonition note">
@@ -1551,7 +1551,7 @@ They will override the default values in env files and docker-compose.yml.
 <p>After modifying or creating a new .env file you can load the .env file through the make command or docker compose up</p>
 <div class="admonition example">
 <p class="admonition-title">Make</p>
-<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolov5s_effnetb0.sh<span class="w"> </span><span class="nv">DEVICE_ENV</span><span class="o">=</span>res/all-gpu.env<span class="w"> </span>run-render-mode<span class="w">    </span>
+<div class="language-bash highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">PIPELINE_SCRIPT</span><span class="o">=</span>yolo11n_effnetb0.sh<span class="w"> </span><span class="nv">DEVICE_ENV</span><span class="o">=</span>res/all-gpu.env<span class="w"> </span>run-render-mode<span class="w">    </span>
 </code></pre></div>
 </div>
 <div class="admonition example">
@@ -1680,7 +1680,7 @@ They will override the default values in env files and docker-compose.yml.
 <tr>
 <td style="text-align: left;"><code>PIPELINE_SCRIPT</code></td>
 <td style="text-align: left;">Pipeline script to run.</td>
-<td style="text-align: left;">yolov5s.sh, yolov5s_effnetb0.sh, yolov5s_full.sh</td>
+<td style="text-align: left;">yolo11n.sh, yolo11n_effnetb0.sh, yolo11n_full.sh</td>
 </tr>
 </tbody>
 </table>

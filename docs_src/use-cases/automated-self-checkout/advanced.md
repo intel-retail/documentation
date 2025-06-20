@@ -16,7 +16,7 @@ Environment variables with make commands
 !!! Example
 
     ```bash
-    make PIPELINE_SCRIPT=yolov5s_effnetb0.sh RESULTS_DIR="../render_results"  run-render-mode
+    make PIPELINE_SCRIPT=yolo11n_effnetb0.sh RESULTS_DIR="../render_results"  run-render-mode
     ```
 
 Environment variable with docker compose up
@@ -24,7 +24,7 @@ Environment variable with docker compose up
 !!! Example
 
     ```bash
-    PIPELINE_SCRIPT=yolov5s_effnetb0.sh RESULTS_DIR="../render_results" docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu.env up -d
+    PIPELINE_SCRIPT=yolo11n_effnetb0.sh RESULTS_DIR="../render_results" docker compose -f src/docker-compose.yml --env-file src/res/yolov5-cpu.env up -d
     ```
 
 !!! Note
@@ -49,7 +49,7 @@ After modifying or creating a new .env file you can load the .env file through t
 
 !!! Example  "Make"
     ```bash
-    make PIPELINE_SCRIPT=yolov5s_effnetb0.sh DEVICE_ENV=res/all-gpu.env run-render-mode    
+    make PIPELINE_SCRIPT=yolo11n_effnetb0.sh DEVICE_ENV=res/all-gpu.env run-render-mode    
     ```
 
 !!! Example "Docker compose"
@@ -93,4 +93,4 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`OCR_RECLASSIFY_INTERVAL` | time interval in seconds for OCR classification | Ex: 5 |
     |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
     |`PIPELINE_COUNT` | Number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
-    |`PIPELINE_SCRIPT` | Pipeline script to run. | yolov5s.sh, yolov5s_effnetb0.sh, yolov5s_full.sh |
+    |`PIPELINE_SCRIPT` | Pipeline script to run. | yolo11n.sh, yolo11n_effnetb0.sh, yolo11n_full.sh |
