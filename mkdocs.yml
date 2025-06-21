@@ -46,7 +46,7 @@ nav:
           - AiCSD Integration: 'Architecture/v3.0.0/aicsd-integration.md'
   - Performance Tools:
       - Benchmarking: 'performance-tools/benchmark.md'
-      - Benchmarking APIs: 'performance-tools/api-docs.md'
+        #      - Benchmarking APIs: 'performance-tools/api-docs.md'
   - Use Cases:
       - Automated Self Checkout:
           - Overview: 'use-cases/automated-self-checkout/automated-self-checkout.md'
