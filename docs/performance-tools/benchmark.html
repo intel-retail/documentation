@@ -14,11 +14,11 @@
         <link rel="prev" href="../Architecture/v3.0.0/aicsd-integration.html">
       
       
-        <link rel="next" href="api-docs.html">
+        <link rel="next" href="../use-cases/automated-self-checkout/automated-self-checkout.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
       
 
@@ -796,29 +796,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="api-docs.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Benchmarking APIs
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1457,7 +1434,7 @@ consumption, and so on.</p>
    <div class="language-bash highlight"><pre><span></span><code>lspci<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>npu
 </code></pre></div>
 b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-compose.yaml for the npu-util service or the global variable in performance-tools/docker/npu-util/npu_logger.py is set to the correct location.
-   <div class="language-bash highlight"><pre><span></span><code><span class="nv">NPU_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/devices/pci0000:00/0000:&lt;insert_results&gt;/power/runtime_active_time&quot;</span>
+   <div class="language-bash highlight"><pre><span></span><code><span class="nv">NPU_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/devices/pci0000:00/0000:&lt;insert_results&gt;/npu_busy_time_us&quot;</span>
 </code></pre></div></p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -1466,7 +1443,7 @@ b. Ensure the environment variable NPU_PATH in performance-tools/docker/docker-c
 <span class="m">00</span>:0b.0<span class="w"> </span>Processing<span class="w"> </span>accelerators:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Lunar<span class="w"> </span>Lake<span class="w"> </span>NPU<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">04</span><span class="o">)</span>
 </code></pre></div>
 <p>then the NPU_PATH is:</p>
-<div class="language-bash highlight"><pre><span></span><code><span class="nv">NPU_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/devices/pci0000:00/0000:00:0b.0/power/runtime_active_time&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="nv">NPU_PATH</span><span class="o">=</span><span class="s2">&quot;/sys/devices/pci0000:00/0000:00:0b.0/npu_busy_time_us&quot;</span>
 </code></pre></div>
 </div>
 </li>
@@ -1689,13 +1666,13 @@ make<span class="w"> </span>python-coverage
         
         
           
-          <a href="api-docs.html" class="md-footer__link md-footer__link--next" aria-label="Next: Benchmarking APIs">
+          <a href="../use-cases/automated-self-checkout/automated-self-checkout.html" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Benchmarking APIs
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1735,10 +1712,10 @@ make<span class="w"> </span>python-coverage
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "navigation.top", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://unpkg.com/lunr/lunr.js"></script>
       
