@@ -11,6 +11,7 @@ on:
   #  branches: [ "main" ]
 permissions:
   contents: read
+  pages: write
 
 jobs:
   deploy:
@@ -42,8 +43,8 @@ jobs:
       - name: Configure Git user
         run: |
           cd documentation
-          git config --local user.email "sys_devops_account@intel.com"
-          git config --local user.name "sys_devops_account"
+          git config --local user.email "github-actions[bot]"
+          git config --local user.name "github-actions[bot]@users.noreply.github.com"
       - name: Build Site with MkDocs
         run: mkdocs build --config-file documentation/mkdocs.yml
       - name: Deploy
