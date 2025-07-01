@@ -1741,22 +1741,35 @@ They will override the default values in env files and docker-compose.yml.
             </div>
 
             <h2 id="using-a-custom-model">Using a Custom Model</h2>
+
             <p>You can replace the default detection model with your own trained model by following these steps:</p>
 
-            <div class="language-text highlight">
-              <pre><span></span><code>1. Clone the <code>automated-self-checkout</code> repository. This will create a folder named <code>automated-self-checkout</code>.
+            <ol>
+              <li>
+                Clone the <code>automated-self-checkout</code> repository. This will create a folder named
+                <code>automated-self-checkout</code>.
+              </li>
+              <li>
+                Inside the <code>automated-self-checkout</code> folder, ensure there is a <code>models</code> directory.
+                If it doesn’t exist, create one.
+              </li>
+              <li>
+                Copy your custom model files into the <code>models</code> directory. For example, use this structure:
+                <div class="admonition example">
+                  <p class="admonition-title">Example</p>
+                  <pre><code>./automated-self-checkout/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;my_custom_model.xml&gt;</code></pre>
+                </div>
+              </li>
+              <li>
+                Open the <code>yolo11n.sh</code> script. Locate the <code>gstLaunchCmd</code> line and update the
+                <code>model</code> path to point to your custom model:
 
-2. Inside the <code>automated-self-checkout</code> folder, ensure there is a <code>models</code> directory. If it doesn’t exist, create one.
-
-3. Copy your custom model files into the <code>models</code> directory. For example, use this structure:
-   <code>./automated-self-checkout/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_name.xml&gt;</code>
-
-4. Open the <code>yolo11n.sh</code> script. Locate the <code>gstLaunchCmd</code> line and update the <code>model</code> path to point to your custom model:
-   <code>model=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_name.xml&gt;</code>
-
-5. Run the pipeline as usual to start using your custom model.
-</code></pre>
-            </div>
+                <pre><code>model=/home/pipeline-server/models/object_detection/my_custom_model/INT8/&lt;my_custom_model.xml&gt;</my_custom_model.xml></code></pre>
+              </li>
+              <li>
+                Run the pipeline as usual to start using your custom model.
+              </li>
+            </ol>
 
             <p>When you add a custom model, it replaces the default detection model used by the pipeline.</p>
 
@@ -1765,12 +1778,14 @@ They will override the default values in env files and docker-compose.yml.
               <p>If your custom model includes a <code>labels</code> (<code>.txt</code>) file or a
                 <code>model-proc</code> (<code>.json</code>) file, place them in the same folder as your
                 <code>.xml</code> file. Then set the variables in <code>gstLaunchCmd</code> as shown below before
-                running the pipeline.</p>
+                running the pipeline.
+              </p>
 
-              <pre><code>model-proc=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_proc.json&gt;</code></pre>
+              <pre><code>model-proc=/home/pipeline-server/models/object_detection/&lt;my_model_name&gt;/INT8/&lt;my_model_proc.json&gt;</code></pre>
 
-              <pre><code>labels=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_labels.txt&gt;</code></pre>
+              <pre><code>labels=/home/pipeline-server/models/object_detection/&lt;my_model_name&gt;/INT8/&lt;my_model_labels.txt&gt;</code></pre>
             </div>
+
 
 
 
