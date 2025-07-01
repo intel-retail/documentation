@@ -1751,9 +1751,6 @@ They will override the default values in env files and docker-compose.yml.
 3. Copy your custom model files into the <code>models</code> directory. For example, use this structure:
    <code>./automated-self-checkout/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_name.xml&gt;</code>
 
-   <i>(If your custom model includes a labels file (<code>.txt</code>) or a model processing file (<code>.json</code>), 
-   place them in the same folder as your <code>.xml</code> file.)</i>
-
 4. Open the <code>yolo11n.sh</code> script. Locate the <code>gstLaunchCmd</code> line and update the <code>model</code> path to point to your custom model:
    <code>model=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_name.xml&gt;</code>
 
@@ -1761,18 +1758,21 @@ They will override the default values in env files and docker-compose.yml.
 </code></pre>
             </div>
 
-            <p><strong>Note:</strong> If your custom model includes a <code>labels </code> file or
-              <code>model-proc </code>file
-              , set both
-              variables in
-              <code>gstLaunchCmd</code> pipeline as shown below before running the
-              pipeline.<br>
+            <p>When you add a custom model, it replaces the default detection model used by the pipeline.</p>
 
-              <code>model-proc=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_proc.json&gt;</code><br>
-              <code>labels=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_labels.txt&gt;</code>
-            </p>
+            <div class="admonition note custom-model-note">
+              <p class="admonition-title">Note</p>
+              <p>If your custom model includes a <code>labels</code> (<code>.txt</code>) file or a
+                <code>model-proc</code> (<code>.json</code>) file, place them in the same folder as your
+                <code>.xml</code> file. Then set the variables in <code>gstLaunchCmd</code> as shown below before
+                running the pipeline.</p>
 
-            <p>When you add a custom model, it will replace the default detection model used by the pipeline.</p>
+              <pre><code>model-proc=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_proc.json&gt;</code></pre>
+
+              <pre><code>labels=/home/pipeline-server/models/object_detection/&lt;your_model_name&gt;/INT8/&lt;your_model_labels.txt&gt;</code></pre>
+            </div>
+
+
 
 
 
