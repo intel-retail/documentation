@@ -1751,7 +1751,7 @@ They will override the default values in env files and docker-compose.yml.
 3. Copy your custom model files into the <code>models</code> directory. For example, use this structure:
    <code>./automated-self-checkout/models/object_classification/&lt;your_model_name&gt;/INT8/&lt;your_model_name.xml&gt;</code>
 
-   <i>(If your model requires a labels file (<code>.txt</code>) or a model processing file (<code>.json</code>), 
+   <i>(If your custom model includes a labels file (<code>.txt</code>) or a model processing file (<code>.json</code>), 
    place them in the same folder as your <code>.xml</code> file.)</i>
 
 4. Open the <code>yolo11n.sh</code> script. Locate the <code>gstLaunchCmd</code> line and update the <code>model</code> path to point to your custom model:
