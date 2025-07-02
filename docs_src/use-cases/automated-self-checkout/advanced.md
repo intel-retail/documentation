@@ -94,3 +94,42 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
     |`PIPELINE_COUNT` | Number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
     |`PIPELINE_SCRIPT` | Pipeline script to run. | yolo11n.sh, yolo11n_effnetb0.sh, yolo11n_full.sh |
+
+
+## Using a Custom Model
+
+You can replace the default detection model with your own trained model by following these steps:
+
+1. Clone the `automated-self-checkout` repository. This will create a folder named `automated-self-checkout`.
+
+2. Inside the `automated-self-checkout` folder, ensure there is a `models` directory. If it doesn’t exist, create one.
+
+3. Copy your custom model files into the `models` directory. For example, use this structure:
+
+    ```text
+    ./automated-self-checkout/models/object_detection/<my_custom_model>/INT8/<my_custom_model.xml>
+    ```
+
+4. Open the `yolo11n.sh` script. Locate the `gstLaunchCmd` line and update the `model` path to point to your custom model:
+
+    !!! Example
+
+        ```bash
+        model=/home/pipeline-server/models/object_detection/<my_custom_model>/INT8/<my_custom_model.xml>
+        ```
+
+5. Run the pipeline as usual to start using your custom model.
+
+When you add a custom model, it replaces the default detection model used by the pipeline.
+
+!!! Note
+    If your custom model includes a `labels` (`.txt`) file or a `model-proc` (`.json`) file, place them in the same folder as your `.xml` file. Then set the variables in `gstLaunchCmd` as shown below before running the pipeline.
+
+    ```bash
+    model-proc=/home/pipeline-server/models/object_detection/<my_custom_model>/INT8/<my_custom_model_proc.json>
+    ```
+
+    ```bash
+    labels=/home/pipeline-server/models/object_detection/<my_custom_model>/INT8/<my_custom_model_labels.txt>
+    ```
+
