@@ -68,3 +68,14 @@ Alternatively you can directly call the benchmark.py. This enables you to take a
 ```bash
 cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../../src/docker-compose.yml --target_fps 14
 ```
+
+### Plot Utilization Graphs
+
+After running a benchmark, you can generate a consolidated CPU, NPU, and GPU usage graph based on the collected logs using:
+```bash
+make plot-metrics
+```
+This command generates a single PNG image (**`plot_metrics.png`**) under the **`benchmark`** directory, showing:  
+> 🧠 CPU Usage Over Time  
+> ⚙️ NPU Utilization Over Time  
+> 🎮 GPU Usage Over Time for each device found  

@@ -141,6 +141,19 @@ The summary.csv content should look like this:
     S0 Power Draw W,19.159666666666666
 ```
 
+## Plot Utilization Graphs
+
+After running a benchmark, you can generate a consolidated CPU, NPU, and GPU usage graph based on the collected logs using:  
+
+on peformance-tools/benchmark-scripts:
+```bash
+make plot
+```
+This command generates a single PNG image (**`plot_metrics.png`**) under the **`results`** directory, showing:  
+> 🧠 CPU Usage Over Time  
+> ⚙️ NPU Utilization Over Time  
+> 🎮 GPU Usage Over Time for each device found 
+
 # Modifying Additional Benchmarking Variables
 
 ## Arguments
