@@ -75,7 +75,7 @@ After running a benchmark, you can generate a consolidated CPU, NPU, and GPU usa
 ```bash
 make plot-metrics
 ```
-This command generates a single PNG image (**`plot_metrics.png`**) under the benchmark directory, showing:  
+This command generates a single PNG image (**`plot_metrics.png`**) under the **`benchmark`** directory, showing:  
 > 🧠 CPU Usage Over Time  
 > ⚙️ NPU Utilization Over Time  
 > 🎮 GPU Usage Over Time for each device found  
