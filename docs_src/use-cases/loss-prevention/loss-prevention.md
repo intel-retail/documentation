@@ -10,4 +10,4 @@ The Intel® Loss Prevention Reference Package is designed to help with this. It 
 
 ## Next Steps
 
-To begin using the loss prevention solution you can follow the [Getting Started Guide](./getting_started.md). 
+To begin using the loss prevention solution you can follow the [Getting Started Guide](./README.md). 
