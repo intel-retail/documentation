@@ -26,6 +26,8 @@
     make run-render-mode
     ```
 
+ **User can directly run single make command that internally called all above command and run the Loss Prevention application.**
+
 5.  Run Loss Prevention appliaction with single command.   
 
     ```bash
