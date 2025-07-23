@@ -1,81 +1,75 @@
-# Advanced Settings
+### 1. Run benchmarking on CPU/NPU/GPU.
+>*By default, the configuration is set to use the CPU. If you want to benchmark the application on GPU or NPU, please update the device value in workload_to_pipeline.json.*
 
-To further customize a loss prevention pipeline, let's add more variables to the execution:
+```sh
+make  benchmark
+```
 
-!!! Example
+### 2. See the benchmarking results.
 
-    ```bash
-    make PIPELINE_SCRIPT=yolov8s_roi.sh RESULTS_DIR="../render_results"  run-render-mode
-    ```
+```sh
+make  consolidate-metrics
 
-The above command will execute a DLStreamer pipeline using YOLOv8s model for object detection on a region of interest (ROI) with object tracking mechanism.
+cat benchmark/metrics.csv
+```
 
-## Modify ROI coordinates
 
-To modify the ROI coordinates, locate the file `roi.json` under src/pipelines/roi.json. Since the "objects" attribute is an array, it is possible to add multiple ROIs.
+## 3.🛠️ Other Useful Make Commands.
 
-```json
-[
-    {
-        "objects": [
+- `make validate-all-configs` — Validate all configuration files
+- `make clean-images` — Remove dangling Docker images
+- `make clean-containers` — Remove stopped containers
+- `make clean-all` — Remove all unused Docker resources
+
+
+## 4.⚙️ Configuration
+
+The application is highly configurable via JSON files in the `configs/` directory:
+
+- **`camera_to_workload.json`**: Maps each camera to one or more workloads. To add or remove a camera, edit the `lane_config.cameras` array in this file. Each camera entry can specify its video source, region of interest, and assigned workloads.
+    - Example:
+      ```json
+      {
+        "lane_config": {
+          "cameras": [
             {
-                "detection": {
-                    "label": "ROI1"
-                },
-                "x": 0,
-                "y": 0,
-                "w": 620,
-                "h": 1080
-            }           
-        ]
-    }
-]
-```
-## Class Filtering for YOLOv8 Pipeline
+              "camera_id": "cam1",
+              "fileSrc": "sample-media/video1.mp4",              
+              "workloads": ["items_in_basket", "multi_product_identification"],
+              "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}
+            },
+            ...
+          ]
+        }
+      }
+      ```
+- **`workload_to_pipeline.json`**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). To add or update a workload, edit the `workload_pipeline_map` in this file.
+    - Example:
+      ```json
+      {
+        "workload_pipeline_map": {
+          "items_in_basket": [
+            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "CPU"},
+            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "CPU"}
+          ],
+          ...
+        }
+      }
+      ```
 
-To detect specific classes using YOLOv8, edit the file `src/pipelines/yolov8s_roi.sh` and update the variable `CLASS_IDS="0"` to include the desired class IDs. For example, the default value is set to `"0"`, which corresponds to detecting only the "person" class. You can specify multiple class IDs using a comma-separated format like `"0,3,5,4"`, or leave the value empty (`""`) to detect all classes.
+**To try a new camera or workload:**
+1. Edit `configs/camera_to_workload.json` to add your camera and assign workloads.
+2. Edit `configs/workload_to_pipeline.json` to define or update the pipeline for your workload.
+3. (Optional) Place your video files in the appropriate directory and update the `fileSrc` path.
+4. Re-run the pipeline as described above.
 
-To find all supported classes by YOLOv8, you can find them in this file `src/extensions/object_filter.py`.
+## 📁 Project Structure
 
-```json
-CLASS_IDS="0,2"
-```
+- `configs/` — Configuration files (camera/workload mapping, pipeline mapping)
+- `docker/` — Dockerfiles for downloader and pipeline containers
+- `docs/` — Documentation (HLD, LLD, system design)
+- `download-scripts/` — Scripts for downloading models and videos
+- `src/` — Main source code and pipeline runner scripts
+- `Makefile` — Build automation and workflow commands
 
-## MQTT Inference Export and ROI Detection
-
-This application enables monitoring object entry and exit within a defined Region of Interest (ROI), allowing real-time event tracking and external message handling.
-The `yolov8s_roi.json` pipeline exports the inference data through MQTT using mosquitto broker defined in the `docker-compose.yml` file. 
-
-To change the default MQTT URL, edit the file `src/pipelines/yolov8s_roi.sh` and update the variable `MQTT_HOST="127.0.0.1:1883"`.
-
-We have developed a business logic application in `src/app/loss_prevention.py` that tracks objects entering and exiting a defined ROI, generating corresponding events.
-
-To configure the app to connect to external MQTT broker, modify the `src/docker-compose.yml` and change the following env variables:
-
-| Variable   | Default        | Description                              |
-|------------|----------------|------------------------------------------|
-| `MQTT_URL` | `127.0.0.1`    | MQTT Broker URL                          |
-| `MQTT_PORT`| `1883`         | MQTT Broker Port                         |
-| `MQTT_TOPIC` | `event/detection` | Topic for publishing inference data   |
-| `ROI_NAME` | `BASKET`       | The name of the ROI used to filter objects |
-
-
-The following diagram illustrates the containers running:  
-
-![MQTT export](./images/mqtt-diagram.jpg)
-
-## Age Classification Pipeline Usage
-
-To run an age classification pipeline, let's change some variables to the execution:
-
-!!! Example
-
-    ```bash
-    make PIPELINE_SCRIPT=age_recognition.sh RESULTS_DIR="../render_results" run-render-mode
-    ```
-
-The above command will execute a DLStreamer pipeline using a [facial detection model](https://docs.openvino.ai/2024/omz_models_model_face_detection_retail_0005.html) for object detection, then running an [age/gender classification model](https://docs.openvino.ai/2024/omz_models_model_age_gender_recognition_retail_0013.html) on the results of the facial detection model to output the gender and age of the faces in the input frame.
-
-For enviroments variables, follow the same tutorial as the automated self checkout [HERE](../automated-self-checkout/advanced.md)
-
-
+---
