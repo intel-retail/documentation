@@ -20,36 +20,29 @@
     make download-sample-videos
     ```
 
-4. Build the demo Docker image
+4. Run the LP application
 
     ```bash
-    make build
+    make run-render-mode
     ```
 
-5. Start Loss prevention using the Docker Compose file. The Docker Compose also includes an RTSP camera simulator that will infinitely loop through the sample videos downloaded in step 3.
+    **NOTE:- User can directly run single make command that internally called all above command and run the Loss Prevention application.**
+
+5.  Run Loss Prevention appliaction with single command.   
 
     ```bash
-    RTSP=1 make run-render-mode
+    make run-lp
     ```
-
-6. Open Grafana:
-
-🔗 [Grafana Dashboard](http://127.0.0.1:3000/d/ce428u65d0irkf/loss-prevention?from=now-6h&to=now&timezone=browser&refresh=2s)
-
-![Grafana](./images/grafana.jpg)
-
-
-7. Verify Docker containers
+6. Verify Docker containers
 
     ```bash
-    docker ps --format 'table{{.Names}}\t{{.Status}}\t{{.Image}}'
+    docker ps --all
     ```
     Result:
     ```bash
-    NAMES                 STATUS          IMAGE
-    camera-simulator0    Up 17 seconds   jrottenberg/ffmpeg:4.1-alpine
-    src-OvmsClientGst-1  Up 17 seconds   dlstreamer:dev
-    camera-simulator     Up 17 seconds   aler9/rtsp-simple-server
+    NAMES                    STATUS                     IMAGE
+    src-pipeline-runner-1    Up 17 seconds (healthy)   pipeline-runner:lp
+    model-downloader         Exited(0) 17 seconds      model-downloader:lp
     ```
 
 8. Verify Results
@@ -98,12 +91,12 @@
                     "y_min": 0.14599881349270305
                 },
                 "confidence": 0.8677337765693665,
-                "label": "bottle",
+                "label": "apple",
                 "label_id": 39
             },
             "h": 697,
             "region_id": 610,
-            "roi_type": "bottle",
+            "roi_type": "apple",
             "w": 225,
             "x": 1287,
             "y": 158
@@ -117,12 +110,12 @@
                     "y_min": 0.1336837231479251
                 },
                 "confidence": 0.8625879287719727,
-                "label": "bottle",
+                "label": "apple",
                 "label_id": 39
             },
             "h": 711,
             "region_id": 611,
-            "roi_type": "bottle",
+            "roi_type": "apple",
             "w": 236,
             "x": 383,
             "y": 144
@@ -136,12 +129,12 @@
                     "y_min": 0.12431765065780453
                 },
                 "confidence": 0.854443371295929,
-                "label": "bottle",
+                "label": "apple",
                 "label_id": 39
             },
             "h": 919,
             "region_id": 612,
-            "roi_type": "bottle",
+            "roi_type": "apple",
             "w": 294,
             "x": 806,
             "y": 134
@@ -157,8 +150,8 @@
 ```
 
 9. Stop the demo using docker compose down
-```bash
-make down
-```
+    ```bash
+    make down-lp
+    ```
 
 ## [Proceed to Advanced Settings](advanced.md)    
