@@ -33,7 +33,15 @@
     ```bash
     make run-lp
     ```
-6. Verify Docker containers
+6. View the Dynamically Generated GStreamer Pipeline.
+    >*Since the GStreamer pipeline is generated dynamically based on the provided configuration(camera_to_workload and workload_to_pipeline json), the pipeline.sh file gets updated every time the user runs make run-lp or make benchmark. This ensures that the pipeline reflects the latest changes.*
+    ```sh
+
+    src/pipelines/pipeline.sh
+
+    ```
+
+7. Verify Docker containers
 
     ```bash
     docker ps --all
