@@ -61,6 +61,7 @@ nav:
           - GRPC Yolov5s Pipeline: 'use-cases/AiCSD/pipeline-grpc-go.md'
       - Loss Prevention:
           - Overview: 'use-cases/loss-prevention/loss-prevention.md'
+          - Architecture: 'use-cases/loss-prevention/architecture.md'
           - Getting Started: 'use-cases/loss-prevention/getting_started.md'
           - Advanced Settings: 'use-cases/loss-prevention/advanced.md'
   - Releases: 'releasenotes.md'
