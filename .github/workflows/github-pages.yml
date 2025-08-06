@@ -39,7 +39,7 @@ jobs:
       - name: Install mkdocs
         run: |
           pip install mkdocs "mkdocs-material>=8.2" "mkdocs-htmlproofer-plugin>=0.8"
-          pip install "mkdocs-swagger-ui-tag" "mkdocstrings>=0.24.3" "mkdocstrings-python>=1.9.2"     
+          pip install "mkdocs-swagger-ui-tag" "mkdocstrings>=0.24.3" "mkdocstrings-python>=1.9.2" "mkdocs-mermaid2-plugin"    
       - name: Configure Git user
         run: |
           cd documentation

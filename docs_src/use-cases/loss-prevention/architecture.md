@@ -96,8 +96,8 @@ graph TB
 ```mermaid
 flowchart LR
     subgraph "Configuration Files"
-        CAM[camera_to_workload.json<br/>• Camera definitions<br/>• Workload assignments<br/>• ROI specifications]
-        WORK[workload_to_pipeline.json<br/>• Pipeline steps<br/>• Model configurations<br/>• Device assignments]
+        CAM[camera_to_workload.json \n• Camera definitions \n• Workload assignments \n• ROI specifications]
+        WORK[workload_to_pipeline.json \n• Pipeline steps \n• Model configurations \n• Device assignments]
     end
     
     subgraph "Processing"

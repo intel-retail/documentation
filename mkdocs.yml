@@ -27,6 +27,7 @@ theme:
     - toc.integrate
 plugins:
   - search
+  - mermaid2
   - mkdocstrings:
       enable_inventory: true
       handlers:
