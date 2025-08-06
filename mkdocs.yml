@@ -65,6 +65,10 @@ nav:
           - Architecture: 'use-cases/loss-prevention/architecture.md'
           - Getting Started: 'use-cases/loss-prevention/getting_started.md'
           - Advanced Settings: 'use-cases/loss-prevention/advanced.md'
+      - Order Accuracy:
+          - Overview: 'use-cases/order-accuracy/order-accuracy.md'
+          - Getting Started: 'use-cases/order-accuracy/getting_started.md'
+          - Advanced Settings: 'use-cases/order-accuracy/advanced.md'
   - Releases: 'releasenotes.md'
   - Troubleshooting: 'troubleshooting.md'
   - Workshops: 'workshops.md'
