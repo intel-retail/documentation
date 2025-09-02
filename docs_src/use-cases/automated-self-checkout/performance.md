@@ -14,11 +14,23 @@ The above command would:
 - Generate benchmark metrics
 - Run `make consolidate-metrics` automatically
 
-## Benchmark specific number of pipelines
+## Understanding Benchmarking Types
 
 Before running benchmark commands, make sure you already configured python and its dependencies. Visit the Performance tools installation guide [HERE]((../../performance-tools/benchmark.md#benchmark-a-cv-pipeline))
 
 You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch `one` yolo11n.sh pipeline. You can override these values through Environment Variables.
+
+List of EVs:
+
+    | Variable | Description | Values |
+    |:----|:----|:---|
+    |`BATCH_SIZE_DETECT` | number of frames batched together for a single inference to be used in [gvadetect  batch-size element](https://dlstreamer.github.io/elements/gvadetect.html) | 0-N |
+    |`BATCH_SIZE_CLASSIFY` | number of frames batched together for a single inference to be used in [gvaclassify batch-size element](https://dlstreamer.github.io/elements/gvaclassify.html) | 0-N |
+    |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
+    |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
+    |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
+    |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
+
 > **Note:**  
 > Higher the `PIPELINE_COUNT`, higher the stress on the system.  
 > Increasing this value will run more parallel pipelines, increasing resource usage and testing system
