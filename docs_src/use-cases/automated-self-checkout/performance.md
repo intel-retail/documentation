@@ -58,7 +58,7 @@ make PIPELINE_COUNT=2 benchmark
 make PIPELINE_SCRIPT=yolo11n_effnetb0.sh DEVICE_ENV=res/all-gpu.env PIPELINE_COUNT=1 benchmark
 ```
 
-### Benchmark command for full pipeline (age prediction + object classification) using GPU
+### Benchmark command for full pipeline (age prediction+object classification) using GPU
 
 ```bash
 make PIPELINE_SCRIPT=obj_detection_age_prediction.sh DEVICE_ENV=res/all-gpu.env PIPELINE_COUNT=1 benchmark
@@ -90,6 +90,16 @@ It helps evaluate hardware efficiency and resource usage during automated self-c
 
 To test the maximum amount of Automated Self Checkout containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 14.95 FPS with the yolo11n.sh pipeline. You can override these values through Environment Variables.
 
+List of EVs:
+
+    | Variable | Description | Values |
+    |:----|:----|:---|
+    |`TARGET_FPS` | threshold value for FPS to consider a valid stream | Ex. 14.95 |
+    |`OOM_PROTECTION` | flag to enable/disable OOM checks before scaling the pipeline (enabled by default) | 1, 0 |
+
+> **Note:**  
+> If `OOM_PROTECTION` is set to 0, the system may crash or become unresponsive, requiring a hard reboot. 
+    
 ```bash
 make benchmark-stream-density
 ```
