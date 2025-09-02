@@ -79,6 +79,8 @@ cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../
 
 ## Create a consolidated metrics file 
 
+After running the benchmark command:
+
 ```bash
 make consolidate-metrics
 ```
