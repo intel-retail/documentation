@@ -96,6 +96,24 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`PIPELINE_SCRIPT` | Pipeline script to run. | yolo11n.sh, yolo11n_effnetb0.sh, yolo11n_full.sh |
 
 
+## Available Pipelines
+
+- `yolo11n.sh` - Runs object detection only.
+- `yolo11n_full.sh` - Runs object detection, object classification, text detection, text recognition, and barcode detection.
+- `yolo11n_effnetb0.sh` - Runs object detection, and object classification.
+- `obj_detection_age_prediction.sh` - Runs two parallel streams:<br>
+        &emsp;Stream 1: Object detection and classification on retail video. <br>
+        &emsp;Stream 2: Face detection and age/gender recognition on age prediction video.
+
+### Models used
+
+- Age/Gender Recognition - `age-gender-recognition-retail-0013`
+- Face Detection - `face-detection-retail-0004`
+- Object Classification - `efficientNet-B0`
+- Object Detection - `YOLOv11n`
+- Text Detectoin - `horizontal-text-detection-0002`
+- Text Recognition - `text-recognition-0012`
+
 ## Using a Custom Model
 
 You can replace the default detection model with your own trained model by following these steps:
