@@ -45,6 +45,11 @@ After running the following commands, you will find the results in `performance-
 ```bash
 make benchmark
 ```
+Runs with:
+- `RENDER_MODE=0`
+- `PIPELINE_SCRIPT=yolo11n.sh`
+- `DEVICE_ENV=res/all-cpu.env`
+- `PIPELINE_COUNT=1`
 
 ### Benchmark `2` pipelines in parallel:
 
@@ -65,17 +70,10 @@ make PIPELINE_SCRIPT=obj_detection_age_prediction.sh DEVICE_ENV=res/all-gpu.env 
 ```
 `obj_detection_age_prediction.sh` runs TWO video streams in parallel even with PIPELINE_COUNT=1:
 
-Stream 1: Object detection + classification on retail video
-
+Stream 1: Object detection + classification on retail video <br>
 Stream 2: Face detection + age/gender classification on age prediction video
 
-<br><br>
 
-Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found [HERE](../../performance-tools/benchmark.md#benchmark-a-cv-pipeline)
-
-```bash
-cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../../src/docker-compose.yml --pipeline 2
-```
 
 ## Create a consolidated metrics file 
 
@@ -99,7 +97,9 @@ List of EVs:
     |`TARGET_FPS` | threshold value for FPS to consider a valid stream | Ex. 14.95 |
     |`OOM_PROTECTION` | flag to enable/disable OOM checks before scaling the pipeline (enabled by default) | 1, 0 |
 
-> **Note:**  
+> **Note:**
+> 
+> An OOM crash occurs when a system or application tries to use more memory (RAM) than is available, causing the operating system to forcibly terminate processes to free up memory.<br>
 > If `OOM_PROTECTION` is set to 0, the system may crash or become unresponsive, requiring a hard reboot. 
     
 ```bash
