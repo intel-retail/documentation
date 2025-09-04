@@ -88,7 +88,7 @@ Stream 2: Face detection + age/gender classification on age prediction video
 
 ## Create a consolidated metrics file 
 
-After running the benchmark command:
+After running the benchmark command run this command to see the benchmarking results:
 
 ```bash
 make consolidate-metrics
