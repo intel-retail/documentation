@@ -2,7 +2,13 @@
 
 The performance tools repository is included as a github submodule in this project. The performance tools enable you to test the pipeline system performance on various hardware. 
 
+
 ## Benchmark Quick Start command
+
+```bash
+make update-submodules
+```
+`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
 
 ```bash
 make benchmark-quickstart
@@ -41,6 +47,11 @@ List of EVs:
 After running the following commands, you will find the results in `performance-tools/benchmark-scripts/results/` folder.
 
 ### Default benchmark command
+
+```bash
+make update-submodules
+```
+`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
 
 ```bash
 make benchmark
