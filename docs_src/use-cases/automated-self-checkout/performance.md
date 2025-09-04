@@ -44,14 +44,14 @@ You can override these values through Environment Variables.
 
 List of EVs:
 
-    | Variable | Description | Values |
-    |:----|:----|:---|
-    |`BATCH_SIZE_DETECT` | number of frames batched together for a single inference to be used in [gvadetect  batch-size element](https://dlstreamer.github.io/elements/gvadetect.html) | 0-N |
-    |`BATCH_SIZE_CLASSIFY` | number of frames batched together for a single inference to be used in [gvaclassify batch-size element](https://dlstreamer.github.io/elements/gvaclassify.html) | 0-N |
-    |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
-    |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
-    |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
-    |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
+ | Variable | Description | Values |
+ |:----|:----|:---|
+ |`BATCH_SIZE_DETECT` | number of frames batched together for a single inference to be used in [gvadetect  batch-size element](https://dlstreamer.github.io/elements/gvadetect.html) | 0-N |
+ |`BATCH_SIZE_CLASSIFY` | number of frames batched together for a single inference to be used in [gvaclassify batch-size element](https://dlstreamer.github.io/elements/gvaclassify.html) | 0-N |
+ |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
+ |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
+ |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
+ |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
 
 > **Note:**  
 > Higher the `PIPELINE_COUNT`, higher the stress on the system.  
@@ -104,10 +104,10 @@ To test the maximum amount of Automated Self Checkout containers/pipelines that 
 
 List of EVs:
 
-    | Variable | Description | Values |
-    |:----|:----|:---|
-    |`TARGET_FPS` | threshold value for FPS to consider a valid stream | Ex. 14.95 |
-    |`OOM_PROTECTION` | flag to enable/disable OOM checks before scaling the pipeline (enabled by default) | 1, 0 |
+ | Variable | Description | Values |
+ |:----|:----|:---|
+ |`TARGET_FPS` | threshold value for FPS to consider a valid stream | Ex. 14.95 |
+ |`OOM_PROTECTION` | flag to enable/disable OOM checks before scaling the pipeline (enabled by default) | 1, 0 |
 
 > **Note:**
 > 
