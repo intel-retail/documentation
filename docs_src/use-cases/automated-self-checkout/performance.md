@@ -50,7 +50,7 @@ List of EVs:
  |`BATCH_SIZE_CLASSIFY` | number of frames batched together for a single inference to be used in [gvaclassify batch-size element](https://dlstreamer.github.io/elements/gvaclassify.html) | 0-N |
  |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
  |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
- |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
+ |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection__prediction.sh, etc. |
  |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
 
 > **Note:**  
@@ -83,7 +83,7 @@ make PIPELINE_SCRIPT=obj_detection_age_prediction.sh DEVICE_ENV=res/all-gpu.env 
 `obj_detection_age_prediction.sh` runs TWO video streams in parallel even with PIPELINE_COUNT=1:
 
 Stream 1: Object detection + classification on retail video <br>
-Stream 2: Face detection + age/gender classification on age prediction video
+Stream 2: Face detection + age/gender prediction on age prediction video
 
 
 
