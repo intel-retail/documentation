@@ -24,7 +24,23 @@ The above command would:
 
 Before running benchmark commands, make sure you already configured python and its dependencies. Visit the Performance tools installation guide [HERE]((../../performance-tools/benchmark.md#benchmark-a-cv-pipeline))
 
-You can launch a specific number of Automated Self Checkout containers using the PIPELINE_COUNT environment variable. Default is to launch `one` yolo11n.sh pipeline. You can override these values through Environment Variables.
+### Default benchmark command
+
+```bash
+make update-submodules
+```
+`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
+
+```bash
+make benchmark
+```
+Runs with:
+- `RENDER_MODE=0`
+- `PIPELINE_SCRIPT=yolo11n.sh`
+- `DEVICE_ENV=res/all-cpu.env`
+- `PIPELINE_COUNT=1`
+
+You can override these values through Environment Variables.
 
 List of EVs:
 
@@ -46,21 +62,6 @@ List of EVs:
 
 After running the following commands, you will find the results in `performance-tools/benchmark-scripts/results/` folder.
 
-### Default benchmark command
-
-```bash
-make update-submodules
-```
-`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
-
-```bash
-make benchmark
-```
-Runs with:
-- `RENDER_MODE=0`
-- `PIPELINE_SCRIPT=yolo11n.sh`
-- `DEVICE_ENV=res/all-cpu.env`
-- `PIPELINE_COUNT=1`
 
 ### Benchmark `2` pipelines in parallel:
 
