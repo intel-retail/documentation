@@ -55,7 +55,7 @@
 
 8. Verify Results
 
-    After starting Automated Self Checkout you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
+    After starting Loss Prevention you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
 
     gst-launch_<time>_gst.log
     ```
