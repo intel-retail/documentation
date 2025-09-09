@@ -70,9 +70,9 @@ You can override these values through the following Environment Variables.
 
 - `workload_to_pipeline_cpu.json` - All the workloads run on CPU.
 - `workload_to_pipeline_gpu.json` - All the workloads run on GPU.
-- `workload_to_pipeline_gpu-npu.json` -
-&nbsp-  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,
-&nbsp-  fake_scan_detection and sweet_heartening run on NPU.
+- `workload_to_pipeline_gpu-npu.json` -<br>
+&nbsp; -  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,<br>
+&nbsp; -  fake_scan_detection and sweet_heartening run on NPU.<br>
 - `workload_to_pipeline_hetero.json` -
   
   | Workload | gvadetect | gvaclassify | gvainference |
@@ -85,10 +85,10 @@ You can override these values through the following Environment Variables.
   | sweet_heartening | NPU | - | NPU |
 
   
-- `workload_to_pipeline.json` -
-&nbsp  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,
-&nbsp  - product_switching and hidden_items run on GPU,
-&nbsp  - fake_scan_detection runs on NPU.
+- `workload_to_pipeline.json` - <br>
+&nbsp;  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,<br>
+&nbsp;  - product_switching and hidden_items run on GPU,<br>
+&nbsp;  - fake_scan_detection runs on NPU.<br>
 
 !!! Note
     The first time running this command may take few minutes. It will build all performance tools containers
