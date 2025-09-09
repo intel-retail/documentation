@@ -49,8 +49,8 @@
     Result:
     ```bash
     NAMES                    STATUS                     IMAGE
-    src-pipeline-runner-1    Up 17 seconds (healthy)   pipeline-runner:lp
-    model-downloader         Exited(0) 17 seconds      model-downloader:lp
+    src-pipeline-runner-1    Up 17 seconds (healthy)    pipeline-runner:lp
+    model-downloader         Exited(0) 17 seconds       model-downloader:lp
     ```
 
 8. Verify Results
