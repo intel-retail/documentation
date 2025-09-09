@@ -42,13 +42,13 @@
     Result:
     ```bash
     NAMES                    STATUS                     IMAGE
-    src-ClientGst-1          Up 17 seconds (healthy)   dlstreamer:dev
-    model-downloader         Exited(0) 17 seconds      model-downloader:latest
+    src-ClientGst-1          Up 17 seconds (healthy)    dlstreamer:dev
+    model-downloader         Exited(0) 17 seconds       model-downloader:latest
     ```
 
 7. Verify Results
 
-    After starting Automated Self Checkout you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
+    After starting Order Accuracy you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
 
     gst-launch_<time>_gst.log
     ```
