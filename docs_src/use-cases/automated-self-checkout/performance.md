@@ -13,12 +13,12 @@ make update-submodules
 ```bash
 make benchmark-quickstart
 ```
-The above command would:
-- Run headless (no display needed: `RENDER_MODE=0`)
-- Use full pipeline (`PIPELINE_SCRIPT=obj_detection_age_prediction.sh`)
-- Target GPU by default (`DEVICE_ENV=res/all-gpu.env`)
-- Generate benchmark metrics
-- Run `make consolidate-metrics` automatically
+The above command would:<br>
+- Run headless (no display needed: `RENDER_MODE=0`)<br>
+- Use full pipeline (`PIPELINE_SCRIPT=obj_detection_age_prediction.sh`)<br>
+- Target GPU by default (`DEVICE_ENV=res/all-gpu.env`)<br>
+- Generate benchmark metrics<br>
+- Run `make consolidate-metrics` automatically<br>
 
 ## Understanding Benchmarking Types
 
@@ -34,11 +34,11 @@ make update-submodules
 ```bash
 make benchmark
 ```
-Runs with:
-- `RENDER_MODE=0`
-- `PIPELINE_SCRIPT=yolo11n.sh`
-- `DEVICE_ENV=res/all-cpu.env`
-- `PIPELINE_COUNT=1`
+Runs with:<br>
+- `RENDER_MODE=0`<br>
+- `PIPELINE_SCRIPT=yolo11n.sh`<br>
+- `DEVICE_ENV=res/all-cpu.env`<br>
+- `PIPELINE_COUNT=1`<br>
 
 You can override these values through Environment Variables.
 
@@ -50,7 +50,7 @@ List of EVs:
  |`BATCH_SIZE_CLASSIFY` | number of frames batched together for a single inference to be used in [gvaclassify batch-size element](https://dlstreamer.github.io/elements/gvaclassify.html) | 0-N |
  |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
  |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
- |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection__prediction.sh, etc. |
+ |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
  |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
 
 > **Note:**  
