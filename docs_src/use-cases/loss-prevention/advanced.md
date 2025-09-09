@@ -1,11 +1,97 @@
-### 1. Run benchmarking on CPU/NPU/GPU.
->*By default, the configuration is set to use the CPU. If you want to benchmark the application on GPU or NPU, please update the device value in workload_to_pipeline.json.*
-
-```sh
-make  benchmark
+## Benchmark Quick Start command
+```bash
+make update-submodules
 ```
+`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
 
-### 2. See the benchmarking results.
+```bash
+make benchmark-quickstart
+```
+The above command would:
+- Run headless (no display needed: `RENDER_MODE=0`)
+- Target GPU by default (`WORKLOAD_DIST=workload_to_pipeline_gpu.json`)
+- Run 6 streams, each with different workload (`CAMERA_STREAM=camera_to_workload_full.json`)
+- Generate benchmark metrics
+- Run `make consolidate-metrics` automatically
+
+
+## Understanding Benchmarking Types
+
+### Default benchmark command
+
+```bash
+make update-submodules
+```
+`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
+
+```bash
+make benchmark
+```
+Runs with:
+- `RENDER_MODE=0`
+- `CAMERA_STREAM=camera_to_workload.json`
+- `WORKLOAD_DIST=workload_to_pipeline.json`
+- `PIPELINE_COUNT=1`
+
+You can override these values through the following Environment Variables.
+
+| Variable | Description | Values |
+|:----|:----|:---|
+|`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
+|`PIPELINE_COUNT` | number of Loss Prevention Docker container instances to launch | Ex: 1 |
+|`WORKLOAD_DIST` | to define how each workload is assigned to a specific processing unit (CPU, GPU, NPU) | workload_to_pipeline_cpu.json, workload_to_pipeline_gpu.json, workload_to_pipeline_gpu-npu.json, workload_to_pipeline_hetero.json, workload_to_pipeline.json |  
+|`CAMERA_STREAM` | to define camera settings and their associated workloads for the pipeline | camera_to_workload.json, camera_to_workload_full.json |      
+
+> **Note:**  
+> Higher the `PIPELINE_COUNT`, higher the stress on the system.  
+> Increasing this value will run more parallel pipelines, increasing resource usage and testing system
+
+### All CAMERA_STREAM options
+- `camera_to_workload.json`
+
+     | Camera_ID | Workload |
+     |:----|:---|
+     | cam1 | items_in_basket + multi_product_identification |
+     | cam2 | hidden_items, product_switching |
+     | cam3 | fake_scan_detection |
+  
+- `camera_to_workload_full.json`
+
+     | Camera_ID | Workload |
+     |:----|:---|
+     | cam1 | items_in_basket |
+     | cam2 | hidden_items |
+     | cam3 | fake_scan_detection |
+     | cam4 | multi_product_identification |
+     | cam5 | product_switching |
+     | cam6 | sweet_heartening |
+
+### All WORKLOAD_DIST options
+
+- `workload_to_pipeline_cpu.json` - All the workloads run on CPU.
+- `workload_to_pipeline_gpu.json` - All the workloads run on GPU.
+- `workload_to_pipeline_gpu-npu.json` -
+  -  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,
+  -  fake_scan_detection and sweet_heartening run on NPU.
+- `workload_to_pipeline_hetero.json` -
+  
+  | Workload | gvadetect | gvaclassify | gvainference |
+  |:---|:---|:---|:---|
+  | items_in_basket | GPU | GPU | - |
+  | hidden_items | GPU | CPU | - |
+  | fake_scan_detection | GPU | CPU | - |
+  | multi_product_identification | GPU | CPU | - |
+  | product_switching | GPU | GPU | - |
+  | sweet_heartening | NPU | - | NPU |
+- `workload_to_pipeline.json` -
+  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,
+  - product_switching and hidden_items run on GPU,
+  - fake_scan_detection runs on NPU.
+
+!!! Note
+    The first time running this command may take few minutes. It will build all performance tools containers
+
+### See the benchmarking results
 
 ```sh
 make  consolidate-metrics
@@ -14,7 +100,7 @@ cat benchmark/metrics.csv
 ```
 
 
-## 3.🛠️ Other Useful Make Commands.
+## 🛠️ Other Useful Make Commands
 
 - `make validate-all-configs` — Validate all configuration files
 - `make clean-images` — Remove dangling Docker images
@@ -22,7 +108,7 @@ cat benchmark/metrics.csv
 - `make clean-all` — Remove all unused Docker resources
 
 
-## 4.⚙️ Configuration
+## ⚙️ Configuration
 
 The application is highly configurable via JSON files in the `configs/` directory:
 
