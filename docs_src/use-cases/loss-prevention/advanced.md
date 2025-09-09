@@ -7,12 +7,12 @@ make update-submodules
 ```bash
 make benchmark-quickstart
 ```
-The above command would:
-- Run headless (no display needed: `RENDER_MODE=0`)
-- Target GPU by default (`WORKLOAD_DIST=workload_to_pipeline_gpu.json`)
-- Run 6 streams, each with different workload (`CAMERA_STREAM=camera_to_workload_full.json`)
-- Generate benchmark metrics
-- Run `make consolidate-metrics` automatically
+The above command would:<br>
+- Run headless (no display needed: `RENDER_MODE=0`)<br>
+- Target GPU by default (`WORKLOAD_DIST=workload_to_pipeline_gpu.json`)<br>
+- Run 6 streams, each with different workload (`CAMERA_STREAM=camera_to_workload_full.json`)<br>
+- Generate benchmark metrics<br>
+- Run `make consolidate-metrics` automatically<br>
 
 
 ## Understanding Benchmarking Types
@@ -27,11 +27,11 @@ make update-submodules
 ```bash
 make benchmark
 ```
-Runs with:
-- `RENDER_MODE=0`
-- `CAMERA_STREAM=camera_to_workload.json`
-- `WORKLOAD_DIST=workload_to_pipeline.json`
-- `PIPELINE_COUNT=1`
+Runs with:<br>
+- `RENDER_MODE=0`<br>
+- `CAMERA_STREAM=camera_to_workload.json`<br>
+- `WORKLOAD_DIST=workload_to_pipeline.json`<br>
+- `PIPELINE_COUNT=1`<br>
 
 You can override these values through the following Environment Variables.
 
@@ -52,7 +52,7 @@ You can override these values through the following Environment Variables.
      | Camera_ID | Workload |
      |:----|:---|
      | cam1 | items_in_basket + multi_product_identification |
-     | cam2 | hidden_items, product_switching |
+     | cam2 | hidden_items + product_switching |
      | cam3 | fake_scan_detection |
   
 - `camera_to_workload_full.json`
@@ -70,9 +70,9 @@ You can override these values through the following Environment Variables.
 
 - `workload_to_pipeline_cpu.json` - All the workloads run on CPU.
 - `workload_to_pipeline_gpu.json` - All the workloads run on GPU.
-- `workload_to_pipeline_gpu-npu.json` -
-  -  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,
-  -  fake_scan_detection and sweet_heartening run on NPU.
+- `workload_to_pipeline_gpu-npu.json` -<br>
+&nbsp; -  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,<br>
+&nbsp; -  fake_scan_detection and sweet_heartening run on NPU.<br>
 - `workload_to_pipeline_hetero.json` -
   
   | Workload | gvadetect | gvaclassify | gvainference |
@@ -83,10 +83,12 @@ You can override these values through the following Environment Variables.
   | multi_product_identification | GPU | CPU | - |
   | product_switching | GPU | GPU | - |
   | sweet_heartening | NPU | - | NPU |
-- `workload_to_pipeline.json` -
-  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,
-  - product_switching and hidden_items run on GPU,
-  - fake_scan_detection runs on NPU.
+
+  
+- `workload_to_pipeline.json` - <br>
+&nbsp;  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,<br>
+&nbsp;  - product_switching and hidden_items run on GPU,<br>
+&nbsp;  - fake_scan_detection runs on NPU.<br>
 
 !!! Note
     The first time running this command may take few minutes. It will build all performance tools containers
