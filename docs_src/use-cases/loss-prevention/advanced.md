@@ -93,6 +93,20 @@ You can override these values through the following Environment Variables.
 !!! Note
     The first time running this command may take few minutes. It will build all performance tools containers
 
+
+### Benchmark command with environment variable overrides
+
+```bash
+make benchmark WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json CAMERA_STREAM=camera_to_workload_full.json
+```
+
+Runs with:<br>
+- `RENDER_MODE=0`<br>
+- `CAMERA_STREAM=camera_to_workload_full.json`<br>
+- `WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json`<br>
+- `PIPELINE_COUNT=1`<br>
+
+
 ### See the benchmarking results
 
 ```sh
