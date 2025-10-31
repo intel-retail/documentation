@@ -70,6 +70,7 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`DOCKER_COMPOSE` | The docker-compose.yml file to run | src/docker-compose.yml |
     |`RETAIL_USE_CASE_ROOT` | The root directory for Automated Self Checkout in relation to the docker-compose.yml | .. |
     |`RESULTS_DIR` | Directory to output results | ../results |
+    |`REGISTRY` | Option to pull the pre-built images rather than creating them locally | true |
 
 === "Docker Compose Parameters"
     This list of parameters that can be set when running docker compose up
