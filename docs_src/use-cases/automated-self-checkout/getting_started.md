@@ -32,6 +32,12 @@
     make run-render-mode
     ```
 
+- The above series of commands can be executed using only one command:
+    
+    ```bash
+    make run-demo
+    ```
+
 6. Verify Docker containers
 
     Verify Docker images

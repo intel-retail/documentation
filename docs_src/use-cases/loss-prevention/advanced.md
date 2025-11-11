@@ -32,6 +32,7 @@ Runs with:<br>
 - `CAMERA_STREAM=camera_to_workload.json`<br>
 - `WORKLOAD_DIST=workload_to_pipeline.json`<br>
 - `PIPELINE_COUNT=1`<br>
+- `REGISTRY=false`<br>
 
 You can override these values through the following Environment Variables.
 
@@ -40,7 +41,8 @@ You can override these values through the following Environment Variables.
 |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
 |`PIPELINE_COUNT` | number of Loss Prevention Docker container instances to launch | Ex: 1 |
 |`WORKLOAD_DIST` | to define how each workload is assigned to a specific processing unit (CPU, GPU, NPU) | workload_to_pipeline_cpu.json, workload_to_pipeline_gpu.json, workload_to_pipeline_gpu-npu.json, workload_to_pipeline_hetero.json, workload_to_pipeline.json |  
-|`CAMERA_STREAM` | to define camera settings and their associated workloads for the pipeline | camera_to_workload.json, camera_to_workload_full.json |      
+|`CAMERA_STREAM` | to define camera settings and their associated workloads for the pipeline | camera_to_workload.json, camera_to_workload_full.json |    
+|`REGISTRY` | option to pull the pre-built images rather than creating them locally | true, false | 
 
 > **Note:**  
 > Higher the `PIPELINE_COUNT`, higher the stress on the system.  

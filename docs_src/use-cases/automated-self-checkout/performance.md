@@ -52,6 +52,7 @@ List of EVs:
  |`PIPELINE_COUNT` | number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
  |`PIPELINE_SCRIPT` | pipeline script to run. | yolo11n_effnetb0.sh, obj_detection_age_prediction.sh, etc. |
  |`DEVICE_ENV` | device to use for classification and detection | res/all-cpu.env, res/all-gpu.env, res/det-gpu_class-npu.env, etc. |    
+ |`REGISTRY` | option to pull pre-built images from registry rather than building them locally | true |   
 
 > **Note:**  
 > Higher the `PIPELINE_COUNT`, higher the stress on the system.  
@@ -85,6 +86,11 @@ make PIPELINE_SCRIPT=obj_detection_age_prediction.sh DEVICE_ENV=res/all-gpu.env 
 Stream 1: Object detection + classification on retail video <br>
 Stream 2: Face detection + age/gender prediction on age prediction video
 
+### Benchmark command to pull pre-built images
+
+```bash
+make REGISTRY=true PIPELINE_COUNT=1 benchmark
+```
 
 
 ## Create a consolidated metrics file 
