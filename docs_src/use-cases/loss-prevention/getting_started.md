@@ -39,7 +39,7 @@
       REGISTRY=true CAMERA_STREAM=camera_to_workload_full.json WORKLOAD_DIST=workload_to_pipeline_cpu.json make run-lp
       ```
       `REGISTRY=true`: pre-built images are pulled. <br>
-      `CAMERA_STREAM=camera_to_workload_full.json`: all 6 workloads are run. <br>
+      `CAMERA_STREAM=camera_to_workload_full.json`: runs all 6 workloads. <br>
       `WORKLOAD_DIST=workload_to_pipeline_cpu.json`: all workloads run on CPU. <br>
       
 6. View the Dynamically Generated GStreamer Pipeline.
