@@ -1,5 +1,18 @@
 # Getting Started
 
+### **NOTE:** 
+
+By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+
+```bash
+REGISTRY=false
+
+usage: make <command> REGISTRY=false (applicable for all commands like benchmark, benchmark-stream-density..)
+Example: make run-demo REGISTRY=false
+```
+
+(If this is the first time, it will take some time to download videos, models, docker images and build images)
+
 ## Step by step instructions:
 
 1. Download the models using download_models/downloadModels.sh
