@@ -33,13 +33,7 @@ Example: make run-demo REGISTRY=false
     make download-sample-videos
     ```
 
-4. Build the demo Docker image
-
-    ```bash
-    make build
-    ```
-
-5. Start Automated Self Checkout using the Docker Compose file. The Docker Compose also includes an RTSP camera simulator that will infinitely loop through the sample videos downloaded in step 3.
+4. Start Automated Self Checkout using the Docker Compose file.
 
     ```bash
     make run-render-mode
@@ -50,6 +44,26 @@ Example: make run-demo REGISTRY=false
     ```bash
     make run-demo
     ```
+5. To build the images locally step by step:
+    - Follow the following steps:
+      ```bash
+      make download-models REGISTRY=false
+      make update-submodules REGISTRY=false
+      make download-sample-videos REGISTRY=false
+      ```
+    - Now build the pipeline-runner image locally:
+      ```bash
+      make build REGISTRY=false
+      ```
+    - Finally, start Automated self checkout using docker compose up.
+      ```bash
+      make run-render-mode REGISTRY=false
+      ```
+    - The above series of commands can be executed using only one command:
+    
+      ```bash
+      make run-demo REGISTRY=false
+      ```
 
 6. Verify Docker containers
 
@@ -107,7 +121,7 @@ Example: make run-demo REGISTRY=false
     {"objects":[{"detection":{"bounding_box":{"x_max":1.0,"x_min":0.6974737628926411,"y_max":0.8381138710318847,"y_min":0.44749696271196093},"confidence":0.7188630104064941,"label":"person","label_id":0},"h":422,"region_id":576,"roi_type":"person","w":581,"x":1339,"y":483}],"resolution":{"height":1080,"width":1920},"timestamp":133305076}
     ```
 
-8. Stop the demo using docker compose down
+9. Stop the demo using docker compose down
 ```bash
 make down
 ```
