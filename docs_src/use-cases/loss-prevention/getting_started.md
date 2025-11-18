@@ -1,5 +1,18 @@
 # Getting Started
 
+### **NOTE:** 
+
+By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+
+```bash
+REGISTRY=false
+
+usage: make <command> REGISTRY=false (applicable for all commands like benchmark, benchmark-stream-density..)
+Example: make run-lp REGISTRY=false
+```
+
+(If this is the first time, it will take some time to download videos, models, docker images and build images)
+
 ## Step by step instructions:
 
 1. Download the models using download_models/downloadModels.sh
@@ -28,7 +41,7 @@
 
     **NOTE:- User can directly run single make command that internally called all above command and run the Loss Prevention application.**
 
-5.  Run Loss Prevention appliaction with single command.   
+- Run Loss Prevention appliaction with single command.   
 
     ```bash
     make run-lp
@@ -36,11 +49,25 @@
 
     - Running Loss Prevention application with ENV variables:
       ```bash
-      REGISTRY=true CAMERA_STREAM=camera_to_workload_full.json WORKLOAD_DIST=workload_to_pipeline_cpu.json make run-lp
+      CAMERA_STREAM=camera_to_workload_full.json WORKLOAD_DIST=workload_to_pipeline_cpu.json make run-lp
       ```
-      `REGISTRY=true`: pre-built images are pulled. <br>
       `CAMERA_STREAM=camera_to_workload_full.json`: runs all 6 workloads. <br>
       `WORKLOAD_DIST=workload_to_pipeline_cpu.json`: all workloads run on CPU. <br>
+
+5. To build the images locally step by step:
+    - Follow the following steps:
+      ```bash
+      make download-models REGISTRY=false
+      make update-submodules REGISTRY=false
+      make download-sample-videos
+      make run-render-mode REGISTRY=false
+      ```
+      
+    - The above series of commands can be executed using only one command:
+    
+      ```bash
+      make run-lp REGISTRY=false
+      ```
       
 6. View the Dynamically Generated GStreamer Pipeline.
     >*Since the GStreamer pipeline is generated dynamically based on the provided configuration(camera_to_workload and workload_to_pipeline json), the pipeline.sh file gets updated every time the user runs make run-lp or make benchmark. This ensures that the pipeline reflects the latest changes.*
