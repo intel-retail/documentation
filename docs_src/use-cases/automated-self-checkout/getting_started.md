@@ -49,7 +49,7 @@ Example: make run-demo REGISTRY=false
       ```bash
       make download-models REGISTRY=false
       make update-submodules REGISTRY=false
-      make download-sample-videos REGISTRY=false
+      make download-sample-videos
       ```
     - Now build the pipeline-runner image locally:
       ```bash
