@@ -10,6 +10,7 @@ make benchmark-quickstart
 The above command would:<br>
 - Run headless (no display needed: `RENDER_MODE=0`)<br>
 - Pull pre-built images (`REGISTRY=true`)<br>
+- Images tag: rc1 (`TAG=rc1`)<br>
 - Target GPU by default (`WORKLOAD_DIST=workload_to_pipeline_gpu.json`)<br>
 - Run 6 streams, each with different workload (`CAMERA_STREAM=camera_to_workload_full.json`)<br>
 - Generate benchmark metrics<br>
@@ -30,6 +31,7 @@ make benchmark
 ```
 Runs with:<br>
 - `RENDER_MODE=0`<br>
+- `TAG=rc1`<br>
 - `CAMERA_STREAM=camera_to_workload.json`<br>
 - `WORKLOAD_DIST=workload_to_pipeline.json`<br>
 - `PIPELINE_COUNT=1`<br>
@@ -44,6 +46,7 @@ You can override these values through the following Environment Variables.
 |`WORKLOAD_DIST` | to define how each workload is assigned to a specific processing unit (CPU, GPU, NPU) | workload_to_pipeline_cpu.json, workload_to_pipeline_gpu.json, workload_to_pipeline_gpu-npu.json, workload_to_pipeline_hetero.json, workload_to_pipeline.json |  
 |`CAMERA_STREAM` | to define camera settings and their associated workloads for the pipeline | camera_to_workload.json, camera_to_workload_full.json |    
 |`REGISTRY` | option to pull the pre-built images rather than creating them locally | false, true | 
+|`TAG` | tag for the images pulled | rc1 | 
 
 > **Note:**  
 > Higher the `PIPELINE_COUNT`, higher the stress on the system.  
