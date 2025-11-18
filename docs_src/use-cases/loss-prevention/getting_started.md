@@ -2,7 +2,7 @@
 
 ### **NOTE:** 
 
-By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+By default the application runs by pulling the pre-built images with `TAG=rc1`. If you want to build the images locally and then run the application, set the flag:
 
 ```bash
 REGISTRY=false
