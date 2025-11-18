@@ -1,5 +1,18 @@
 # Getting Started
 
+### **NOTE:** 
+
+By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+
+```bash
+REGISTRY=false
+
+usage: make <command> REGISTRY=false (applicable for all commands like benchmark, benchmark-stream-density..)
+Example: make run-demo REGISTRY=false
+```
+
+(If this is the first time, it will take some time to download videos, models, docker images and build images)
+
 ## Step by step instructions:
 
 1. Download the models using download_models/downloadModels.sh
@@ -26,12 +39,23 @@
     make run-render-mode
     ```
 
-    **NOTE:- User can directly run single make command that internally called all above command and run the Order Accuracy application.**
+- The above series of commands can be executed using only one command:
+    
+  ```bash
+  make run-demo
+  ```
 
-5.  Run Order Accuracy appliaction with single command.   
-
+5. To build the images locally step by step:
+- Follow the following steps:
+  ```bash
+  make download-models REGISTRY=false
+  make update-submodules REGISTRY=false
+  make download-sample-videos
+  make run-render-mode REGISTRY=false
+  ```
+- The above series of commands can be executed using only one command:
     ```bash
-    make run-demo
+    make run-demo REGISTRY=false
     ```
 
 6. Verify Docker containers
