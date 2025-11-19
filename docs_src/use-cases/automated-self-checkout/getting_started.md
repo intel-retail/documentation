@@ -1,5 +1,18 @@
 # Getting Started
 
+### **NOTE:** 
+
+By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+
+```bash
+REGISTRY=false
+
+usage: make <command> REGISTRY=false (applicable for all commands like benchmark, benchmark-stream-density..)
+Example: make run-demo REGISTRY=false
+```
+
+(If this is the first time, it will take some time to download videos, models, docker images and build images)
+
 ## Step by step instructions:
 
 1. Download the models using download_models/downloadModels.sh
@@ -20,13 +33,7 @@
     make download-sample-videos
     ```
 
-4. Build the demo Docker image
-
-    ```bash
-    make build
-    ```
-
-5. Start Automated Self Checkout using the Docker Compose file. The Docker Compose also includes an RTSP camera simulator that will infinitely loop through the sample videos downloaded in step 3.
+4. Start Automated Self Checkout using the Docker Compose file.
 
     ```bash
     make run-render-mode
@@ -37,6 +44,26 @@
     ```bash
     make run-demo
     ```
+5. To build the images locally step by step:
+    - Follow the following steps:
+      ```bash
+      make download-models REGISTRY=false
+      make update-submodules REGISTRY=false
+      make download-sample-videos
+      ```
+    - Now build the pipeline-runner image locally:
+      ```bash
+      make build REGISTRY=false
+      ```
+    - Finally, start Automated self checkout using docker compose up.
+      ```bash
+      make run-render-mode REGISTRY=false
+      ```
+    - The above series of commands can be executed using only one command:
+    
+      ```bash
+      make run-demo REGISTRY=false
+      ```
 
 6. Verify Docker containers
 

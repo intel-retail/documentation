@@ -70,7 +70,6 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`DOCKER_COMPOSE` | The docker-compose.yml file to run | src/docker-compose.yml |
     |`RETAIL_USE_CASE_ROOT` | The root directory for Automated Self Checkout in relation to the docker-compose.yml | .. |
     |`RESULTS_DIR` | Directory to output results | ../results |
-    |`REGISTRY` | Option to pull the pre-built images rather than creating them locally | true |
 
 === "Docker Compose Parameters"
     This list of parameters that can be set when running docker compose up
@@ -92,6 +91,7 @@ The table below lists the environment variables (EVs) that can be used as inputs
     |`GST_DEBUG` | for running pipeline in gst debugging mode | 0, 1 |
     |`LOG_LEVEL` | log level to be set when running gst pipeline | ERROR, INFO, WARNING, and [more](https://gstreamer.freedesktop.org/documentation/tutorials/basic/debugging-tools.html?gi-language=c#the-debug-log) |
     |`OCR_RECLASSIFY_INTERVAL` | time interval in seconds for OCR classification | Ex: 5 |
+    |`REGISTRY` | Option to pull the pre-built images rather than creating them locally (by default:true) | false, true |
     |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
     |`PIPELINE_COUNT` | Number of Automated Self Checkout Docker container instances to launch | Ex: 1 |
     |`PIPELINE_SCRIPT` | Pipeline script to run. | yolo11n.sh, yolo11n_effnetb0.sh, yolo11n_full.sh |

@@ -9,6 +9,7 @@ make benchmark-quickstart
 ```
 The above command would:<br>
 - Run headless (no display needed: `RENDER_MODE=0`)<br>
+- Pull pre-built images (`REGISTRY=true`)<br>
 - Target GPU by default (`DEVICE_ENV=res/all-gpu.env`)<br>
 - Generate benchmark metrics<br>
 - Run `make consolidate-metrics` automatically<br>
@@ -28,6 +29,7 @@ make benchmark
 ```
 Runs with:<br>
 - `RENDER_MODE=0`<br>
+- `REGISTRY=true`<br>
 - `DEVICE_ENV=res/all-cpu.env`<br>
 - `PIPELINE_COUNT=1`<br>
 
@@ -36,6 +38,7 @@ You can override these values through the following Environment Variables.
 | Variable | Description | Values |
 |:----|:----|:---|
 |`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
+|`REGISTRY` | to pull pre-built images from public registry | false, true |
 |`PIPELINE_COUNT` | number of Loss Prevention Docker container instances to launch | Ex: 1 |
 |`DEVICE_ENV` | path to device specific environment file that will be loaded into the pipeline container | res/all-cpu.env, res/all-gpu.env, res/all-npu.env, res/all-dgpu.env |
 
@@ -53,10 +56,16 @@ make DEVICE_ENV=res/all-gpu.env benchmark
 make DEVICE_ENV=res/all-npu.env benchmark
 ```
 
+### Benchmark command to build images locally
+
+```bash
+make REGISTRY=false benchmark
+```
+
 ## See the benchmarking results.
 
 ```sh
-make  consolidate-metrics
+make consolidate-metrics
 
 cat benchmark/metrics.csv
 ```
