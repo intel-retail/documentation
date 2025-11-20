@@ -132,3 +132,75 @@ cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../
 - `Makefile` — Build automation and workflow commands
 
 ---
+
+
+## Configure the system proxy
+
+Please follow the below steps to configure the proxy
+
+### 1. Configure Proxy for the Current Shell Session
+
+```bash
+export http_proxy=http://<proxy-host>:<port>
+export https_proxy=http://<proxy-host>:<port>
+export HTTP_PROXY=http://<proxy-host>:<port>
+export HTTPS_PROXY=http://<proxy-host>:<port>
+export NO_PROXY=localhost,127.0.0.1,::1
+export no_proxy=localhost,127.0.0.1,::1
+export socks_proxy=http://<proxy-host>:<port>
+export SOCKS_PROXY=http://<proxy-host>:<port>
+```
+
+### 2. System-Wide Proxy Configuration
+
+System-wide environment (/etc/environment)
+(Run: sudo nano /etc/environment and add or update)
+
+```bash
+http_proxy=http://<proxy-host>:<port>
+https_proxy=http://<proxy-host>:<port>
+ftp_proxy=http://<proxy-host>:<port>
+socks_proxy=http://<proxy-host>:<port>
+no_proxy=localhost,127.0.0.1,::1
+
+HTTP_PROXY=http://<proxy-host>:<port>
+HTTPS_PROXY=http://<proxy-host>:<port>
+FTP_PROXY=http://<proxy-host>:<port>
+SOCKS_PROXY=http://<proxy-host>:<port>
+NO_PROXY=localhost,127.0.0.1,::1
+```
+### 3. Docker Daemon & Client Proxy Configuration
+
+Docker daemon drop-in (/etc/systemd/system/docker.service.d/http-proxy.conf)
+Create dir if missing:
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf
+
+```bash
+[Service]
+Environment="http_proxy=http://<proxy-host>:<port>"
+Environment="https_proxy=http://<proxy-host>:<port>"
+Environment="no_proxy=localhost,127.0.0.1,::1"
+Environment="HTTP_PROXY=http://<proxy-host>:<port>"
+Environment="HTTPS_PROXY=http://<proxy-host>:<port>"
+Environment="NO_PROXY=localhost,127.0.0.1,::1"
+Environment="socks_proxy=http://<proxy-host>:<port>"
+Environment="SOCKS_PROXY=http://<proxy-host>:<port>"
+
+# Reload & restart:
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+#  Docker client config (~/.docker/config.json)
+#  mkdir -p ~/.docker
+#  nano ~/.docker/config.json
+{
+  "proxies": {
+    "default": {
+      "httpProxy": "http://<proxy-host>:<port>",
+      "httpsProxy": "http://<proxy-host>:<port>",
+      "noProxy": "localhost,127.0.0.1,::1"
+    }
+  }
+}
+```
