@@ -178,8 +178,6 @@ The application is highly configurable via JSON files in the `configs/` director
 - `src/` — Main source code and pipeline runner scripts
 - `Makefile` — Build automation and workflow commands
 
----
-
 ## Configure the system proxy
 
 Please follow the below steps to configure the proxy
