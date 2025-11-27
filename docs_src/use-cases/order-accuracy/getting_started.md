@@ -104,9 +104,14 @@ Example: make run-demo REGISTRY=false
 
     r<time>_gst.jsonl
 
-8. Stop the demo using docker compose down
+8. Stop the containers:
+    When pre-built images are pulled-
     ```bash
     make down
+    ```
+    When images are built locally-
+    ```bash
+    make down REGISTRY=false
     ```
 
 ## [Proceed to Advanced Settings](advanced.md)    
