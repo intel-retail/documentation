@@ -121,10 +121,19 @@ Example: make run-demo REGISTRY=false
     {"objects":[{"detection":{"bounding_box":{"x_max":1.0,"x_min":0.6974737628926411,"y_max":0.8381138710318847,"y_min":0.44749696271196093},"confidence":0.7188630104064941,"label":"person","label_id":0},"h":422,"region_id":576,"roi_type":"person","w":581,"x":1339,"y":483}],"resolution":{"height":1080,"width":1920},"timestamp":133305076}
     ```
 
-8. Stop the demo using docker compose down
-```bash
-make down
-```
+8. Stop the containers:
+
+    When pre-built images are used-
+    
+    ```bash
+    make down
+    ```
+    
+    When images are built locally-
+    
+    ```bash
+    make down REGISTRY=false
+    ```
 
 ## [Proceed to Advanced Settings](advanced.md)
 
