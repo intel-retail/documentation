@@ -193,9 +193,18 @@ Example: make run-lp REGISTRY=false
 
 ```
 
-9. Stop the demo using docker compose down
+9. Stop the containers:
+
+    When pre-built images are pulled-
+   
     ```bash
     make down-lp
+    ```
+
+    When images are built locally-
+   
+    ```bash
+    make down-lp REGISTRY=false
     ```
 
 ## [Proceed to Advanced Settings](advanced.md)    
