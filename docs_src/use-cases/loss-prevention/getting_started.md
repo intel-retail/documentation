@@ -258,28 +258,32 @@ The application is highly configurable via JSON files in the `configs/` director
         - To add or remove a camera, edit the `lane_config.cameras` array in the file.
         - Each camera entry can specify its video source, region of interest, and assigned workloads.
         Example:
-          ```json
-              {
+        ```json
+            {
                 "lane_config": {
-                 "cameras": [
-                {
-                  "camera_id": "cam1",
-                  "fileSrc": "sample-media/video1.mp4",
-                  "workloads": ["custom_workload_1"],
-                  "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}              
-                },
-                {
-                  "camera_id": "cam2",
-                  "fileSrc": "sample-media/video2.mp4",
-                  "workloads": ["custom_workload_2", "custom_workload_3"],
-                  "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}              
-                }
-              ]
-            }
-          }
-          ```
-If adding new videos, place your video files in the directory **performance-tools/sample-media/** and update the `fileSrc` path.
+                "cameras": [
+                    {
+                        "camera_id": "cam1",
+                        "streamUri": "rtsp://rtsp-streamer:8554/video-stream-name",
+                        "workloads": ["items_in_basket", "multi_product_identification"],
+                        "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}
+                    }
+                    ]
+                    }
+             }
+        ```
+If adding new videos, place your video files in the directory **performance-tools/sample-media/** and update the `streamUri` path.
+[!Note]
+>#### Connecting External RTSP Cameras:
+To use real RTSP cameras instead of the built-in server:
 
+```json
+{
+  "camera_id": "external_cam1",
+  "streamUri": "rtsp://192.168.1.100:554/stream1",
+  "workloads": ["items_in_basket"]
+}
+```
 2. Create new `configs/workload_to_pipeline_custom.json` to define pipeline for your workload.
     - **workload_to_pipeline_custom.json**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). 
         Example:
@@ -342,5 +346,9 @@ If adding new videos, place your video files in the directory **performance-tool
 + If the file content in  `<loss-prevention-workspace>/results/pipeline_stream*.log` is empty, check GStreamer output file for errors:
     +  `<oss-prevention-workspace>/results/gst-launch_*.log`
   
-
++ RTSP :
+- **Connection timeout**: Check `RTSP_STREAM_HOST` and `RTSP_STREAM_PORT` environment variables
+- **Stream not found**: Verify video file exists in `performance-tools/sample-media/`
+- **Black frames**: Ensure video codec is H.264 (most compatible)
+- **Check RTSP server logs**: `docker logs rtsp-streamer`
 ## [Proceed to Advanced Settings](advanced.md)    
