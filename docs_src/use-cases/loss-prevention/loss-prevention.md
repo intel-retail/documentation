@@ -8,6 +8,18 @@ Implementing loss prevention solutions in retail isn't straightforward. Retailer
 
 The Intel® Loss Prevention Reference Package is designed to help with this. It provides the essential components needed to develop and deploy a loss prevention solution using Intel® hardware, software, and open-source tools. This reference implementation includes a pre-configured pipeline that's optimized for Intel® hardware, simplifying the setup of an effective computer vision-based loss prevention system for retailers.
 
-## Next Steps
+## What You Want to Do
 
-To begin using the loss prevention solution you can follow the [Getting Started Guide](./getting_started.md). 
+### 🚀 I'm New to Loss Prevention Solutions
+**Quick Start (25 minutes)**: [Getting Started Guide](./getting_started.md)
+- Set up your development environment
+- Run your first loss prevention demo
+- Understand the detection pipeline workflow
+
+### ⚙️ I Want to Customize the Solution
+**Advanced Configuration (45-90 minutes)**: [Advanced Guide](./advanced.md)
+- Configure custom source and workloads
+
+### 📊 I Need Performance Analysis
+**Benchmark & Optimize**: [Performance Guide](./performance.md)
+- Compare CPU/GPU/NPU detection performance

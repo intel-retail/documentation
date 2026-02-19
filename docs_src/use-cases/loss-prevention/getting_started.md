@@ -12,28 +12,67 @@
     - [NPU](https://dlstreamer.github.io/dev_guide/advanced_install/advanced_install_guide_prerequisites.html#prerequisite-2-install-intel-npu-drivers)
 - Sufficient disk space for models, videos, and results
 
+> [!NOTE]
+> First-time setup downloads AI models, sample videos, and Docker images - this may take 5-15 minutes depending on your internet connection.
 
-### **NOTE:** 
+## Choose Your Workload Type
 
-By default the application runs by pulling the pre-built images. If you want to build the images locally and then run the application, set the flag:
+### 🛡️ Loss Prevention
+**Purpose**: Detect theft, suspicious behavior, and inventory shrinkage  
+**Use When**: You want to monitor customer interactions and prevent loss  
+**Includes**: Hidden items detection, fake scan detection, product switching alerts
 
+### 🛒 Automated Self-Checkout  
+**Purpose**: Validate customer scanning and detect checkout fraud  
+**Use When**: You want to ensure proper product scanning at self-checkout stations  
+**Options**: Object detection, age verification, product classification
+
+### 🧠 Enhanced Loss Prevention with LVLM
+**Purpose**: Advanced item recognition using Large Vision Language Models  
+**Use When**: You need higher accuracy for complex items or edge cases  
+**Includes**: Agent-based LVLM invocation, traditional CV fallback, improved item identification
+
+## Quick Configuration Reference
+
+### 🛡️ Loss Prevention Hardware Options
+
+| Configuration | Command | Best For |
+|---------------|---------|----------|
+| **CPU (Default)** | `make run-lp RENDER_MODE=1` | Basic setups, testing |
+| **GPU** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_gpu.json RENDER_MODE=1` | Performance, real-time processing |
+| **NPU + GPU** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json RENDER_MODE=1` | Latest Intel hardware |
+| **Heterogeneous** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_hetero.json RENDER_MODE=1` | Mixed workloads across hardware |
+| **VLM** | `make run-lp CAMERA_STREAM=camera_to_workload_vlm.json WORKLOAD_DIST=workload_to_pipeline_vlm.json RENDER_MODE=1` | Advanced AI-powered detection |
+
+**Included Detection Types:** Hidden items, fake scanning, product switching, multi-product ID, sweet-heartening
+
+### 🛒 Self-Checkout Quick Commands
+
+**Object Detection (Identify scanned products):**
 ```bash
-REGISTRY=false
+# GPU (recommended)
+make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_gpu.json RENDER_MODE=1
 
-usage: make <command> REGISTRY=false (applicable for all commands like benchmark, benchmark-stream-density..)
-Example: make run-lp REGISTRY=false
+# CPU alternative
+make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_cpu.json RENDER_MODE=1
 ```
 
-By default the application runs in Headless mode. If you want to run in Visual Mode run the application, by setting the flag:
-
+**Age Verification (Age-restricted products):**
 ```bash
-RENDER_MODE=1
-
-usage: make <command> RENDER_MODE=1 (applicable for all commands like benchmar,benchmark-stream-density..)
-Example: make run-lp RENDER_MODE=1
+# GPU (recommended)
+make run-lp CAMERA_STREAM=camera_to_workload_asc_age_verification.json WORKLOAD_DIST=workload_to_pipeline_asc_age_verification_gpu.json RENDER_MODE=1
 ```
 
-(If this is the first time, it will take some time to download videos, models, docker images and build images)
+**Combined Detection & Classification:**
+```bash
+# GPU (recommended)
+make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_classification_gpu.json RENDER_MODE=1
+```
+
+> [!TIP]
+> **Hardware Selection**: Replace `_gpu` with `_cpu` or `_npu` in any command above based on your available hardware. 
+> 
+> **Complete Reference**: For the full configuration matrix with all hardware combinations and detailed specifications, see [Complete Workload Configuration Matrix](advanced.md#complete-workload-configuration-matrix) in Advanced Settings.
 
 ## Step by step instructions:
 
@@ -46,43 +85,71 @@ Example: make run-lp RENDER_MODE=1
     git clone -b v4.0.0 --single-branch https://github.com/intel-retail/loss-prevention
     ```
 
-2. To run loss prevention from pre-built images,follow the below steps:
+2. **Run Loss Prevention (Recommended for First Time)**
 
+    **Simple Setup with Visual Output:**
     ```bash
-    #Download the models using download_models/downloadModels.sh
-    make download-models
-    #Update github submodules
-    make update-submodules
-    #Download sample videos used by the performance tools
-    make download-sample-videos
-    #Run the LP application
-    make run-render-mode
-    ```
-
-    **NOTE:- User can directly run single make command that internally called all above command and run the Loss Prevention application.**
-
-   - Run Loss Prevention appliaction with single command.   
-
-    ```bash
+    # RENDER_MODE=1 shows live video with detection boxes (recommended for first run)
     make run-lp RENDER_MODE=1
     ```
 
-    By default, Loss Prevention 6 default workloads are executed. Refer to the [Pre-Configured Workloads](#pre-configured-workloads) section for more details.
+    **Alternative Options:**
+    ```bash
+    # Headless mode - no visual output (for servers or automated testing)
+    make run-lp
+    ```
 
-3. To build the images locally step by step:
-    - Follow the following steps:
-      ```bash
-      make download-models REGISTRY=false
-      make update-submodules REGISTRY=false
-      make download-sample-videos
-      make run-render-mode REGISTRY=false
-      ```
-      
-    - The above series of commands can be executed using only one command:
+    **What This Does:**
+    - Downloads AI models (YOLOv5, EfficientNet)
+    - Downloads sample videos for testing  
+    - Starts the loss prevention pipeline
+    - Enables 6 detection types: hidden items, fake scanning, product switching, etc.
+    - Visual mode shows real-time detection boxes and alerts
+   
+3. **Run Automated Self-Checkout Workloads**
+
+    **Object Detection (Identifies scanned products):**
+    ```bash
+    # GPU accelerated - recommended for performance
+    CAMERA_STREAM=camera_to_workload_asc_object_detection.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_gpu.json make run-lp RENDER_MODE=1
     
-      ```bash
-      make run-lp REGISTRY=false RENDER_MODE=1
-      ```
+    # CPU version - for systems without GPU
+    CAMERA_STREAM=camera_to_workload_asc_object_detection.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_cpu.json make run-lp RENDER_MODE=1
+    ```
+
+    **Age Verification (For age-restricted products):**
+    ```bash
+    # Detects customer age for alcohol/tobacco purchases
+    CAMERA_STREAM=camera_to_workload_asc_age_verification.json WORKLOAD_DIST=workload_to_pipeline_asc_age_verification_gpu.json make run-lp RENDER_MODE=1
+    ```
+
+    **Combined Detection & Classification:**
+    ```bash
+    # Both identifies AND categorizes products
+    CAMERA_STREAM=camera_to_workload_asc_object_detection_classification.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_classification_gpu.json make run-lp RENDER_MODE=1
+    ```
+
+    > [!TIP]  
+    > **Display Options**: Add `RENDER_MODE=1` to any command above to see live video with detection boxes. Remove it for headless operation (servers/automation).
+    > **Choose Your Hardware**: Replace `_gpu` with `_cpu` or `_npu` based on your available hardware. See [ASC Workloads](#automated-self-check-out) for all options.
+
+## What You'll See When Working
+
+### 🛡️ Loss Prevention Results
+- **Visual**: Red bounding boxes around suspicious activities
+- **Alerts**: Console notifications for hidden items, fake scanning, product switching
+- **Logs**: Detection confidence scores and behavior analysis
+
+### 🛒 Self-Checkout Results  
+- **Object Detection**: Green boxes around identified products with labels
+- **Age Verification**: Face detection boxes with estimated age ranges
+- **Classification**: Product categories and scanning validation status
+
+### Expected Performance
+- **Startup Time**: 2-5 minutes (first run includes downloads)
+- **Processing**: Real-time video analysis at 15-30 FPS
+- **Results**: JSON files appear in `results/` folder within seconds
+
 4. Verify Results
 
     After starting Loss Prevention you will begin to see result files being written into the results/ directory. Here are example outputs from the 3 log files.
@@ -203,123 +270,6 @@ Example: make run-lp RENDER_MODE=1
     make down-lp REGISTRY=false
     ```
 
-## Pre-configured Workloads
-The preconfigured workload supports multiple hardware configurations out of the box. Use the `CAMERA_STREAM` and `WORKLOAD_DIST` variables to customize which cameras and hardware (CPU, GPU, NPU) are used by your pipeline.
-
-**How To Use:**
-- Specify the appropriate files as environment variables when running or benchmarking:
-    ```sh
-    CAMERA_STREAM=<camera_stream> WORKLOAD_DIST=<workload_dist> make run-lp
-    ```
-    Or for benchmarking:
-    ```sh
-    CAMERA_STREAM=<camera_stream> WORKLOAD_DIST=<workload_dist> make benchmark
-    ```
-### Loss Prevention
-
-| Description             | CAMERA_STREAM                  | WORKLOAD_DIST                        |
-|-------------------------|-------------------------------|--------------------------------------|
-| CPU (Default)           | camera_to_workload.json        | workload_to_pipeline.json            |
-| GPU                     | camera_to_workload.json        | workload_to_pipeline_gpu.json        |
-| NPU + GPU               | camera_to_workload.json        | workload_to_pipeline_gpu-npu.json    |
-| Heterogeneous           | camera_to_workload.json        | workload_to_pipeline_hetero.json     |
-
-> [!NOTE]
-> The following sub-workloads are automatically included and enabled in the configuration:
-> 
-> `items_in_basket`
-  `hidden_items`
-  `fake_scan_detection`
-  `multi_product_identification`
-  `product_switching`
-  `sweet_heartening`
-
-### Automated Self Check Out
-
-| Description                                    | CAMERA_STREAM                  | WORKLOAD_DIST                        |
-|------------------------------------------------|-------------------------------|--------------------------------------|
-| Object Detection (GPU)                         | camera_to_workload_asc_object_detection.json       | workload_to_pipeline_asc_object_detection_gpu.json        |
-| Object Detection (NPU)                         | camera_to_workload_asc_object_detection.json       | workload_to_pipeline_asc_object_detection_npu.json        |
-| Object Detection & Classification (GPU)        | camera_to_workload_asc_object_detection_classification.json        | workload_to_pipeline_asc_object_detection_classification_gpu.json     |
-| Object Detection & Classification (NPU)        | camera_to_workload_asc_object_detection_classification.json        | workload_to_pipeline_asc_object_detection_classification_npu.json     |
-| Age Prediction & Face Detection (GPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_gpu.json     |
-| Age Prediction & Face Detection (NPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_npu.json     |
-| Heterogenous                  | camera_to_workload_asc_hetero.json        | workload_to_pipeline_hetero.json     |
-
-
-
-### User Defined Workloads
-The application is highly configurable via JSON files in the `configs/` directory
-
-**To try a new camera or workload:**
-
-1. Create new camera to workload mapping in `configs/camera_to_workload_custom.json` to add your camera and assign workloads.
-    - **camera_to_workload_custom.json**: Maps each camera to one or more workloads. 
-        - To add or remove a camera, edit the `lane_config.cameras` array in the file.
-        - Each camera entry can specify its video source, region of interest, and assigned workloads.
-        Example:
-        ```json
-            {
-                "lane_config": {
-                "cameras": [
-                    {
-                        "camera_id": "cam1",
-                        "streamUri": "rtsp://rtsp-streamer:8554/video-stream-name",
-                        "workloads": ["items_in_basket", "multi_product_identification"],
-                        "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}
-                    }
-                    ]
-                    }
-             }
-        ```
-If adding new videos, place your video files in the directory **performance-tools/sample-media/** and update the `streamUri` path.
-[!Note]
->#### Connecting External RTSP Cameras:
-To use real RTSP cameras instead of the built-in server:
-
-```json
-{
-  "camera_id": "external_cam1",
-  "streamUri": "rtsp://192.168.1.100:554/stream1",
-  "workloads": ["items_in_basket"]
-}
-```
-2. Create new `configs/workload_to_pipeline_custom.json` to define pipeline for your workload.
-    - **workload_to_pipeline_custom.json**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). 
-        Example:
-      
-      ```json
-      {
-        "workload_pipeline_map": {
-          "custom_workload_1": [
-            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "CPU"},
-            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "CPU"}
-          ],
-          "custom_workload_2": [
-            {"type": "gvadetect", "model": "yolo11n", "precision": "INT16", "device": "NPU"},
-            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT16", "device": "NPU"}
-          ],
-          "custom_workload_3": [
-            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "GPU"},
-            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "GPU"}
-          ]
-        }
-      }
-      ```
-3. Run validate configs command, to verify configuration files
-   ```sh
-   make validate-all-configs
-   ```
-4. Re-run the pipeline as described above.
-     
-> [!NOTE]
-> Since the GStreamer pipeline is generated dynamically based on the provided configuration(camera_to_workload and workload_to_pipeline json),
-> the pipeline.sh file gets updated every time the user runs make run-lp or make benchmark. This ensures that the pipeline reflects the latest changes.
-  ```sh
-        src/pipelines/pipeline.sh
-  ```
-
-
 ## Troubleshooting
 
 + If results folder is empty, check Docker logs for errors:
@@ -351,4 +301,5 @@ To use real RTSP cameras instead of the built-in server:
 - **Stream not found**: Verify video file exists in `performance-tools/sample-media/`
 - **Black frames**: Ensure video codec is H.264 (most compatible)
 - **Check RTSP server logs**: `docker logs rtsp-streamer`
-## [Proceed to Advanced Settings](advanced.md)    
+
+## [Proceed to Advanced Settings](advanced.md)
