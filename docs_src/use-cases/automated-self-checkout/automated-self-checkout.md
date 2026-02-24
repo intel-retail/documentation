@@ -1,22 +1,57 @@
 # Intel® Automated Self-Checkout Reference Package
 
-## Overview
+> **🔄 Package Integration Notice**  
+> The Automated Self-Checkout functionality has been consolidated into the [Intel® Loss Prevention Reference Package](../loss-prevention/loss-prevention.html) for a unified retail computer vision platform.
 
-As Computer Vision becomes more and more mainstream, especially for industrial & retail use cases, development and deployment of these solutions becomes more challenging. Vision workloads are large and complex and need to go through many stages. For instance, in the pipeline below, the video data is ingested, pre-processed before each inferencing step, inferenced using two models - YOLOv5 and EfficientNet, and post processed to generate metadata and show the bounding boxes for each frame. This pipeline is just an example of the supported models and pipelines found within this reference.
+## What This Means for You
+
+- **Existing Users**: Your automated self-checkout use cases are now supported in the Loss Prevention package
+- **New Users**: Start directly with the Loss Prevention package for the latest features
+- **Migration**: No code changes needed - simply use the new package location
+
+## Why Computer Vision for Retail?
+
+Automated self-checkout systems process complex visual data through multiple stages to transform raw video into actionable business insights:
+
+1. **Video Ingestion**: Capture customer interactions and product movements in real-time
+2. **Object Detection**: Identify products and items using YOLOv5 models
+3. **Classification**: Categorize and verify items with EfficientNet algorithms  
+4. **Analytics**: Generate loss prevention data and checkout validation
+
+The pipeline below demonstrates this workflow, where video data flows through preprocessing, dual AI model inference (YOLOv5 and EfficientNet), and post-processing to generate metadata and visual bounding boxes for each frame.
 
 [![Vision Data Flow](./images/vision-data-flow.jpg)](./images/vision-data-flow.jpg)
 
-Automated self-checkout solutions are complex, and retailers, independent software vendors (ISVs), and system integrators (SIs) require a good understanding of hardware and software, the costs involved in setting up and scaling the system, and the configuration that best suits their needs. Vision workloads are significantly larger and require systems to be architected, built, and deployed with several considerations. Hence, a set of ingredients needed to create an automated self-checkout solution is necessary. More details are available on the [Intel Developer Focused Webpage](https://www.intel.com/content/www/us/en/developer/articles/reference-implementation/automated-self-checkout.html) and on this [LinkedIn Blog](https://www.linkedin.com/pulse/retail-innovation-unlocked-open-source-vision-enabled-mohideen/)
+This unified platform simplifies deployment complexity with pre-configured, hardware-optimized workflows that scale from pilot programs to enterprise-wide implementations.
 
-The Intel® Automated Self-Checkout Reference Package provides critical components required to build and deploy a self-checkout use case using Intel® hardware, software, and other open-source software. This reference implementation provides a pre-configured automated self-checkout pipeline that is optimized for Intel® hardware. 
+## Integration Benefits
 
-## Next Steps
+The automated self-checkout functionality has been consolidated into the Intel® Loss Prevention Reference Package, providing a unified platform for retail computer vision solutions. This integration offers several advantages:
+> 
+> - **Unified Platform**: Single application supporting both loss prevention and automated self-checkout use cases
+> - **Hardware Optimization**: Pre-configured workloads optimized for Intel® CPU, GPU, and NPU hardware
+> - **Flexible Deployment**: Multiple workload configurations including:
+>   - Object Detection (CPU/GPU/NPU)
+>   - Object Detection & Classification (CPU/GPU/NPU)
+>   - Age Prediction & Face Detection (CPU/GPU/NPU)
+>   - Heterogeneous configurations
+> - **Simplified Management**: Single codebase, unified configuration, and streamlined deployment process
+## What You Want to Do
 
-!!! Note
-    If coming from the catalog please follow the [Catalog Getting Started Guide](./catalog/Overview.md).
+### 🚀 I'm New to Intel Retail Solutions
+**Quick Start (15 minutes)**: [Loss Prevention Getting Started Guide](https://intel-retail.github.io/documentation/use-cases/loss-prevention/getting_started.html)
+- Set up your environment
+- Run your first automated self-checkout demo  
+- Understand the basic workflow
 
-To begin using the automated self-checkout solution you can follow the [Getting Started Guide](./getting_started.md). 
+### ⚙️ I Want to Customize the Solution
+**Advanced Configuration (30-60 minutes)**: [Loss Prevention Advanced Guide](https://intel-retail.github.io/documentation/use-cases/loss-prevention/advanced.html)
+- Customize workload configurations
+- Optimize for your hardware setup
+- Configure multiple detection models
 
-## Releases
-
-For the project release notes, refer to the [GitHub* Repository](../../releasenotes.md).
+### 📊 I Need Performance Data
+**Benchmark & Optimize**: [Loss Prevention Performance Guide](https://intel-retail.github.io/documentation/use-cases/loss-prevention/performance.html)
+- Compare CPU/GPU/NPU performance
+- Optimize for your specific use case
+- Understand throughput metrics

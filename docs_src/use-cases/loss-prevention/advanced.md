@@ -1,250 +1,160 @@
-## Benchmark Quick Start command
-```bash
-make update-submodules
-```
-`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
+# Advanced Settings
+
+## Configuration Options
+
+### Local Image Building
+By default, the application uses pre-built Docker images for faster setup. If you need to build images locally (for customization or development):
 
 ```bash
-make benchmark-quickstart
+# Build and run locally instead of using pre-built images
+make run-lp RENDER_MODE=1 REGISTRY=false
+
+# Apply to any command
+make <command> REGISTRY=false
+
+# Examples:
+make benchmark REGISTRY=false
+make benchmark-stream-density REGISTRY=false
 ```
-The above command would:<br>
-- Run headless (no display needed: `RENDER_MODE=0`)<br>
-- Pull pre-built images (`REGISTRY=true`)<br>
-- Target GPU by default (`WORKLOAD_DIST=workload_to_pipeline_gpu.json`)<br>
-- Run 6 streams, each with different workload (`CAMERA_STREAM=camera_to_workload_full.json`)<br>
-- Generate benchmark metrics<br>
-- Run `make consolidate-metrics` automatically<br>
 
+**When to use local building:**
+- Modifying source code or configurations
+- Development and testing changes
+- Air-gapped environments without internet access
+- Custom hardware optimizations
 
-## Understanding Benchmarking Types
+**Note**: Local building takes significantly longer (15-30 minutes) compared to pre-built images (2-5 minutes).
 
-### Default benchmark command
-
-```bash
-make update-submodules
-```
-`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
-
-```bash
-make benchmark
-```
-Runs with:<br>
-- `RENDER_MODE=0`<br>
-- `CAMERA_STREAM=camera_to_workload.json`<br>
-- `WORKLOAD_DIST=workload_to_pipeline.json`<br>
-- `PIPELINE_COUNT=1`<br>
-- `REGISTRY=true`<br>
-
-You can override these values through the following Environment Variables.
-
-| Variable | Description | Values |
-|:----|:----|:---|
-|`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
-|`PIPELINE_COUNT` | number of Loss Prevention Docker container instances to launch | Ex: 1 |
-|`WORKLOAD_DIST` | to define how each workload is assigned to a specific processing unit (CPU, GPU, NPU) | workload_to_pipeline_cpu.json, workload_to_pipeline_gpu.json, workload_to_pipeline_gpu-npu.json, workload_to_pipeline_hetero.json, workload_to_pipeline.json |  
-|`CAMERA_STREAM` | to define camera settings and their associated workloads for the pipeline | camera_to_workload.json, camera_to_workload_full.json |    
-|`REGISTRY` | option to pull the pre-built images rather than creating them locally | false, true | 
-
-> **Note:**  
-> Higher the `PIPELINE_COUNT`, higher the stress on the system.  
-> Increasing this value will run more parallel pipelines, increasing resource usage and testing system
-
-### All CAMERA_STREAM options
-- `camera_to_workload.json`
-
-     | Camera_ID | Workload |
-     |:----|:---|
-     | cam1 | items_in_basket + multi_product_identification |
-     | cam2 | hidden_items + product_switching |
-     | cam3 | fake_scan_detection |
+### Step-by-Step Local Build Process
++ To build the images locally step by step:
+    - Follow the following steps:
+      ```bash
+      make download-models REGISTRY=false
+      make update-submodules REGISTRY=false
+      make download-sample-videos
+      make run-render-mode REGISTRY=false
+      ```
+      
+    - The above series of commands can be executed using only one command:
+    
+      ```bash
+      make run-lp REGISTRY=false RENDER_MODE=1
+      ```
++ User Defined Workloads
   
-- `camera_to_workload_full.json`
+  The application is highly configurable via JSON files in the `configs/` directory
 
-     | Camera_ID | Workload |
-     |:----|:---|
-     | cam1 | items_in_basket |
-     | cam2 | hidden_items |
-     | cam3 | fake_scan_detection |
-     | cam4 | multi_product_identification |
-     | cam5 | product_switching |
-     | cam6 | sweet_heartening |
+  **To try a new camera or workload:**
 
-### All WORKLOAD_DIST options
+    1. Create new camera to workload mapping in `configs/camera_to_workload_custom.json` to add your camera and assign workloads.
+    - **camera_to_workload_custom.json**: Maps each camera to one or more workloads. 
+        - To add or remove a camera, edit the `lane_config.cameras` array in the file.
+        - Each camera entry can specify its video source, region of interest, and assigned workloads.
+        Example:
+        ```json
+            {
+                "lane_config": {
+                "cameras": [
+                    {
+                        "camera_id": "cam1",
+                        "streamUri": "rtsp://rtsp-streamer:8554/video-stream-name",
+                        "workloads": ["items_in_basket", "multi_product_identification"],
+                        "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}
+                    }
+                    ]
+                    }
+             }
+        ```
+    If adding new videos, place your video files in the directory **performance-tools/sample-media/** and update the `streamUri` path.
 
-- `workload_to_pipeline_cpu.json` - All the workloads run on CPU.
-- `workload_to_pipeline_gpu.json` - All the workloads run on GPU.
-- `workload_to_pipeline_gpu-npu.json` -<br>
-&nbsp; -  items_in_basket, hidden_items, multi_product_identification and product_switching run on GPU,<br>
-&nbsp; -  fake_scan_detection and sweet_heartening run on NPU.<br>
-- `workload_to_pipeline_hetero.json` -
-  
-  | Workload | gvadetect | gvaclassify | gvainference |
-  |:---|:---|:---|:---|
-  | items_in_basket | GPU | GPU | - |
-  | hidden_items | GPU | CPU | - |
-  | fake_scan_detection | GPU | CPU | - |
-  | multi_product_identification | GPU | CPU | - |
-  | product_switching | GPU | GPU | - |
-  | sweet_heartening | NPU | - | NPU |
+    2. Connecting External RTSP Cameras:
+    To use real RTSP cameras instead of the built-in server:
+ 
+    ```json
+        {
+          "camera_id": "external_cam1",
+          "streamUri": "rtsp://192.168.1.100:554/stream1",
+          "workloads": ["items_in_basket"]
+       }
+     ```
 
-  
-- `workload_to_pipeline.json` - <br>
-&nbsp;  - items_in_basket, multi_product_identification and sweet_heartening run on CPU,<br>
-&nbsp;  - product_switching and hidden_items run on GPU,<br>
-&nbsp;  - fake_scan_detection runs on NPU.<br>
-
-!!! Note
-    The first time running this command may take few minutes. It will build all performance tools containers
-
-
-### Benchmark command with environment variable overrides
-
-```bash
-make benchmark WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json CAMERA_STREAM=camera_to_workload_full.json REGISTRY=false
-```
-
-Runs with:<br>
-- `RENDER_MODE=0`<br>
-- `REGISTRY=false` (Builds images locally)<br> 
-- `CAMERA_STREAM=camera_to_workload_full.json`<br>
-- `WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json`<br>
-- `PIPELINE_COUNT=1`<br>
-
-
-### See the benchmarking results
-
-```sh
-make consolidate-metrics
-
-cat benchmark/metrics.csv
-```
-
-
-## 🛠️ Other Useful Make Commands
-
-- `make validate-all-configs` — Validate all configuration files
-- `make clean-images` — Remove dangling Docker images
-- `make clean-containers` — Remove stopped containers
-- `make clean-all` — Remove all unused Docker resources
-
-
-## ⚙️ Configuration
-
-The application is highly configurable via JSON files in the `configs/` directory:
-
-- **`camera_to_workload.json`**: Maps each camera to one or more workloads. To add or remove a camera, edit the `lane_config.cameras` array in this file. Each camera entry can specify its video source, region of interest, and assigned workloads.
-    - Example:
+    3. Create new `configs/workload_to_pipeline_custom.json` to define pipeline for your workload.
+    - **workload_to_pipeline_custom.json**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). 
+        Example:
+      
       ```json
       {
-        "lane_config": {
-          "cameras": [
-            {
-              "camera_id": "cam1",
-              "fileSrc": "sample-media/video1.mp4",              
-              "workloads": ["items_in_basket", "multi_product_identification"],
-              "region_of_interest": {"x": 100, "y": 100, "x2": 800, "y2": 600}
-            },
-            ...
+        "workload_pipeline_map": {
+          "custom_workload_1": [
+            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "CPU"},
+            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "CPU"}
+          ],
+          "custom_workload_2": [
+            {"type": "gvadetect", "model": "yolo11n", "precision": "INT16", "device": "NPU"},
+            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT16", "device": "NPU"}
+          ],
+          "custom_workload_3": [
+            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "GPU"},
+            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "GPU"}
           ]
         }
       }
       ```
-- **`workload_to_pipeline.json`**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). To add or update a workload, edit the `workload_pipeline_map` in this file.
-    - Example:
-      ```json
-      {
-        "workload_pipeline_map": {
-          "items_in_basket": [
-            {"type": "gvadetect", "model": "yolo11n", "precision": "INT8", "device": "CPU"},
-            {"type": "gvaclassify", "model": "efficientnet-v2-b0", "precision": "INT8", "device": "CPU"}
-          ],
-          ...
-        }
-      }
-      ```
+    4. Run validate configs command, to verify configuration files
+   ```sh
+   make validate-all-configs
+   ```
+    5. Re-run the pipeline as described above.
+     
+> [!NOTE]
+> Since the GStreamer pipeline is generated dynamically based on the provided configuration(camera_to_workload and workload_to_pipeline json),
+> the pipeline.sh file gets updated every time the user runs make run-lp or make benchmark. This ensures that the pipeline reflects the latest changes.
+> ```sh
+> src/pipelines/pipeline.sh
+> ```
 
-**To try a new camera or workload:**
-1. Edit `configs/camera_to_workload.json` to add your camera and assign workloads.
-2. Edit `configs/workload_to_pipeline.json` to define or update the pipeline for your workload.
-3. (Optional) Place your video files in the appropriate directory and update the `fileSrc` path.
-4. Re-run the pipeline as described above.
+## Complete Workload Configuration Matrix
 
-## 📁 Project Structure
+The preconfigured workloads support multiple hardware configurations out of the box. Use the `CAMERA_STREAM` and `WORKLOAD_DIST` variables to customize which cameras and hardware (CPU, GPU, NPU) are used by your pipeline.
 
-- `configs/` — Configuration files (camera/workload mapping, pipeline mapping)
-- `docker/` — Dockerfiles for downloader and pipeline containers
-- `docs/` — Documentation (HLD, LLD, system design)
-- `download-scripts/` — Scripts for downloading models and videos
-- `src/` — Main source code and pipeline runner scripts
-- `Makefile` — Build automation and workflow commands
-
-## Configure the system proxy
-
-Please follow the below steps to configure the proxy
-
-### 1. Configure Proxy for the Current Shell Session
-
+**Usage Pattern:**
 ```bash
-export http_proxy=http://<proxy-host>:<port>
-export https_proxy=http://<proxy-host>:<port>
-export HTTP_PROXY=http://<proxy-host>:<port>
-export HTTPS_PROXY=http://<proxy-host>:<port>
-export NO_PROXY=localhost,127.0.0.1,::1
-export no_proxy=localhost,127.0.0.1,::1
-export socks_proxy=http://<proxy-host>:<port>
-export SOCKS_PROXY=http://<proxy-host>:<port>
+CAMERA_STREAM=<camera_stream> WORKLOAD_DIST=<workload_dist> make run-lp
+# Or for benchmarking:
+CAMERA_STREAM=<camera_stream> WORKLOAD_DIST=<workload_dist> make benchmark
 ```
 
-### 2. System-Wide Proxy Configuration
+### Loss Prevention Configurations
 
-System-wide environment (/etc/environment)
-(Run: sudo nano /etc/environment and add or update)
+| Description             | CAMERA_STREAM                  | WORKLOAD_DIST                        |
+|-------------------------|-------------------------------|--------------------------------------|
+| CPU (Default)           | camera_to_workload.json        | workload_to_pipeline.json            |
+| GPU                     | camera_to_workload.json        | workload_to_pipeline_gpu.json        |
+| NPU + GPU               | camera_to_workload.json        | workload_to_pipeline_gpu-npu.json    |
+| Heterogeneous           | camera_to_workload.json        | workload_to_pipeline_hetero.json     |
+| VLM                     | camera_to_workload_vlm.json    | workload_to_pipeline_vlm.json        |
 
-```bash
-http_proxy=http://<proxy-host>:<port>
-https_proxy=http://<proxy-host>:<port>
-ftp_proxy=http://<proxy-host>:<port>
-socks_proxy=http://<proxy-host>:<port>
-no_proxy=localhost,127.0.0.1,::1
+> [!NOTE]
+> **Included Sub-Workloads**: The following detection types are automatically enabled in all Loss Prevention configurations:
+> 
+> - `items_in_basket` - Monitors items placed in shopping baskets
+> - `hidden_items` - Detects concealed or hidden products  
+> - `fake_scan_detection` - Identifies scanning without actual item registration
+> - `multi_product_identification` - Tracks multiple products simultaneously
+> - `product_switching` - Detects when customers switch high-value items for lower-value ones
+> - `sweet_heartening` - Monitors for collusion between customers and cashiers
 
-HTTP_PROXY=http://<proxy-host>:<port>
-HTTPS_PROXY=http://<proxy-host>:<port>
-FTP_PROXY=http://<proxy-host>:<port>
-SOCKS_PROXY=http://<proxy-host>:<port>
-NO_PROXY=localhost,127.0.0.1,::1
-```
-### 3. Docker Daemon & Client Proxy Configuration
+### Automated Self-Checkout Configurations
 
-Docker daemon drop-in (/etc/systemd/system/docker.service.d/http-proxy.conf)
-Create dir if missing:
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf
-
-```bash
-[Service]
-Environment="http_proxy=http://<proxy-host>:<port>"
-Environment="https_proxy=http://<proxy-host>:<port>"
-Environment="no_proxy=localhost,127.0.0.1,::1"
-Environment="HTTP_PROXY=http://<proxy-host>:<port>"
-Environment="HTTPS_PROXY=http://<proxy-host>:<port>"
-Environment="NO_PROXY=localhost,127.0.0.1,::1"
-Environment="socks_proxy=http://<proxy-host>:<port>"
-Environment="SOCKS_PROXY=http://<proxy-host>:<port>"
-
-# Reload & restart:
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-
-#  Docker client config (~/.docker/config.json)
-#  mkdir -p ~/.docker
-#  nano ~/.docker/config.json
-{
-  "proxies": {
-    "default": {
-      "httpProxy": "http://<proxy-host>:<port>",
-      "httpsProxy": "http://<proxy-host>:<port>",
-      "noProxy": "localhost,127.0.0.1,::1"
-    }
-  }
-}
-```
+| Description                                    | CAMERA_STREAM                  | WORKLOAD_DIST                        |
+|------------------------------------------------|-------------------------------|--------------------------------------|
+| Object Detection (CPU)                         | camera_to_workload_asc_object_detection.json       | workload_to_pipeline_asc_object_detection_cpu.json        |
+| Object Detection (GPU)                         | camera_to_workload_asc_object_detection.json       | workload_to_pipeline_asc_object_detection_gpu.json        |
+| Object Detection (NPU)                         | camera_to_workload_asc_object_detection.json       | workload_to_pipeline_asc_object_detection_npu.json        |
+| Object Detection & Classification (CPU)        | camera_to_workload_asc_object_detection_classification.json        | workload_to_pipeline_asc_object_detection_classification_cpu.json     |
+| Object Detection & Classification (GPU)        | camera_to_workload_asc_object_detection_classification.json        | workload_to_pipeline_asc_object_detection_classification_gpu.json     |
+| Object Detection & Classification (NPU)        | camera_to_workload_asc_object_detection_classification.json        | workload_to_pipeline_asc_object_detection_classification_npu.json     |
+| Age Prediction & Face Detection (CPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_cpu.json     |
+| Age Prediction & Face Detection (GPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_gpu.json     |
+| Age Prediction & Face Detection (NPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_npu.json     |
+| Heterogeneous                                  | camera_to_workload_asc_hetero.json        | workload_to_pipeline_hetero.json     |
