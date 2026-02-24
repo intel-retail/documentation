@@ -40,7 +40,7 @@ make benchmark-stream-density REGISTRY=false
       ```bash
       make run-lp REGISTRY=false RENDER_MODE=1
       ```
-+ User Defined Workloads
+### User Defined Workloads
   
   The application is highly configurable via JSON files in the `configs/` directory
 
@@ -67,7 +67,7 @@ make benchmark-stream-density REGISTRY=false
         ```
     If adding new videos, place your video files in the directory **performance-tools/sample-media/** and update the `streamUri` path.
 
-    2. Connecting External RTSP Cameras:
+    1. Connecting External RTSP Cameras:
     To use real RTSP cameras instead of the built-in server:
  
     ```json
@@ -78,7 +78,7 @@ make benchmark-stream-density REGISTRY=false
        }
      ```
 
-    3. Create new `configs/workload_to_pipeline_custom.json` to define pipeline for your workload.
+    2. Create new `configs/workload_to_pipeline_custom.json` to define pipeline for your workload.
     - **workload_to_pipeline_custom.json**: Maps each workload name to a pipeline definition (sequence of GStreamer elements and models). 
         Example:
       
@@ -100,11 +100,11 @@ make benchmark-stream-density REGISTRY=false
         }
       }
       ```
-    4. Run validate configs command, to verify configuration files
+    1. Run validate configs command, to verify configuration files
    ```sh
    make validate-all-configs
    ```
-    5. Re-run the pipeline as described above.
+    2. Re-run the pipeline as described above.
      
 > [!NOTE]
 > Since the GStreamer pipeline is generated dynamically based on the provided configuration(camera_to_workload and workload_to_pipeline json),
@@ -157,4 +157,6 @@ CAMERA_STREAM=<camera_stream> WORKLOAD_DIST=<workload_dist> make benchmark
 | Age Prediction & Face Detection (CPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_cpu.json     |
 | Age Prediction & Face Detection (GPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_gpu.json     |
 | Age Prediction & Face Detection (NPU)          | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_npu.json     |
-| Heterogeneous                                  | camera_to_workload_asc_hetero.json        | workload_to_pipeline_hetero.json     |
+| Age Verification Heterogeneous                 | camera_to_workload_asc_age_verification.json        | workload_to_pipeline_asc_age_verification_hetero.json  |
+| Object Detection Heterogeneous                 | camera_to_workload_asc_object_detection_classification.json       |workload_to_pipeline_asc_object_detection_classification_hetero.json        |
+ 

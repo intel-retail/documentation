@@ -12,8 +12,8 @@
     - [NPU](https://dlstreamer.github.io/dev_guide/advanced_install/advanced_install_guide_prerequisites.html#prerequisite-2-install-intel-npu-drivers)
 - Sufficient disk space for models, videos, and results
 
-> [!NOTE]
-> First-time setup downloads AI models, sample videos, and Docker images - this may take 5-15 minutes depending on your internet connection.
+!!! note
+    First-time setup downloads AI models, sample videos, and Docker images - this may take 5-15 minutes depending on your internet connection.
 
 ## Choose Your Workload Type
 
@@ -42,11 +42,11 @@
 | **GPU** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_gpu.json RENDER_MODE=1` | Performance, real-time processing |
 | **NPU + GPU** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_gpu-npu.json RENDER_MODE=1` | Latest Intel hardware |
 | **Heterogeneous** | `make run-lp WORKLOAD_DIST=workload_to_pipeline_hetero.json RENDER_MODE=1` | Mixed workloads across hardware |
-| **VLM** | `make run-lp CAMERA_STREAM=camera_to_workload_vlm.json WORKLOAD_DIST=workload_to_pipeline_vlm.json RENDER_MODE=1` | Advanced AI-powered detection |
+| **VLM** | `make run-lp STREAM_LOOP=false CAMERA_STREAM=camera_to_workload_vlm.json WORKLOAD_DIST=workload_to_pipeline_vlm.json RENDER_MODE=1` | Advanced AI-powered detection |
 
 **Included Detection Types:** Hidden items, fake scanning, product switching, multi-product ID, sweet-heartening
 
-### 🛒 Self-Checkout Quick Commands
+### 🛒 Automated Self-Checkout Quick Commands
 
 **Object Detection (Identify scanned products):**
 ```bash
@@ -69,10 +69,10 @@ make run-lp CAMERA_STREAM=camera_to_workload_asc_age_verification.json WORKLOAD_
 make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_classification_gpu.json RENDER_MODE=1
 ```
 
-> [!TIP]
-> **Hardware Selection**: Replace `_gpu` with `_cpu` or `_npu` in any command above based on your available hardware. 
-> 
-> **Complete Reference**: For the full configuration matrix with all hardware combinations and detailed specifications, see [Complete Workload Configuration Matrix](advanced.md#complete-workload-configuration-matrix) in Advanced Settings.
+!!! tip
+    **Hardware Selection**: Replace `_gpu` with `_cpu` or `_npu` in any command above based on your available hardware. 
+    
+    **Complete Reference**: For the full configuration matrix with all hardware combinations and detailed specifications, see [Complete Workload Configuration Matrix](advanced.md#complete-workload-configuration-matrix) in Advanced Settings.
 
 ## Step by step instructions:
 
@@ -129,9 +129,10 @@ make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification
     CAMERA_STREAM=camera_to_workload_asc_object_detection_classification.json WORKLOAD_DIST=workload_to_pipeline_asc_object_detection_classification_gpu.json make run-lp RENDER_MODE=1
     ```
 
-    > [!TIP]  
-    > **Display Options**: Add `RENDER_MODE=1` to any command above to see live video with detection boxes. Remove it for headless operation (servers/automation).
-    > **Choose Your Hardware**: Replace `_gpu` with `_cpu` or `_npu` based on your available hardware. See [ASC Workloads](#automated-self-check-out) for all options.
+!!! tip
+    **Display Options**: Add `RENDER_MODE=1` to any command above to see live video with detection boxes. Remove it for headless operation (servers/automation).
+    
+    **Choose Your Hardware**: Replace `_gpu` with `_cpu` or `_npu` based on your available hardware. See [Automated Self-Checkout Configurations](advanced.md#automated-self-checkout-configurations) for all options.
 
 ## What You'll See When Working
 
@@ -140,7 +141,7 @@ make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification
 - **Alerts**: Console notifications for hidden items, fake scanning, product switching
 - **Logs**: Detection confidence scores and behavior analysis
 
-### 🛒 Self-Checkout Results  
+### 🛒 Automated Self-Checkout Results  
 - **Object Detection**: Green boxes around identified products with labels
 - **Age Verification**: Face detection boxes with estimated age ranges
 - **Classification**: Product categories and scanning validation status
@@ -253,8 +254,8 @@ make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification
 }
 
 ```
-> [!NOTE]
-> If unable to see results folder or files, please refer to the [Troubleshooting](#troubleshooting) section for more details.
+!!! note
+    If unable to see results folder or files, please refer to the [Troubleshooting](#troubleshooting) section for more details.
 
 5.  Stop the containers:
 
@@ -294,7 +295,7 @@ make run-lp CAMERA_STREAM=camera_to_workload_asc_object_detection_classification
         docker logs <container_id>
       ```
 + If the file content in  `<loss-prevention-workspace>/results/pipeline_stream*.log` is empty, check GStreamer output file for errors:
-    +  `<oss-prevention-workspace>/results/gst-launch_*.log`
+    +  `<loss-prevention-workspace>/results/gst-launch_*.log`
   
 + RTSP :
 - **Connection timeout**: Check `RTSP_STREAM_HOST` and `RTSP_STREAM_PORT` environment variables
