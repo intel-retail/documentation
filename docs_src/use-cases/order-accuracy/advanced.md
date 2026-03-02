@@ -1,144 +1,269 @@
-## Benchmark Quick Start command
-```bash
-make update-submodules
-```
-`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
+# Advanced Settings
+
+## Configuration Options
+
+### Local Image Building
+
+By default, the application uses pre-built Docker images for faster setup. If you need to build images locally (for customization or development):
 
 ```bash
-make benchmark-quickstart
-```
-The above command would:<br>
-- Run headless (no display needed: `RENDER_MODE=0`)<br>
-- Pull pre-built images (`REGISTRY=true`)<br>
-- Target GPU by default (`DEVICE_ENV=res/all-gpu.env`)<br>
-- Generate benchmark metrics<br>
-- Run `make consolidate-metrics` automatically<br>
+# Build and run locally instead of using pre-built images
+make build REGISTRY=false
+make up
 
+# Examples for both applications:
+# Dine-In
+cd dine-in && make build REGISTRY=false && make up
 
-## Understanding Benchmarking Types
-
-### Default benchmark command
-
-```bash
-make update-submodules
-```
-`update-submodules` ensures all submodules are initialized, updated to their latest remote versions, and ready for use.
-
-```bash
-make benchmark
-```
-Runs with:<br>
-- `RENDER_MODE=0`<br>
-- `REGISTRY=true`<br>
-- `DEVICE_ENV=res/all-cpu.env`<br>
-- `PIPELINE_COUNT=1`<br>
-
-You can override these values through the following Environment Variables.
-
-| Variable | Description | Values |
-|:----|:----|:---|
-|`RENDER_MODE` | for displaying pipeline and overlay CV metadata | 1, 0 |
-|`REGISTRY` | to pull pre-built images from public registry | false, true |
-|`PIPELINE_COUNT` | number of Loss Prevention Docker container instances to launch | Ex: 1 |
-|`DEVICE_ENV` | path to device specific environment file that will be loaded into the pipeline container | res/all-cpu.env, res/all-gpu.env, res/all-npu.env, res/all-dgpu.env |
-
-
-
-### Benchmark command for GPU
-
-```bash
-make DEVICE_ENV=res/all-gpu.env benchmark
+# Take-Away
+cd take-away && make build REGISTRY=false && make up
 ```
 
-### Benchmark command for NPU
+**When to use local building:**
+- Modifying source code or configurations
+- Development and testing changes
+- Air-gapped environments without internet access
+- Custom hardware optimizations
 
-```bash
-make DEVICE_ENV=res/all-npu.env benchmark
-```
-
-### Benchmark command to build images locally
-
-```bash
-make REGISTRY=false benchmark
-```
-
-## See the benchmarking results.
-
-```sh
-make consolidate-metrics
-
-cat benchmark/metrics.csv
-```
-
-
-
-
-
-## Benchmark Stream Density
-
-To test the maximum amount of Order Accuracy containers/pipelines that can run on a given system you can use the TARGET_FPS environment variable. Default is to find the container threshold over 7.95 FPS with the run-pipeline.sh pipeline. You can override these values through Environment Variables.
-
-List of EVs:
-
- | Variable | Description | Values |
- |:----|:----|:---|
- |`TARGET_FPS` | threshold value for FPS to consider a valid stream | Ex. 7.95 |
- |`OOM_PROTECTION` | flag to enable/disable OOM checks before scaling the pipeline (enabled by default) | 1, 0 |
-
-> **Note:**
-> 
-> An OOM crash occurs when a system or application tries to use more memory (RAM) than is available, causing the operating system to forcibly terminate processes to free up memory.<br>
-> If `OOM_PROTECTION` is set to 0, the system may crash or become unresponsive, requiring a hard reboot. 
-    
-```bash
-make benchmark-stream-density
-```
-
-You can check the output results for performance metrics in the `results` folder at the root level. Also, the stream density script will output the results in the console:
-
-
-
-### Change the Target FPS value:
-
-```bash
-make TARGET_FPS=6.5 benchmark-stream-density
-```
-
-
-Alternatively you can directly call the benchmark.py. This enables you to take advantage of all performance tools parameters. More details about the performance tools can be found [HERE](../../performance-tools/benchmark.md#benchmark-stream-density-for-cv-pipelines)
-
-```bash
-cd performance-tools/benchmark-scripts && python benchmark.py --compose_file ../../src/docker-compose.yml --target_fps 7
-```
-
-
-
-
-
-
-
-## 🛠️ Other Useful Make Commands.
-
-- `make clean-images` — Remove dangling Docker images
-- `make clean-models` — Remove all the downloaded models from the system
-- `make clean-all` — Remove all unused Docker resources
-
-## 📁 Project Structure
-
-- `configs/` — Configuration files (workload videos URLs)
-- `docker/` — Dockerfiles for downloader and pipeline containers
-- `download-scripts/` — Scripts for downloading models and videos
-- `src/` — Main source code and pipeline runner scripts
-- `Makefile` — Build automation and workflow commands
+**Note**: Local building takes significantly longer (15-30 minutes) compared to pre-built images (2-5 minutes).
 
 ---
 
+## Dine-In Configuration
 
-## Configure the system proxy
+### Environment Configuration (.env)
 
-Please follow the below steps to configure the proxy
+```bash
+# =============================================================================
+# Logging
+# =============================================================================
+LOG_LEVEL=INFO
 
-### 1. Configure Proxy for the Current Shell Session
+# =============================================================================
+# Service Endpoints
+# =============================================================================
+OVMS_ENDPOINT=http://ovms-vlm:8000
+OVMS_MODEL_NAME=Qwen/Qwen2.5-VL-7B-Instruct
+SEMANTIC_SERVICE_ENDPOINT=http://semantic-service:8080
+API_TIMEOUT=60
+```
+
+### Test Data Configuration
+
+1. **Add Images**: Place food tray/plate images in `images/` folder
+   - Supported formats: `.jpg`, `.jpeg`, `.png`
+   - Images should clearly show food items on the plate
+
+2. **Update Orders**: Edit `configs/orders.json` with test orders
+   - Each order needs `image_id` and list of `items_ordered`
+   - Image IDs should match filenames (without extension)
+
+3. **Update Inventory**: Edit `configs/inventory.json` with menu items
+   - Define all possible food items
+   - Include item names, categories, and metadata
+
+### Dine-In Docker Services
+
+| Container | Ports | Description |
+|-----------|-------|-------------|
+| `dinein_app` | 7861, 8083 | Main application (Gradio + FastAPI) |
+| `dinein_ovms_vlm` | 8002 | Vision-Language Model server |
+| `dinein_semantic_service` | 8081, 9091 | Semantic text matching |
+| `metrics-collector` | 8084 | System metrics aggregation |
+
+---
+
+## Take-Away Configuration
+
+### Environment Configuration (.env)
+
+```bash
+# =============================================================================
+# VLM Backend
+# =============================================================================
+VLM_BACKEND=ovms
+OVMS_ENDPOINT=http://ovms-vlm:8000
+OVMS_MODEL_NAME=Qwen/Qwen2.5-VL-7B-Instruct
+OPENVINO_DEVICE=GPU          # 'GPU', 'CPU', or 'AUTO'
+
+# =============================================================================
+# Semantic Service
+# =============================================================================
+SEMANTIC_VLM_BACKEND=ovms
+DEFAULT_MATCHING_STRATEGY=hybrid   # 'exact', 'semantic', or 'hybrid'
+SIMILARITY_THRESHOLD=0.85
+OVMS_TIMEOUT=60
+
+# =============================================================================
+# MinIO Storage
+# =============================================================================
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin
+MINIO_ENDPOINT=minio:9000
+```
+
+### Service Modes
+
+| Mode | Configuration | Use Case |
+|------|---------------|----------|
+| **Single** | `SERVICE_MODE=single` | Development, testing |
+| **Parallel** | `SERVICE_MODE=parallel WORKERS=4` | Production deployment |
+
+**Start in Different Modes:**
+```bash
+# Single mode (default)
+make up
+
+# Parallel mode with 4 workers
+make up-parallel WORKERS=4
+
+# Parallel mode with auto-scaling
+make up-parallel WORKERS=4 SCALING_MODE=auto
+```
+
+### Take-Away Docker Services
+
+| Container | Ports | Description |
+|-----------|-------|-------------|
+| `takeaway_app` | 7860, 8080 | Main application (Gradio + FastAPI) |
+| `ovms-vlm` | 8001 | Vision-Language Model server |
+| `frame-selector` | 8085 | YOLO-based frame selection |
+| `semantic-service` | 8081, 9091 | Semantic text matching |
+| `minio` | 9000, 9001 | S3-compatible storage |
+
+---
+
+## Benchmarking
+
+### Dine-In Benchmarking
+
+**Initialize Performance Tools:**
+```bash
+cd dine-in
+make update-submodules
+```
+
+**Run Benchmark:**
+```bash
+make benchmark
+```
+
+**Stream Density Test:**
+```bash
+make benchmark-density
+```
+
+**View Results:**
+```bash
+make benchmark-density-results
+cat results/benchmark_results.json
+```
+
+### Take-Away Benchmarking
+
+**Initialize Performance Tools:**
+```bash
+cd take-away
+make update-submodules
+```
+
+**Single Video Benchmark:**
+```bash
+make benchmark
+```
+
+**Fixed Workers Benchmark:**
+```bash
+make benchmark-oa BENCHMARK_WORKERS=4 BENCHMARK_DURATION=300
+```
+
+**Stream Density Benchmark:**
+```bash
+make benchmark-stream-density \
+  BENCHMARK_TARGET_LATENCY_MS=25000 \
+  BENCHMARK_MIN_TRANSACTIONS=3 \
+  BENCHMARK_WORKER_INCREMENT=1
+```
+
+### Benchmark Configuration Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `TARGET_LATENCY_MS` | 25000 | Target latency threshold (ms) |
+| `LATENCY_METRIC` | avg | 'avg', 'p95', or 'max' |
+| `WORKER_INCREMENT` | 1 | Workers added per iteration |
+| `INIT_DURATION` | 10 | Warmup time (seconds) |
+| `MIN_TRANSACTIONS` | 3 | Min transactions before measuring |
+| `MAX_ITERATIONS` | 50 | Max scaling iterations |
+| `RESULTS_DIR` | ./results | Results output directory |
+
+---
+
+## System Requirements
+
+### Minimum Configuration
+
+| Component | Specification |
+|-----------|---------------|
+| CPU | Intel Xeon 8+ cores |
+| RAM | 16 GB |
+| GPU | Intel Arc A770 8GB / NVIDIA RTX 3060 |
+| Storage | 50 GB SSD |
+| Docker | 24.0+ with Compose V2 |
+
+### Recommended Configuration
+
+| Component | Specification |
+|-----------|---------------|
+| CPU | Intel Xeon 16+ cores |
+| RAM | 32 GB |
+| GPU | NVIDIA RTX 3080+ / Intel Data Center GPU |
+| Storage | 200 GB NVMe SSD |
+| Network | 10 Gbps (for Take-Away RTSP) |
+
+---
+
+## Useful Make Commands
+
+### Dine-In Commands
+
+```bash
+make build                  # Build Docker images
+make up                     # Start services
+make down                   # Stop services
+make logs                   # View logs
+make update-submodules      # Initialize performance-tools
+make benchmark              # Run benchmark
+make benchmark-density      # Run stream density test
+```
+
+### Take-Away Commands
+
+```bash
+make build                  # Build Docker images
+make up                     # Start (single mode)
+make up-parallel WORKERS=4  # Start (parallel mode)
+make down                   # Stop services
+make logs                   # View logs
+make update-submodules      # Initialize performance-tools
+make benchmark              # Run benchmark
+make benchmark-stream-density  # Stream density test
+```
+
+### Common Commands
+
+- `make clean-images` — Remove dangling Docker images
+- `make clean-all` — Remove all unused Docker resources
+- `make check-env` — Verify configuration
+- `make show-config` — Display current configuration
+
+---
+
+## Configure System Proxy
+
+Please follow these steps to configure proxy settings:
+
+### 1. Configure Proxy for Current Shell Session
 
 ```bash
 export http_proxy=http://<proxy-host>:<port>
@@ -147,60 +272,63 @@ export HTTP_PROXY=http://<proxy-host>:<port>
 export HTTPS_PROXY=http://<proxy-host>:<port>
 export NO_PROXY=localhost,127.0.0.1,::1
 export no_proxy=localhost,127.0.0.1,::1
-export socks_proxy=http://<proxy-host>:<port>
-export SOCKS_PROXY=http://<proxy-host>:<port>
 ```
 
-### 2. System-Wide Proxy Configuration
+### 2. Docker Daemon Proxy Configuration
 
-System-wide environment (/etc/environment)
-(Run: sudo nano /etc/environment and add or update)
-
+Create directory if missing:
 ```bash
-http_proxy=http://<proxy-host>:<port>
-https_proxy=http://<proxy-host>:<port>
-ftp_proxy=http://<proxy-host>:<port>
-socks_proxy=http://<proxy-host>:<port>
-no_proxy=localhost,127.0.0.1,::1
-
-HTTP_PROXY=http://<proxy-host>:<port>
-HTTPS_PROXY=http://<proxy-host>:<port>
-FTP_PROXY=http://<proxy-host>:<port>
-SOCKS_PROXY=http://<proxy-host>:<port>
-NO_PROXY=localhost,127.0.0.1,::1
-```
-### 3. Docker Daemon & Client Proxy Configuration
-
-Docker daemon drop-in (/etc/systemd/system/docker.service.d/http-proxy.conf)
-Create dir if missing:
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf
+```
 
-```bash
+Add configuration:
+```ini
 [Service]
 Environment="http_proxy=http://<proxy-host>:<port>"
 Environment="https_proxy=http://<proxy-host>:<port>"
 Environment="no_proxy=localhost,127.0.0.1,::1"
-Environment="HTTP_PROXY=http://<proxy-host>:<port>"
-Environment="HTTPS_PROXY=http://<proxy-host>:<port>"
-Environment="NO_PROXY=localhost,127.0.0.1,::1"
-Environment="socks_proxy=http://<proxy-host>:<port>"
-Environment="SOCKS_PROXY=http://<proxy-host>:<port>"
+```
 
-# Reload & restart:
+Reload and restart:
+```bash
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+```
 
-#  Docker client config (~/.docker/config.json)
-#  mkdir -p ~/.docker
-#  nano ~/.docker/config.json
-{
-  "proxies": {
-    "default": {
-      "httpProxy": "http://<proxy-host>:<port>",
-      "httpsProxy": "http://<proxy-host>:<port>",
-      "noProxy": "localhost,127.0.0.1,::1"
-    }
-  }
-}
+---
+
+## Troubleshooting
+
+### Common Issues
+
+**OVMS Not Loading:**
+- Ensure GPU drivers are installed
+- Check model files exist in `ovms-service/models/`
+- Verify OVMS endpoint in `.env`
+
+**VLM Timeout Errors:**
+- Increase `API_TIMEOUT` in `.env`
+- Check GPU memory utilization
+- Consider using a smaller model precision (INT8)
+
+**Stream Processing Issues (Take-Away):**
+- Verify RTSP stream URLs are accessible
+- Check network bandwidth
+- Consider reducing number of parallel workers
+
+### Debug Commands
+
+```bash
+# Check container logs
+docker logs <container_name>
+
+# Check GPU utilization
+nvidia-smi -l 1
+
+# Check network connectivity
+curl http://localhost:8001/v2/models
+
+# Verify service health
+curl http://localhost:8083/health
 ```
