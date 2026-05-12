@@ -4,7 +4,7 @@
 MKDOCS_IMAGE ?= intel-retail-mkdocs
 
 clean-docs:
-	rm -rf docs/
+	rm -rf docs_temp_old/
 
 docs: clean-docs
 	mkdocs build
