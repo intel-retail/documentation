@@ -1,0 +1,15 @@
+# Retail Documentation
+
+This is just a dummy index used to enable building the documentation as part of the CI/CD
+pipeline.
+
+:::{toctree}
+:hidden:
+
+Loss Prevention <./loss-prevention/index.md>
+Order Accuracy <./order-accuracy/index.md>
+CV Pipeline Benchmarking <./benchmark.md>
+Troubleshooting <./troubleshooting.md>
+Release Notes <./release-notes.md>
+
+:::
