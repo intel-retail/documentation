@@ -3,6 +3,7 @@
 This is just a dummy index used to enable building the documentation as part of the CI/CD
 pipeline.
 
+
 :::{toctree}
 :hidden:
 
