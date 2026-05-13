@@ -1,0 +1,152 @@
+# Benchmarking Guide — Take-Away Order Accuracy
+
+This guide covers performance testing, stream density benchmarking, and metrics collection for the Take-Away Order Accuracy system.
+
+> **Note — Inference Device**: The default device is `GPU`. To switch to a different device (`CPU` or `NPU`), you must do **both** steps below, otherwise the model will be exported for the wrong device:
+>
+> 1. Set **both** variables in your `.env` file:
+>
+>    ```bash
+>    TARGET_DEVICE=GPU      # used by setup_models.sh and docker-compose
+>    OPENVINO_DEVICE=GPU    # used by the Makefile benchmark targets
+>    ```
+>
+> 2. Re-export the model for the new device:
+>
+>    ```bash
+>    cd ../ovms-service && ./setup_models.sh --app take-away
+>    ```
+>
+> `TARGET_DEVICE` is what `setup_models.sh` reads to export the model in the correct format. `OPENVINO_DEVICE` is what the Makefile passes to the benchmark script. Both must match.
+
+> **Important**: Before running benchmarks, ensure a test video file is present at `storage/videos/test.mp4`. You can download a sample video using:
+>
+> ```bash
+> make download-sample-video
+> ```
+
+---
+
+## Quick Reference
+
+```bash
+# First-time setup
+make update-submodules        # Initialize performance-tools submodule
+make up                       # Start all services
+
+# Benchmarks
+make benchmark                           # Fixed-workers benchmark (default config)
+make benchmark-oa BENCHMARK_WORKERS=4   # Fixed-workers with custom worker count
+make benchmark-stream-density            # Stream density benchmark
+
+# View results
+make benchmark-oa-metrics     # View VLM metrics
+make benchmark-oa-results     # View all result files
+make consolidate-metrics      # Consolidate metrics to CSV
+make plot-metrics             # Generate plots
+
+# Cleanup
+make clean-results            # Remove results files
+make clean                    # Stop containers and remove volumes
+
+# Help
+make benchmark-oa-help
+make help
+```
+
+---
+
+## Prerequisites
+
+```bash
+# 1. Initialize git submodules (first time only)
+make update-submodules
+
+# 2. Start services
+make up
+```
+
+---
+
+## Benchmark Commands
+
+### Fixed Workers Benchmark
+
+Runs `benchmark_order_accuracy.py` with a fixed number of concurrent workers.
+
+```bash
+# Default run
+make benchmark
+
+# Custom run
+make benchmark \
+  BENCHMARK_WORKERS=4 \
+  BENCHMARK_DURATION=300 \
+  BENCHMARK_INIT_DURATION=30
+```
+
+**Variables:**
+
+| Variable                  | Default | Description                                                                                                             |
+| ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `BENCHMARK_WORKERS`       | `1`     | Number of concurrent workers                                                                                            |
+| `BENCHMARK_DURATION`      | `200`   | Test duration (seconds)                                                                                                 |
+| `BENCHMARK_INIT_DURATION` | `10`    | Warmup time (seconds)                                                                                                   |
+| `OPENVINO_DEVICE`         | `GPU`   | Inference device (`GPU`, `CPU`). Must also set `TARGET_DEVICE` in `.env` and re-run `setup_models.sh` — see note above. |
+
+---
+
+### Stream Density Benchmark
+
+Finds the maximum number of concurrent workers the system can sustain under a target latency threshold. Runs `stream_density_latency_oa.py`.
+
+```bash
+# Default run
+make benchmark-stream-density
+
+# Custom run
+make benchmark-stream-density \
+  BENCHMARK_TARGET_LATENCY_MS=25000 \
+  BENCHMARK_LATENCY_METRIC=avg \
+  BENCHMARK_INIT_DURATION=30 \
+  BENCHMARK_MIN_TRANSACTIONS=3 \
+  BENCHMARK_WORKER_INCREMENT=1
+```
+
+**Variables:**
+
+| Variable                      | Default | Description                                            |
+| ----------------------------- | ------- | ------------------------------------------------------ |
+| `BENCHMARK_TARGET_LATENCY_MS` | `25000` | Target latency threshold (ms)                          |
+| `BENCHMARK_LATENCY_METRIC`    | `avg`   | Metric to evaluate: `avg` or `p95`                     |
+| `BENCHMARK_WORKER_INCREMENT`  | `1`     | Workers added per iteration                            |
+| `BENCHMARK_INIT_DURATION`     | `10`    | Warmup time per iteration (seconds)                    |
+| `BENCHMARK_MIN_TRANSACTIONS`  | `1`     | Min transactions before measuring latency              |
+| `OOM_PROTECTION`              | `1`     | Set to `0` to disable OOM protection (not recommended) |
+
+---
+
+## Results & Metrics
+
+Results are saved to the `results/` directory:
+
+```text
+results/
+├── vlm_application_metrics_*.txt    # VLM application metrics
+├── vlm_performance_metrics_*.txt    # VLM performance metrics
+└── consolidated_metrics.csv         # Generated by make consolidate-metrics
+```
+
+```bash
+# View VLM metrics
+make benchmark-oa-metrics
+
+# View all result files
+make benchmark-oa-results
+
+# Consolidate metrics from multiple runs into a single CSV
+make consolidate-metrics
+
+# Generate plots from consolidated metrics
+make plot-metrics
+```
