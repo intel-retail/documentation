@@ -9,7 +9,7 @@
 - Intel hardware (CPU, iGPU, dGPU, NPU)
 - Intel drivers:
   - [Intel GPU drivers](https://dgpu-docs.intel.com/driver/client/overview.html)
-  - [NPU](https://dlstreamer.github.io/dev_guide/advanced_install/advanced_install_guide_prerequisites.html#prerequisite-2-install-intel-npu-drivers)
+  - [NPU](https://docs.openedgeplatform.intel.com/dev/edge-ai-libraries/dlstreamer/dev_guide/advanced_install/advanced_install_guide_prerequisites.html#prerequisite-2-install-intel-npu-drivers)
 - Sufficient disk space for models, videos, and results
 
 > **Note:** First-time setup downloads AI models, sample videos, and Docker images - this may take 5-15 minutes depending on your internet connection.
