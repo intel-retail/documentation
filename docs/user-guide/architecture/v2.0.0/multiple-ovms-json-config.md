@@ -116,6 +116,6 @@ For clean-up, we can do deletion of the config json files when `make clean-all` 
 
 <!-- [link](requirements-review-process.md) - useful links for the design -->
 
-- <https://docs.openvino.ai/2023.0/ovms_what_is_openvino_model_server.html>
+- <https://docs.openvino.ai/2025/model-server/ovms_what_is_openvino_model_server.html>
 - <https://github.com/openvinotoolkit/model_server>
 - see issue Classification profile crashed when run the 2nd instance switch from CPU to GPU.0 automated-self-checkout#322

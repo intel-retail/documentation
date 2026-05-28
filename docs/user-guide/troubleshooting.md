@@ -32,7 +32,7 @@ eval $gstLaunchCmd
 
 ## Q: How can I use an Intel RealSense Camera as the input?
 
-A: To use a RealSense camera as an input for any of the retail use cases, you need to obtain the serial number first. Follow the instructions in the [RealSense repository](https://github.com/IntelRealSense/librealsense/tree/master/tools/enumerate-devices) to run `rs-enumerate-devices` and obtain the following information:
+A: To use a RealSense camera as an input for any of the retail use cases, you need to obtain the serial number first. Follow the instructions in the [RealSense repository](https://github.com/realsenseai/librealsense/tree/master/tools/enumerate-devices) to run `rs-enumerate-devices` and obtain the following information:
 
 ```
 Device Name                   Serial Number       Firmware Version

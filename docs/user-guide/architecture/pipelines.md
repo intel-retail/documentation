@@ -24,7 +24,7 @@ Details about the latest version can be found in the [OpenVINO Release Notes](ht
 
 ### DL Streamer Pipeline
 
-Rather than working directly with the OpenVINO APIs our solutions offers more practical ways to interface with OpenVINO. One method is using [Intel DL Streamer](https://github.com/dlstreamer/dlstreamer). This solution provides a no code way based on [GStreamer](https://gstreamer.freedesktop.org/) and [OpenVINO](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/get-started.html) to deploy, process, and output a pipeline.
+Rather than working directly with the OpenVINO APIs our solutions offers more practical ways to interface with OpenVINO. One method is using [Intel DL Streamer](https://github.com/open-edge-platform/dlstreamer). This solution provides a no code way based on [GStreamer](https://gstreamer.freedesktop.org/) and [OpenVINO](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/get-started.html) to deploy, process, and output a pipeline.
 
 The diagrams show how we take advantage of Docker, Docker Compose, and environment variable files to pre-package DLStreamer based pipelines for our use cases. Leveraging Environment Variables allows users to modify properties on the fly when different configurations are required.
 

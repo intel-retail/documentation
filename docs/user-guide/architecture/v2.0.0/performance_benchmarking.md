@@ -47,19 +47,19 @@ Intel Performance Counter Monitor: System power usage
 
 For performance inputs we support RTSP video streams, USB camera, Intel® RealSense™ Camera, and video files. For longer benchmarking runs its' recommended to use a video loop with an RTSP stream for inference result consistency. As an option an RTSP [Camera Simulator](https://intel-retail.github.io/automated-self-checkout/run_camera_simulator.html) is provided with the performance script.
 
-[Input Source Types](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#input-source-type)
+[Input Source Types](https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinebenchmarking.html#input-source-type)
 
 #### Specified Number of Pipelines
 
 If you are looking to test a specific number of pipelines on different hardware SKUs the `--pipelines` parameter can be used. This parameter will start the specified number of pipelines
 
-[Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
+[Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
 
 [![Specified Number of Pipelines](./images/num-of-pipelines.jpg)](./images/num-of-pipelines.jpg)
 
 #### Consolidated Results
 
-To make reading results easier, a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in [Benchmark Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
+To make reading results easier, a consolidation script has been provided. This script will work with a single or multiple runs of the specified number of pipelines. Details about this process are found in [Benchmark Specified Number of Pipelines](https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinebenchmarking.html#benchmark-specified-number-of-pipelines)
 
 ```bash
 make consolidate ROOT_DIRECTORY=<output dir>
@@ -69,7 +69,7 @@ make consolidate ROOT_DIRECTORY=<output dir>
 
 The stream density parameter can be used to find the maximum number of pipelines at a target frames per second (FPS) on a specific hardware SKU. By setting the `--stream_density` parameter to the desired FPS the script will continue to create pipelines until the average pipelines FPS falls below the desired FPS. The script will provide a detailed log to show each pipeline FPS during the test run. This option provides a method for testing the top performance when introducing a new pipeline or hardware SKU.
 
-[Stream Density](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html#benchmark-stream-density)
+[Stream Density](https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinebenchmarking.html#benchmark-stream-density)
 
 [![Stream Density](./images/stream-density.jpg)](./images/stream-density.jpg)
 
@@ -87,4 +87,4 @@ Having a generic and scalable set of performance Docker containers will allow cu
 
 <!-- [link](requirements-review-process.md) - useful links for the design -->
 
-[Pipeline Benchmarking](https://intel-retail.github.io/automated-self-checkout/pipelinebenchmarking.html)
+[Pipeline Benchmarking](https://intel-retail.github.io/automated-self-checkout/OVMS/pipelinebenchmarking.html)

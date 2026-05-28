@@ -41,7 +41,7 @@ Ubuntu 22.04 LTS is the validated platform (matches the `python:3.13-slim` base 
 
 ### GPU Drivers
 
-Intel GPU drivers must be installed from [packages.intel.com](https://packages.intel.com). Verify the GPU is accessible to Docker:
+Intel GPU drivers must be installed from <https://dgpu-docs.intel.com/driver/installation.html>. Verify the GPU is accessible to Docker:
 
 ```bash
 ls /dev/dri/
