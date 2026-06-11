@@ -91,11 +91,11 @@ consumption, and so on.
 
 Specific number of pipelines with single container
 
-![OpenVINO Model Server(OVMS) Pipeline with C-API](./_assets/performance-pipeline.png)
+![OpenVINO Model Server(OVMS) Pipeline with C-API](../_assets/performance-pipeline.png)
 
 Specific number of pipelines with OVMS and Client
 
-![OpenVINO Model Server(OVMS) Pipeline with C-API](./_assets/performance-pipeline-ovms.png)
+![OpenVINO Model Server(OVMS) Pipeline with C-API](../_assets/performance-pipeline-ovms.png)
 
 ### Benchmark Stream Density for CV Pipelines
 
@@ -116,10 +116,10 @@ where the parameters:
   > **Note:** It is recommended to set `--target_fps` to a value lesser than your target FPS to account for real world variances in hardware readings.
 
 Stream density with single container
-![OpenVINO Model Server(OVMS) Pipeline with C-API](./_assets/performance-stream-density.png)
+![OpenVINO Model Server(OVMS) Pipeline with C-API](../_assets/performance-stream-density.png)
 
 Stream density with OVMS and Client
-![OpenVINO Model Server(OVMS) Pipeline with C-API](./_assets/performance-stream-density-ovms.png)
+![OpenVINO Model Server(OVMS) Pipeline with C-API](../_assets/performance-stream-density-ovms.png)
 
 ### Consolidate results
 
