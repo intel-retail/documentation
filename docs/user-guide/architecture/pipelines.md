@@ -50,4 +50,4 @@ When performance is more important than flexibility a developer can use the C AP
 
 ## Performance
 
-More details about benchmarking pipelines can be found on the [Performance Tools Page](../benchmark.md).
+More details about benchmarking pipelines can be found on the [Performance Tools Page](../documentation/benchmark.md).
