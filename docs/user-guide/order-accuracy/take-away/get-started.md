@@ -321,6 +321,17 @@ make benchmark-stream-density  # Run stream density benchmark
 
 ---
 
+## Pre-Deployment Checklist
+
+- [ ] Docker and Docker Compose installed and working
+- [ ] Intel GPU drivers installed and GPU visible to Docker
+- [ ] Required ports available (8000, 7860, 8001, 9000, 9001, 8080)
+- [ ] At least 50 GB free disk space
+- [ ] **16 GB+ RAM available** (sufficient for inference; for first-time model export 48–64 GB recommended — export on a high-RAM host and copy `ovms-service/models/` to the target system)
+- [ ] VLM model downloaded (`setup_models.sh` completed)
+- [ ] `.env` file configured
+- [ ] Camera RTSP URLs accessible from host (parallel mode)
+
 ## Next Steps
 
 - [System Requirements](./get-started/system-requirements.md) - Check the detailed requirements

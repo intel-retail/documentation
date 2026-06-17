@@ -238,6 +238,17 @@ make help                            # All commands
 
 ---
 
+## Pre-Deployment Checklist
+
+- [ ] Docker and Docker Compose installed and working
+- [ ] Intel GPU drivers installed and GPU visible to Docker
+- [ ] Required ports available (7861, 8083, 8002, 8081, 8084)
+- [ ] At least 50 GB free disk space
+- [ ] **16 GB+ RAM available** (sufficient for inference; for first-time model export 48–64 GB recommended — export on a high-RAM host and copy `ovms-service/models/` to the target system)
+- [ ] VLM model downloaded (`setup_models.sh` completed)
+- [ ] `.env` file created (`make init-env`)
+- [ ] Plate images placed in `images/` and `configs/orders.json` updated
+
 ## Next Steps
 
 - [System Requirements](./get-started/system-requirements.md) - Check the requirements
