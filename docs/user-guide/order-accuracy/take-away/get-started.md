@@ -25,9 +25,18 @@ For detailed hardware and software requirements, see the [System Requirements](.
 | Component | Minimum              | Recommended          |
 | --------- | -------------------- | -------------------- |
 | CPU       | Intel Xeon 8 cores   | Intel Xeon 16+ cores |
-| RAM       | 16GB                 | 32GB+                |
+| RAM       | 16GB                 | 64GB+                |
 | GPU       | Intel Arc A770 (8GB) | Intel Arc            |
 | Storage   | 50GB SSD             | 200GB NVMe           |
+
+> **Note:** **RAM note** 16 GB system RAM is sufficient for **inference**. For first-time model
+> export (`setup_models.sh`), a higher-memory host (48–64 GB recommended) avoids potential OOM
+> — export there and copy `ovms-service/models/` to the target system. 64 GB+ is recommended
+> for production or multi-station deployments.
+
+> **KV Cache on iGPU / low-RAM systems:** On iGPU platforms the KV cache is allocated from
+> **system RAM**. Set `export CACHE_SIZE=2` before running `setup_models.sh` to reduce KV cache
+> to 2 GB (default is 4 GB). See [ovms-service/README.md — Tuning the KV Cache Size](https://github.com/intel-retail/order-accuracy/blob/main/ovms-service/README.md#tuning-the-kv-cache-size) for a full per-platform guide.
 
 ### Software Requirements
 
@@ -112,7 +121,7 @@ make up
 VLM_BACKEND=ovms
 OVMS_ENDPOINT=http://ovms-vlm:8000
 OVMS_MODEL_NAME=Qwen/Qwen2.5-VL-7B-Instruct
-TARGET_DEVICE=GPU            # 'GPU', 'CPU', or 'NPU' — also set OPENVINO_DEVICE to match
+TARGET_DEVICE=GPU            # 'GPU' or 'CPU' — also set OPENVINO_DEVICE to match
 
 # =============================================================================
 # Inference Device (must match TARGET_DEVICE)
@@ -135,7 +144,7 @@ MINIO_ROOT_PASSWORD=<your-minio-password>
 MINIO_ENDPOINT=minio:9000
 ```
 
-> **Changing the inference device:** Set both `TARGET_DEVICE` and `OPENVINO_DEVICE` to the same value (`GPU`, `CPU`, or `NPU`), then re-run `./setup_models.sh` to re-export the model for that device.
+> **Changing the inference device:** Set both `TARGET_DEVICE` and `OPENVINO_DEVICE` to the same value (`GPU` or `CPU`), then re-run `./setup_models.sh` to re-export the model for that device.
 
 ### Validate Configuration
 
@@ -311,6 +320,17 @@ make benchmark-stream-density  # Run stream density benchmark
 ```
 
 ---
+
+## Pre-Deployment Checklist
+
+- [ ] Docker and Docker Compose installed and working
+- [ ] Intel GPU drivers installed and GPU visible to Docker
+- [ ] Required ports available (8000, 7860, 8001, 9000, 9001, 8080)
+- [ ] At least 50 GB free disk space
+- [ ] **16 GB+ RAM available** (sufficient for inference; for first-time model export 48–64 GB recommended — export on a high-RAM host and copy `ovms-service/models/` to the target system)
+- [ ] VLM model downloaded (`setup_models.sh` completed)
+- [ ] `.env` file configured
+- [ ] Camera RTSP URLs accessible from host (parallel mode)
 
 ## Next Steps
 
