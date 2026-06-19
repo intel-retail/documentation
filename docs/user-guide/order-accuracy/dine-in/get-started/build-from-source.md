@@ -55,9 +55,9 @@ make build
 make build REGISTRY=false
 ```
 
-`make build REGISTRY=false` builds `intel/order-accuracy-dine-in:2026.0.0` from the local Dockerfile.
+`make build REGISTRY=false` builds `intel/order-accuracy-dine-in:2026.1.0` from the local Dockerfile.
 
-> `ovms-vlm`, `semantic-service`, and `metrics-collector` are always pulled from their registries — they have no local build context.
+> **Note:** `ovms-vlm`, `semantic-service`, and `metrics-collector` are always pulled from their registries — they have no local build context.
 
 ### Build a Custom Tag
 
