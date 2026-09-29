@@ -46,7 +46,7 @@ make benchmark
 | **Display** | `RENDER_MODE` | Show/hide visual output | `0` (headless), `1` (visual) |
 | **Performance** | `PIPELINE_COUNT` | Number of parallel pipeline instances | `1`, `2`, `4` (higher = more stress) |
 | **Hardware** | `WORKLOAD_DIST` | Target processing hardware | `workload_to_pipeline_cpu.json`, `workload_to_pipeline_gpu.json`, `workload_to_pipeline_gpu-npu.json` |  
-| **Camera Setup** | `CAMERA_STREAM` | Camera configuration | `camera_to_workload.json`, `camera_to_workload_full.json` |
+| **Camera Setup** | `CAMERA_STREAM` | Camera configuration | `camera_to_workload.json` |
 | **Build** | `REGISTRY` | Use pre-built vs local images | `true` (faster), `false` (custom builds) |
 
 | **Build** | `REGISTRY` | Use pre-built vs local images | `true` (faster), `false` (custom builds) |
@@ -55,14 +55,7 @@ make benchmark
 
 ### Camera Stream Configurations
 
-**Standard Setup** (`camera_to_workload.json`):
-| Camera | Workloads |
-|:-------|:----------|
-| cam1 | items_in_basket + multi_product_identification |
-| cam2 | hidden_items + product_switching |
-| cam3 | fake_scan_detection |
-
-**Full Workload Testing** (`camera_to_workload_full.json`):
+**Full Workload Testing** (`camera_to_workload.json`):
 | Camera | Workload |
 |:-------|:---------|
 | cam1 | items_in_basket |
@@ -86,7 +79,7 @@ make benchmark
 
 ### GPU Performance Testing
 ```bash
-make benchmark WORKLOAD_DIST=workload_to_pipeline_gpu.json CAMERA_STREAM=camera_to_workload_full.json
+make benchmark WORKLOAD_DIST=workload_to_pipeline_gpu.json CAMERA_STREAM=camera_to_workload.json
 ```
 
 ### Multi-Pipeline Stress Testing
@@ -101,7 +94,7 @@ make PIPELINE_COUNT=4 benchmark
 ### Custom Hardware Configuration
 ```bash
 # Test heterogeneous workload distribution
-make benchmark WORKLOAD_DIST=workload_to_pipeline_hetero.json CAMERA_STREAM=camera_to_workload_full.json REGISTRY=false
+make benchmark WORKLOAD_DIST=workload_to_pipeline_hetero.json CAMERA_STREAM=camera_to_workload.json REGISTRY=false
 ```
 
 ### Automated Self-Checkout Performance
