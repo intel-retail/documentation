@@ -148,11 +148,20 @@ make benchmark-stream-density
 
 ### Custom Target FPS
 
-Set per-stream target FPS using `lane_config.cameras[].targetFps` in `camera_to_workload_*.json`.
+Set the target FPS for each camera using the `targetFps` field in the selected `camera_to_workload_*.json` file. Choose the value based on workload criticality and the source FPS.
 
-Set `targetFps` based on workload criticality and source FPS.
+If `targetFps` is not defined for a camera (or is not a positive value), the benchmark uses that camera's `fps` field instead. If neither field provides a positive value, it falls back to the default target FPS, currently `14.95`.
 
-If `targetFps` is not present for a stream (or is invalid/non-positive), the stream falls back to `TARGET_FPS`.
+To override the camera configuration, set the `TARGET_FPS` environment variable. When supplied, `TARGET_FPS` applies the same target to every stream and takes precedence over both `targetFps` and `fps`.
+
+In summary, the effective target FPS for each camera is resolved in this order:
+
+1. `TARGET_FPS` environment variable, when explicitly supplied (overrides the camera configuration for every stream).
+2. The camera's `targetFps` in `camera_to_workload_*.json`.
+3. The camera's `fps`, used when `targetFps` is missing or not a positive value.
+4. The default target FPS, `14.95`, when neither camera field provides a positive value.
+
+The resolved target FPS and its source are recorded in `stream_density.log` so benchmark results can be audited.
 
 CLI examples:
 
@@ -164,11 +173,25 @@ make TARGET_FPS=13.5 benchmark-stream-density
 make PIPELINE_SCRIPT=yolo11n_effnetb0.sh TARGET_FPS=13.5 benchmark-stream-density
 ```
 
+### Measurement Window & Settle Time
+
+`MEASUREMENT_WINDOW_SECONDS` controls how long FPS samples are collected for each density step. Its default is **100 seconds**. Each step adds a lane after one passing window, the final count is confirmed by two passing windows in a row, and a lane is only given up after two failing windows in a row. Each window is evaluated independently; windows are not combined into one longer window.
+
+`INIT_DURATION` sets the settle time, giving the pipelines time to stabilize before measurement starts. A longer settle time lets the pipelines stabilize more, and a longer measurement window can reduce short-term measurement noise, but both increase the total benchmark duration. The resolved settle time is also printed in the stream-density result summary.
+
+```sh
+make benchmark-stream-density \
+  INIT_DURATION=120 \
+  MEASUREMENT_WINDOW_SECONDS=60
+```
+
 ### Stream Density Environment Variables
 
 | Variable | Description | Values |
 |:---------|:------------|:--------|
 | `TARGET_FPS` | Minimum FPS threshold | `14.95` (default), `13.5`, `20.0` |
+| `MEASUREMENT_WINDOW_SECONDS` | Duration FPS samples are collected per density step | `100` (default), `60` |
+| `INIT_DURATION` | Settle time before measurement starts | `120`, `60` |
 | `OOM_PROTECTION` | Prevent out-of-memory crashes | `1` (enabled), `0` (disabled) |
 
 > ⚠️ **Warning**: Setting `OOM_PROTECTION=0` may crash your system requiring a hard reboot.
