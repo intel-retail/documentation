@@ -8,11 +8,13 @@ copyright: 'Copyright &copy; 2024 Intel Corporation'
 use_directory_urls: false
 theme:
   name: 'material'
+  custom_dir: ./docs_src/_static
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
   logo: 'images/logo-white-75px.png'
   features:
+    - announce.dismiss
     - content.code.copy
     - content.code.select
     - content.code.annotate
