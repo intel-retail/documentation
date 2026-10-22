@@ -179,11 +179,11 @@ make TARGET_FPS=13.5 benchmark-stream-density
 make CAMERA_STREAM=camera_to_workload.json WORKLOAD_DIST=workload_to_pipeline_gpu.json TARGET_FPS=13.5 benchmark-stream-density
 ```
 
-### Measurement Window & Settle Time
+### Measurement interval and warmup period
 
-`MEASUREMENT_WINDOW_SECONDS` controls how long FPS samples are collected for each density step. Its default is **100 seconds**, and values below 100 are rejected because the benchmark requires at least 100 samples per pipeline log. Each step adds a lane after one passing window, the final count is confirmed by two passing windows in a row, and a lane is only given up after two failing windows in a row. Each window is evaluated independently; windows are not combined into one longer window.
+`MEASUREMENT_WINDOW_SECONDS` controls how long FPS samples are collected for each density step. Its default is **100 seconds**, and values below 100 are rejected because the benchmark requires at least 100 samples per pipeline log. Each step adds a lane after one passing measurement interval, the final count is confirmed by run acceptance criterion (two consecutive passes), and a lane is only given up after two failing measurement interval in a row. Each measurement interval is evaluated independently; measurement interval are not combined into one longer measurement interval.
 
-`INIT_DURATION` sets the settle time, defaulting to **10 seconds**, before measurement starts. A longer settle time lets the pipelines stabilize more, and a longer measurement window can reduce short-term measurement noise, but both increase the total benchmark duration. The resolved settle time is also printed in the stream-density result summary.
+`INIT_DURATION` sets the warmup period, defaulting to **10 seconds**, before measurement starts. A longer warmup period lets the pipelines stabilize more, and a longer measurement interval can reduce short-term measurement noise, but both increase the total benchmark duration. The resolved warmup period is also printed in the stream-density result summary.
 
 ```sh
 make benchmark-stream-density \
@@ -197,7 +197,7 @@ make benchmark-stream-density \
 | :-------------------------- | :------------------------------------------------------ | :-------------------------------- |
 | `TARGET_FPS`                | Override the target FPS for all streams; unset uses camera configuration | Unset by default, `13.5`, `20.0` |
 | `MEASUREMENT_WINDOW_SECONDS` | Duration FPS samples are collected per density step (minimum 100 seconds) | `100` (default), `120` |
-| `INIT_DURATION`             | Settle time before measurement starts                   | `10` (default), `120`, `60`       |
+| `INIT_DURATION`             | warmup period before measurement starts                   | `10` (default), `120`, `60`       |
 | `OOM_PROTECTION`            | Prevent out-of-memory crashes                           | `1` (enabled), `0` (disabled)     |
 | `PASS_TOLERANCE_RATIO`      | Fraction of each target FPS required to pass            | `0.95` (default), up to `1.0`     |
 
