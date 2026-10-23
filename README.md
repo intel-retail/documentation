@@ -22,7 +22,7 @@
 
 - Story work will be completed based on the prioritization.
 
-## [Intel Retail Documentation](https://intel-retail.github.io/documentation/)
+## [Intel Retail Documentation](https://docs.openedgeplatform.intel.com/dev/ai-suite-retail.html)
 
-## Join the community 
+## Join the community
 [![Discord Banner 1](https://discordapp.com/api/guilds/1150892043120414780/widget.png?style=banner2)](https://discord.gg/2SpNRF4SCn)
