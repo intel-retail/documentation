@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <meta http-equiv="refresh"
+        content="0; url=https://docs.openedgeplatform.intel.com/canonical/ai-suite-retail.html">
+{% endblock %}
+
 {% block announce %}
   <strong>Note:</strong>
 
-  <p>The documentation here is now part of the Open Edge Platform documentation website and will soon be archived.</p>
+  <p>The documentation here is now part of the Open Edge Platform documentation website and has moved there.</p>
   <p>Use the new documentation site at <a href="https://docs.openedgeplatform.intel.com/canonical/ai-suite-retail.html">Retail AI Suite - Open Edge Platform</a>.</p>
 {% endblock %}
